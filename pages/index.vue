@@ -36,7 +36,7 @@ export default defineComponent({
     const content = usePageContent('hello')
     const checkbox = ref(false);
 
-    return { content, checkbox, hello: (e) => console.log("ASD") }
+    return { content, checkbox }
   }
 })
 </script>
