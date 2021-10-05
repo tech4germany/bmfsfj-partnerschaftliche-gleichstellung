@@ -16,7 +16,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { usePageContent } from '~/utils/useContent';
 
 export default defineComponent({
-  setup(props) {
+  setup(_props) {
     const content = usePageContent('hello')
 
     return { content }

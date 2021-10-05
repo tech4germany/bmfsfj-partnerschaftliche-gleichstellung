@@ -9,7 +9,10 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    name: { default: "test" }
+    name: {
+      default: "test",
+      type: String
+    }
   },
   setup(props) {
     const counter = ref(0);
