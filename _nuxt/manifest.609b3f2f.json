@@ -1,6 +1,6 @@
 {
-  "name": "bmfsfj-test",
-  "short_name": "bmfsfj-test",
+  "name": "BMFSFJ PG",
+  "short_name": "bmfsfj-partnerschaftliche-gleichstellung",
   "description": "## Build Setup",
   "icons": [
     {
@@ -49,5 +49,6 @@
   "start_url": "/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
-  "lang": "en"
+  "theme_color": "#3b82f6",
+  "lang": "de"
 }
