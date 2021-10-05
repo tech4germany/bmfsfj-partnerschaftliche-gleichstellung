@@ -14,7 +14,7 @@ export default defineComponent({
       type: String
     }
   },
-  setup(props) {
+  setup(_props) {
     const counter = ref(0);
 
     const increment = () => {

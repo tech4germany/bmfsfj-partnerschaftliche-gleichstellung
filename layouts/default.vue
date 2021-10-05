@@ -1,9 +1,3 @@
-<style>
-  .nuxt-link-exact-active {
-    @apply border-b-2 border-blue-500;
-  }
-</style>
-
 <template>
   <div>
     <header class="">
@@ -21,3 +15,9 @@
     <Nuxt />
   </div>
 </template>
+
+<style>
+  .nuxt-link-exact-active {
+    @apply border-b-2 border-blue-500;
+  }
+</style>
