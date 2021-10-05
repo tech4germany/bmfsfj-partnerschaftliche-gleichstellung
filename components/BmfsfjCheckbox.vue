@@ -28,21 +28,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   inheritAttrs: false,
-  emits: [
-    'input'
-  ],
   props: {
     label: {
-      type: String
+      type: String,
+      default: ''
     },
     value: {
       type: Boolean
     }
   },
+  emits: [
+    'input'
+  ],
   setup(_props, { attrs }) {
     return {
       attrs
