@@ -41,11 +41,14 @@ jobs:
       - name: Run tests 🧪
         run: npm run test
 
-      - name: Build 🔧
+      - name: Build 🧱
         run: npm run build
+
+      - name: Generate 🛠️
+        run: npm run generate
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          folder: dist # The folder the action should deploy.
