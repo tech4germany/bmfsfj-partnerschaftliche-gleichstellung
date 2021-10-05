@@ -1,4 +1,4 @@
-# bmfsfj-test
+# bmfsfj-partnerschaftliche-gleichstellung
 
 ## Build Setup
 
