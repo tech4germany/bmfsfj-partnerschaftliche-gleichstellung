@@ -4,7 +4,7 @@ import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-dec
 @Module({
   stateFactory: true,
   namespaced: true,
-  name: 'test' // MUST be the path starting in the `store` folder
+  name: 'teststore' // MUST be the path starting in the `store` folder
 })
 export default class Test extends VuexModule {
   checkbox = true

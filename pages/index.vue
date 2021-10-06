@@ -19,7 +19,7 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { usePageContent } from '~/utils/useContent';
-import { useTestStore } from '~/store/test';
+import { useTestStore } from '~/store/teststore';
 
 export default defineComponent({
   setup(_props) {
