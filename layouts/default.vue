@@ -23,20 +23,14 @@
   </div>
 </template>
 
-<style>
-  .nuxt-link-exact-active {
-    @apply border-b-2 border-blue-500;
-  }
-</style>
-
 <script lang="ts">
 import { computed, defineComponent, wrapProperty } from '@nuxtjs/composition-api'
-import { LocaleObject } from '@nuxtjs/i18n';
+import type { LocaleObject } from '@nuxtjs/i18n';
 
 export const useI18n = wrapProperty('$i18n', false)
 
 export default defineComponent({
-  setup(_props, ctx) {
+  setup(_props) {
     const $i18n = useI18n();
     return {
       availableLocales: computed(() => ($i18n.locales as LocaleObject[]).filter(i => i.code !== $i18n.locale))
@@ -45,3 +39,8 @@ export default defineComponent({
 })
 </script>
 
+<style>
+  .nuxt-link-exact-active {
+    @apply border-b-2 border-blue-500;
+  }
+</style>
