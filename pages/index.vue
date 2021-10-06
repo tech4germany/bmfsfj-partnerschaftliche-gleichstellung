@@ -7,8 +7,8 @@
     <h2> {{content != null ? content.title : ''}} </h2>
     <div class="mx-2">
       <bmfsfj-checkbox label="TEST 1" :checked="false"></bmfsfj-checkbox>
-      <bmfsfj-checkbox :value="checkbox" @input="updateCheckbox" label="TEST 2"></bmfsfj-checkbox>
-      <bmfsfj-checkbox :value="checkbox" @input="updateCheckbox" label="TEST 3"></bmfsfj-checkbox>
+      <bmfsfj-checkbox :value="checkbox" label="TEST 2" @input="updateCheckbox"></bmfsfj-checkbox>
+      <bmfsfj-checkbox :value="checkbox" label="TEST 3" @input="updateCheckbox"></bmfsfj-checkbox>
       <nuxt-content
         class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
         :document="content" />
