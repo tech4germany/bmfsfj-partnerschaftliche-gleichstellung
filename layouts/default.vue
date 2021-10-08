@@ -6,8 +6,8 @@
       </div>
 
       <nav class="flex w-full text-center text-blue-500 font-bold">
-        <NuxtLink :to="localeRoute('/')" class="flex-grow m-2">Aufgaben</NuxtLink>
-        <NuxtLink :to="localeRoute('/home')" class="flex-grow m-2">Übersicht</NuxtLink>
+        <NuxtLink :to="localeRoute('/tasks')" class="flex-grow m-2">Aufgaben</NuxtLink>
+        <NuxtLink :to="localeRoute('/')" class="flex-grow m-2">Übersicht</NuxtLink>
         <NuxtLink :to="localeRoute('/test')" class="flex-grow m-2">Wir</NuxtLink>
       </nav>
 

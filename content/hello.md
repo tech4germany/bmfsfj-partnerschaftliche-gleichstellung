@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Getting started!
 description: 'Empower your NuxtJS application with @nuxt/content module: write in a content/ directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a Git-based Headless CMS.'
 ---
 
@@ -13,8 +13,10 @@ Learn how to write your `content/`, supporting Markdown, YAML, CSV and JSON: htt
   <template #header>
     Header
   </template>
-  Content
+  Content Test
 </bmfsfj-card>
+
+<bmfsfj-checkbox label="CHECK BOX TEST"></bmfsfj-checkbox>
 
 ## Fetching content
 
