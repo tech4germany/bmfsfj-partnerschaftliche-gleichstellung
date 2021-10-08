@@ -1,4 +1,5 @@
-import { ref, Ref, watch } from "@vue/composition-api";
+import { ref, watch } from "@vue/composition-api";
+import type { Ref } from "@vue/composition-api";
 import { useContent } from "./useContent";
 
 export function useTaskPageContent(task: Ref<string>, page: Ref<string>) {

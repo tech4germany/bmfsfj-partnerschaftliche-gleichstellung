@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useRoute } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { useTasks } from '~/utils/useTasks';
 
 export default defineComponent({

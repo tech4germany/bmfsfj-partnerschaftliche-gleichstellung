@@ -1,4 +1,5 @@
-import { Ref, ref, watch } from "@vue/composition-api";
+import { ref } from "@vue/composition-api";
+import type { Ref } from "@vue/composition-api";
 import { TaskContentDocument, TaskContentProperties } from "./Task";
 import { useContent } from "./useContent";
 
@@ -10,11 +11,11 @@ export function useTasks() {
     const a = await $content(`tasks`, {deep: true}).only(['dir', 'title']).where({
       task: { $eq: true }
     }).fetch<TaskContentProperties>() as TaskContentDocument[];
-    console.log(a)
+
     tasks.value = a;
   }
 
-  //watch([], fetchContent, {immediate: true});
+  // watch([], fetchContent, {immediate: true});
   fetchContent();
 
   return tasks;
