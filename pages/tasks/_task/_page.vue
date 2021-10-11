@@ -15,7 +15,7 @@ import { computed, defineComponent, useRoute } from '@nuxtjs/composition-api'
 import { useTaskPageContent } from '~/utils/useTaskPageContent';
 
 export default defineComponent({
-  setup(_props) {
+  setup() {
     const $route = useRoute()
     const task = computed(() => $route.value.params.task)
     const page = computed(() => $route.value.params.page)
