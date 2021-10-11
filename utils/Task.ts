@@ -1,18 +1,50 @@
-import { File, IContentDocument } from "@nuxt/content/types/content";
+import { File, IContentDocument } from "@nuxt/content/types/content"
 
-export type TaskContentProperties = {
-  title: string,
-  category: string[]
+export type Category = string;
+
+export type User = {
+  name: string
 }
-export type TaskContentDocument = File & IContentDocument & TaskContentProperties
 
-export type AdditionalTaskContentProperties = {
-  title: string
+export type TaskContent = {
+  title: string;
+  document?: File & IContentDocument;
+} | {
+  title: string;
+  description?: String;
 }
-export type AdditionalTaskContentDocument = File & IContentDocument & AdditionalTaskContentProperties
 
-export type TaskContent = File & {
+export type Task = TaskContent & {
+  id: string;
+  categories: Category[];
+}
+
+export type UserTask = Task & {
+  finished: boolean;
+  assignees: User[];
+}
+
+export function isContentDocumentAFile(content: IContentDocument): content is IContentDocument & File {
+  return 'data' in content;
+}
+
+export function isContentDocumentATask(content: IContentDocument): content is IContentDocument & {
+  id: string,
   title: string,
-  category: string[],
-  pages: AdditionalTaskContentDocument[],
+  categories: string[]
+} {
+  return'id' in content && typeof content.id === 'string'
+    && 'title' in content && typeof content.title === 'string'
+    && 'categories' in content && Array.isArray(content.categories);
+}
+
+export function contentDocumentToTask(content: IContentDocument): Task {
+  if (!isContentDocumentATask(content)) throw new Error('Non task content document');
+
+  return {
+    document: content as unknown as IContentDocument & File,
+    id: content.id,
+    title: content.title,
+    categories: content.categories
+  }
 }

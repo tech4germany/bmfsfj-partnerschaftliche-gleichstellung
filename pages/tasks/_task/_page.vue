@@ -1,7 +1,7 @@
 <template>
   <bmfsfj-card>
     <template #header>
-      <nuxt-link :to="{ path: '../'}">&lt;</nuxt-link>
+      <todo-link :todo="task">&lt;</todo-link>
       {{content != null ? content.title : ''}}
     </template>
     <nuxt-content

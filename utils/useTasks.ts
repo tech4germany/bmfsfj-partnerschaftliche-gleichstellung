@@ -1,18 +1,20 @@
 import { ref } from "@vue/composition-api";
 import type { Ref } from "@vue/composition-api";
-import { TaskContentDocument, TaskContentProperties } from "./Task";
 import { useContent } from "./useContent";
+import { contentDocumentToTask, Task } from "./Task";
 
 export function useTasks() {
   const $content = useContent();
-  const tasks: Ref<TaskContentDocument[]> = ref([]);
+  const tasks: Ref<Task[]> = ref([]);
 
   const fetchContent = async () => {
-    const a = await $content(`tasks`, {deep: true}).only(['dir', 'title']).where({
+    const tasksContents = await $content(`tasks`, {deep: true}).without('data').where({
       task: { $eq: true }
-    }).fetch<TaskContentProperties>() as TaskContentDocument[];
+    }).fetch();
 
-    tasks.value = a;
+    if (!Array.isArray(tasksContents)) throw new Error("Expected array of task contents");
+
+    tasks.value = tasksContents.map((content) => contentDocumentToTask(content));
   }
 
   // watch([], fetchContent, {immediate: true});

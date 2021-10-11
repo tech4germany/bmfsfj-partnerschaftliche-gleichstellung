@@ -2,18 +2,22 @@
   <div>
     <bmfsfj-card v-for="task in tasks" :key="task.dir">
       <template #header>{{task.title}}</template>
-      <nuxt-link :to="`${task.dir}/`">Go</nuxt-link>
+      <todo-link :todo="task.id">Go!</todo-link>
+      <span>
+        <li v-for="category in task.categories" :key="category">{{category}}</li>
+      </span>
     </bmfsfj-card>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, Ref } from '@nuxtjs/composition-api'
+import { Task } from '~/utils/Task';
 import { useTasks } from '~/utils/useTasks';
 
 export default defineComponent({
   setup(_props) {
-    const tasks = useTasks()
+    const tasks: Ref<Task[]> = useTasks()
 
     return {
       tasks
