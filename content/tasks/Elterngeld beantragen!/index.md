@@ -1,5 +1,6 @@
 ---
 title: Elterngeld beantragen!
+id: elterngeld-beantragen
 task: true
 lang: de
 categories:

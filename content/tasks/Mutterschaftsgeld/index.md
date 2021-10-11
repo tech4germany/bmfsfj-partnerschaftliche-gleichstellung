@@ -1,5 +1,6 @@
 ---
 title: Mutterschaftsgeld
+id: mutterschaftsgeld
 task: true
 lang: de
 categories:
@@ -16,7 +17,8 @@ Antrag bei der Krankenkasse
 Nach Erhalt der Bescheinigung über vorraussichtlichen Geburtstermin. (6-7 Wochen vor der Geburt)
 
 [Mehr Information](https://www.schwanger-in-bayern.de/beruf/eltern/schwangerschaft/index.php)
-[Beispielrechnung](./Beispielrechnung/)
+<todo-link todo="elterngeld-beantragen"> TEST TEST </todo-link>
+<todo-link page="Beispielrechnung"> BSP </todo-link>
 
 ## Achtung!
 
