@@ -71,7 +71,7 @@ export default {
         defaultLocale: 'de',
         langDir: 'lang/',
         vueI18n: {
-          fallbackLocale: 'en',
+          fallbackLocale: ['en', 'de'],
         }
       }
     ]

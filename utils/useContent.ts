@@ -1,9 +1,10 @@
-import { useAsync, wrapProperty } from '@nuxtjs/composition-api'
+import { wrapProperty, unref, Ref } from '@nuxtjs/composition-api'
+import { useAsnycResult } from './useTask';
 
 export const useContent = wrapProperty('$content', false)
 
-export const usePageContent = (page: string) => {
+export const usePageContent = (page: Ref<string> | string) => {
   const $content = useContent();
 
-  return useAsync(() => $content(page).fetch<{title: string}>())
+  return useAsnycResult(() => $content(unref(page)).fetch<{title: string}>())
 }

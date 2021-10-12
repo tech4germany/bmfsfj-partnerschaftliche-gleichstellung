@@ -51,7 +51,7 @@ export async function getTasks($content:contentFunc): Promise<Task[]> {
 /**
  * Get a reference to the result of `f`. `f` is run whenever a refence it uses is updated (see `watchEffect`).
  */
-function useAsnycResult<T>(f: () => Promise<T>): Ref<T | null> {
+export function useAsnycResult<T>(f: () => Promise<T>): Ref<T | null> {
   const result: Ref<T | null> = ref(null);
 
   watchEffect(async () => {
