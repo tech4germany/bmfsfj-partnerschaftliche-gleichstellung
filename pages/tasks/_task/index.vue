@@ -27,7 +27,7 @@ export default defineComponent({
       title: computed(() => task.value?.title),
       document: computed(() => task.value && ('document' in task.value) ? task.value?.document : null),
       finished: computed(() => todosStore.todos[taskId.value]?.finished ?? false),
-      updateFinished: (value: boolean) => todosStore.updateTodoFinished({ todo: taskId.value, finished: value })
+      updateFinished: (value: boolean) => todosStore.updateTodoFinished({ todoId: taskId.value, finished: value })
     }
   }
 })
