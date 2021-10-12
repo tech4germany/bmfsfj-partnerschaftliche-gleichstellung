@@ -189,11 +189,12 @@ const bundescolorsAlternative = {
 
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         ...bundescolorsAlternative,
-        primary: bundescolorsAlternative.hellblau,
+        primary: bundescolors.violett,
       },
     },
     fontFamily: {

@@ -10,19 +10,25 @@
       <nuxt-content
         :document="content" />
       </div>
+
+      <input v-model="task" type="text" />
+
+      <bmfsfj-task :task="task"></bmfsfj-task>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import { usePageContent } from '~/utils/useContent';
 
 export default defineComponent({
   setup(_props) {
     const content = usePageContent('hello')
+    const task = ref('mutterschaftsgeld')
 
     return {
-      content
+      content,
+      task
     }
   }
 })

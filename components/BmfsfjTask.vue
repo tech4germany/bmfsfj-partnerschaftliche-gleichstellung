@@ -1,40 +1,48 @@
 <template>
-  <bmfsfj-card>
-    <template #header> {{content != null ? content.title : ''}} </template>
-    <div>
-      <nuxt-content
-      class="mx-auto"
-      :document="content != null ? content.document : null" />
-
-    </div>
+  <bmfsfj-card class="my-2">
+    <template #header>
+      <div class="flex dark flex-row">
+        <bmfsfj-checkbox
+          class=""
+          :value="finished"
+          :label="title"
+          @input="updateFinished"
+        ></bmfsfj-checkbox>
+      </div>
+    </template>
+    <todo-link :todo="taskId">Go!</todo-link>
+    <span>
+      <li v-for="category in categories" :key="category">{{ category }}</li>
+    </span>
   </bmfsfj-card>
 </template>
 
 <script lang="ts">
 import { defineComponent, toRef } from '@nuxtjs/composition-api'
-import { useTask } from '~/utils/useTask';
+import { useUserTask } from '~/utils/useTask'
 
 export default defineComponent({
   props: {
-    done: {
-      type: Boolean,
-      default: false
-    },
-    taskName: {
+    task: {
       default: 'mutterschaftsgeld-beantragen',
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
-    const task = useTask(toRef(props, 'taskName'))
+    const taskId = toRef(props, 'task')
+
+    const { title, categories, document, finished, updateFinished } =
+      useUserTask(taskId)
 
     return {
-      content: task
+      taskId,
+      categories,
+      title,
+      document,
+      finished,
+      updateFinished,
     }
-  }
+  },
 })
 </script>
-
-<style>
-</style>

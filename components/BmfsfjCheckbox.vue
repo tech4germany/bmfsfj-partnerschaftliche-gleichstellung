@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary-500">
+  <div>
     <label class="flex flex-row items-center space-x-1">
       <input
         type="checkbox"
@@ -12,6 +12,10 @@
           appearance-none
           relative
           text-white
+          dark:border-white
+          dark:text-primary-500
+          dark:bg-primary-500
+          dark:checked:bg-white
           checked:bg-primary-500
           checked:after:top-0
           checked:after:leading-3
@@ -22,7 +26,7 @@
         v-bind="attrs"
         @input="$emit('input', $event.target.checked)"
       />
-      <span>{{label}}</span>
+      <span>{{ label }}</span>
     </label>
   </div>
 </template>
@@ -35,18 +39,16 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
-  emits: [
-    'input'
-  ],
+  emits: ['input'],
   setup(_props, { attrs }) {
     return {
-      attrs
+      attrs,
     }
   },
 })

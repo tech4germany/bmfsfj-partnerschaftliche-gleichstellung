@@ -1,12 +1,6 @@
 <template>
   <div>
-    <bmfsfj-card v-for="task in tasks" :key="task.dir">
-      <template #header>{{task.title}}</template>
-      <todo-link :todo="task.id">Go!</todo-link>
-      <span>
-        <li v-for="category in task.categories" :key="category">{{category}}</li>
-      </span>
-    </bmfsfj-card>
+    <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
   </div>
 </template>
 

@@ -1,9 +1,10 @@
-import { ref, unref, watchEffect } from "@vue/composition-api";
+import { computed, ref, unref, watchEffect } from "@vue/composition-api";
 import type { Ref } from "@vue/composition-api";
 import { contentFunc } from "@nuxt/content/types/content";
 import { QueryBuilder } from "@nuxt/content/types/query-builder";
 import { useContent } from "./useContent";
 import { contentDocumentToTask, Task, TaskPageContent } from "./Task";
+import { useTodosStore } from "~/store/todos";
 
 export function getTaskQuery($content: contentFunc, taskId: string): QueryBuilder{
   return $content(`tasks`, {deep: true}).where({
@@ -68,7 +69,7 @@ export function useAsnycResult<T>(f: () => Promise<T>): Ref<T | null> {
  * @param taskId a reference to the id of the task that should be used
  * @returns a reference to the return value of `f`, updated whenever `taskId` updates
  */
-function useTaskIdWithContent<T>(f: ($content: contentFunc, taskId: string) => Promise<T>, taskId: Ref<string>): Ref<T | null> {
+function useTaskIdWithContent<T>(f: ($content: contentFunc, taskId: string) => Promise<T>, taskId: Ref<string> | string): Ref<T | null> {
   const $content = useContent();
   return useAsnycResult(() => f($content, unref(taskId)))
 }
@@ -76,13 +77,13 @@ function useTaskIdWithContent<T>(f: ($content: contentFunc, taskId: string) => P
 /**
  * Get a refernce to the directory the file of the task is placed in.
  */
-export const useTaskDirectory: (taskId: Ref<string>) => Ref<string | null> =
+export const useTaskDirectory: (taskId: Ref<string> | string) => Ref<string | null> =
   (taskId) => useTaskIdWithContent(getTaskDirectory, taskId)
 
 /**
  * Get a refernce to the task (without user specific details) based on the taskId.
  */
-export const useTask: (taskId: Ref<string>) => Ref<Task | null> =
+export const useTask: (taskId: Ref<string> | string) => Ref<Task | null> =
   (taskId) => useTaskIdWithContent(getTask, taskId)
 
 
@@ -114,4 +115,18 @@ export function useTasks(): Ref<Task[]> {
   })
 
   return result;
+}
+
+export function useUserTask(taskId: Ref<string> | string) {
+  const task = useTask(taskId)
+  const todosStore = useTodosStore()
+
+  return {
+    task,
+    categories: computed(() => task.value?.categories ?? []),
+    title: computed(() => task.value?.title),
+    document: computed(() => task.value && ('document' in task.value) ? task.value?.document : null),
+    finished: computed(() => todosStore.todos[unref(taskId)]?.finished ?? false),
+    updateFinished: (value: boolean) => todosStore.updateTodoFinished({ todoId: unref(taskId), finished: value })
+  }
 }

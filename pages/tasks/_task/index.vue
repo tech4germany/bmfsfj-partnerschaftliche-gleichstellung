@@ -10,24 +10,17 @@
 
 <script lang="ts">
 import { computed, defineComponent, useRoute } from '@nuxtjs/composition-api'
-import { useTask } from '~/utils/useTask';
-import { useTodosStore } from '~/store/todos';
+import { useUserTask } from '~/utils/useTask';
 
 export default defineComponent({
   setup() {
     const $route = useRoute()
     const taskId = computed(() => $route.value.params.task)
 
-    const task = useTask(taskId)
-    const todosStore = useTodosStore()
+    const { task, title, document, finished, updateFinished } = useUserTask(taskId)
 
     return {
-      taskId,
-      task,
-      title: computed(() => task.value?.title),
-      document: computed(() => task.value && ('document' in task.value) ? task.value?.document : null),
-      finished: computed(() => todosStore.todos[taskId.value]?.finished ?? false),
-      updateFinished: (value: boolean) => todosStore.updateTodoFinished({ todoId: taskId.value, finished: value })
+      taskId, task, title, document, finished, updateFinished
     }
   }
 })
