@@ -13,10 +13,10 @@
 <script lang="ts">
 import { defineComponent, Ref } from '@nuxtjs/composition-api'
 import { Task } from '~/utils/Task';
-import { useTasks } from '~/utils/useTasks';
+import { useTasks } from '~/utils/useTask';
 
 export default defineComponent({
-  setup(_props) {
+  setup() {
     const tasks: Ref<Task[]> = useTasks()
 
     return {

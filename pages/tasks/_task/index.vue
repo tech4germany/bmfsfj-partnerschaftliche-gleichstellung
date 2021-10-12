@@ -10,15 +10,15 @@
 
 <script lang="ts">
 import { computed, defineComponent, useRoute } from '@nuxtjs/composition-api'
-import { useTaskContent } from '~/utils/useTaskContent';
+import { useTask } from '~/utils/useTask';
 import { useTodosStore } from '~/store/todos';
 
 export default defineComponent({
-  setup(_props) {
+  setup() {
     const $route = useRoute()
     const taskId = computed(() => $route.value.params.task)
 
-    const task = useTaskContent(taskId)
+    const task = useTask(taskId)
     const todosStore = useTodosStore()
 
     return {

@@ -24,6 +24,11 @@ export type UserTask = Task & {
   assignees: User[];
 }
 
+export type TaskPageContent = {
+  title: string;
+  document?: File & IContentDocument;
+}
+
 export function isContentDocumentAFile(content: IContentDocument): content is IContentDocument & File {
   return 'data' in content;
 }
