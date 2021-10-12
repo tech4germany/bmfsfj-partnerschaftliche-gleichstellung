@@ -1,11 +1,11 @@
 <template>
   <div>
     <header class="">
-      <div class="w-full bg-blue-500 text-white h-16 rounded-t-xl flex flex-col justify-center">
+      <div class="w-full bg-primary-500 text-white h-16 flex flex-col justify-center">
         <h1 class="ml-2"> {{$t('welcome')}} Team :)</h1>
       </div>
 
-      <nav class="flex w-full text-center text-blue-500 font-bold">
+      <nav class="flex w-full text-center text-primary-500 font-bold">
         <NuxtLink :to="localeRoute('/tasks')" class="flex-grow m-2">Aufgaben</NuxtLink>
         <NuxtLink :to="localeRoute('/')" class="flex-grow m-2">Übersicht</NuxtLink>
         <NuxtLink :to="localeRoute('/intro/married')" class="flex-grow m-2">Wir</NuxtLink>
@@ -41,6 +41,6 @@ export default defineComponent({
 
 <style>
   .nuxt-link-exact-active {
-    @apply border-b-2 border-blue-500;
+    @apply border-b-2 border-primary-500;
   }
 </style>

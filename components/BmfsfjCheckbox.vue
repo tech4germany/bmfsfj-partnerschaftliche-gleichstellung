@@ -1,5 +1,5 @@
 <template>
-  <div class="text-blue-500">
+  <div class="text-primary-500">
     <label class="flex flex-row items-center space-x-1">
       <input
         type="checkbox"
@@ -7,12 +7,12 @@
         class="
           w-4
           h-4
-          border-blue-500 border-2
+          border-primary-500 border-2
           rounded
           appearance-none
           relative
           text-white
-          checked:bg-blue-500
+          checked:bg-primary-500
           checked:after:top-0
           checked:after:leading-3
           checked:after:absolute
