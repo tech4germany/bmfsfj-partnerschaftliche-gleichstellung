@@ -1,12 +1,12 @@
 <template>
   <intro-question :question-id="questionId" :next-location="nextLocation">
-    <button @click="yes">{{ $t('yes') }}</button>
-    <button @click="no">{{ $t('no') }}</button>
+    <bmfsfj-toggle-button class="w-full my-1" :value="married" @input="yes">{{ $t('yes') }}</bmfsfj-toggle-button>
+    <bmfsfj-toggle-button class="w-full my-1" :value="!married" @input="no">{{ $t('no') }}</bmfsfj-toggle-button>
   </intro-question>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
+import { computed, defineComponent } from '@nuxtjs/composition-api';
 import { useUserStore } from '~/store/user';
 import { useNextQuestion } from '~/utils/useIntro';
 
@@ -28,7 +28,8 @@ export default defineComponent({
       no: () => {
         userStore.setMarried(false);
         goToNextQuestion();
-      }
+      },
+      married: computed(() => userStore.married)
     }
   }
 })

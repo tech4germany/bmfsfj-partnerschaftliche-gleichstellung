@@ -1,6 +1,6 @@
 <template>
   <intro-question :question-id="questionId" :next-location="nextLocation">
-    <button v-for="type in types" :key="type" @click="select(type)">{{ $t(`${questionId}.${type}`) }}</button>
+    <bmfsfj-toggle-button v-for="type in types" :key="type" class="w-full my-1" :value="isSelected(type)" @input="select(type)">{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button>
   </intro-question>
 </template>
 
@@ -24,6 +24,9 @@ export default defineComponent({
       select: (type: HealthInsurance) => {
         userStore.setHealthInsurance(type);
         goToNextQuestion();
+      },
+      isSelected: (type: HealthInsurance) => {
+        return userStore.healthInsurance === type;
       }
     }
   }
