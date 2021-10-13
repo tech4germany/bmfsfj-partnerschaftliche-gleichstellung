@@ -4,15 +4,7 @@
       <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center">
         <h1 class="ml-2 flex-grow"> {{$t('welcome')}} Team :)</h1>
 
-
-        <select class="bg-primary-300 p-2" :value="currentLocale" @input="switchLocale">
-          <option
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            class="hover:bg-yellow-500"
-            :value="locale.code"
-          >{{ locale.name }}</option>
-        </select>
+        <bmfsfj-language-select class="bg-primary-400"></bmfsfj-language-select>
       </div>
 
       <nav class="flex w-full text-center text-primary-500 font-bold">
@@ -29,23 +21,11 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, useRouter, wrapProperty } from '@nuxtjs/composition-api'
-import type { LocaleObject } from '@nuxtjs/i18n';
-
-export const useI18n = wrapProperty('$i18n', false)
-export const useSwitchLocalePath = wrapProperty('switchLocalePath', false)
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup(_props) {
-    const $i18n = useI18n();
-    const $router = useRouter();
-    const switchLocalePath = useSwitchLocalePath();
-
-    return {
-      availableLocales: computed(() => ($i18n.locales as LocaleObject[])),
-      currentLocale: computed(() => $i18n.locale),
-      switchLocale: (e: InputEvent) => $router.push(switchLocalePath((e.target! as HTMLSelectElement).value))
-    }
+  setup() {
+    return {}
   },
 })
 </script>
