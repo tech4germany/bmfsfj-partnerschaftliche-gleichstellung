@@ -39,14 +39,31 @@ export async function getTask($content: contentFunc, taskId: string): Promise<Ta
   return contentDocumentToTask(taskContent[0]);
 }
 
-export async function getTasks($content:contentFunc): Promise<Task[]> {
+export async function getTasks($content:contentFunc, where: object = {}): Promise<Task[]> {
   const tasksContents = await $content(`tasks`, {deep: true}).without('data').where({
-    task: { $eq: true }
+    task: { $eq: true },
+    ... where
   }).fetch();
 
   if (!Array.isArray(tasksContents)) throw new Error("Expected array of task contents");
 
   return tasksContents.map((content) => contentDocumentToTask(content));
+}
+
+export function concatArraysToUnique<T>(... arrays: T[][]): T[] {
+  return [... new Set(([] as T[]).concat(... arrays))];
+}
+
+export async function getCategories($content:contentFunc): Promise<string[]> {
+  const tasksContents = await $content(`tasks`, {deep: true}).only('categories').where({
+    task: { $eq: true }
+  }).fetch<{categories: string[]}>();
+
+  if (!Array.isArray(tasksContents)) throw new Error("Expected array of task contents");
+
+  return concatArraysToUnique(
+    ... tasksContents.map(content => content.categories)
+  );
 }
 
 /**
@@ -61,6 +78,20 @@ export function useAsnycResult<T>(f: () => Promise<T>): Ref<T | null> {
 
   return result;
 }
+
+/**
+ * Get a reference to the result of `f`. `f` is run whenever a refence it uses is updated (see `watchEffect`).
+ */
+export function useAsnycArrayResult<T>(f: () => Promise<T[]>): Ref<T[]> {
+  const result: Ref<T[]> = ref([]);
+
+  watchEffect(async () => {
+    result.value = await f()
+  })
+
+  return result;
+}
+
 
 /**
  * Get a reference to the result of `f`, when supplied with the content function and the current value of the `taskId`.
@@ -106,15 +137,9 @@ export const useTaskPageContent: (taskId: Ref<string>, page: Ref<string>) => Ref
 /**
  * Get a reference to all tasks.
  */
-export function useTasks(): Ref<Task[]> {
+export function useTasks(where: Ref<object> | object = {}): Ref<Task[]> {
   const $content = useContent();
-  const result: Ref<Task[]> = ref([]);
-
-  watchEffect(async () => {
-    result.value = await getTasks($content)
-  })
-
-  return result;
+  return useAsnycArrayResult(() => getTasks($content, unref(where)))
 }
 
 export function useUserTask(taskId: Ref<string> | string) {

@@ -1,20 +1,38 @@
 <template>
   <div>
+    <div v-for="category in categories" :key="category" @click="selectCategory(category)">{{category}}</div>
+
     <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref, Ref } from '@nuxtjs/composition-api'
 import { Task } from '~/utils/Task';
 import { useTasks } from '~/utils/useTask';
+import { useCategories } from '~/utils/useCategories';
 
 export default defineComponent({
   setup() {
-    const tasks: Ref<Task[]> = useTasks()
+    const selectedCategory = ref()
+
+    const tasks: Ref<Task[]> = useTasks(computed(() => selectedCategory.value != null ? {
+      categories: {
+        $contains: selectedCategory.value
+      }
+    }: {}))
+
+    const categories: Ref<string[]> = useCategories()
+
+    function selectCategory(category: string) {
+      selectedCategory.value = category
+    }
 
     return {
-      tasks
+      selectedCategory,
+      selectCategory,
+      tasks,
+      categories
     }
   }
 })
