@@ -4,4 +4,4 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 config.autoAddCss = false
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
