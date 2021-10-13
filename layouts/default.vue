@@ -1,7 +1,8 @@
 <template>
   <div>
+    <tech-4-germany-info-banner class="hidden"></tech-4-germany-info-banner>
     <header>
-      <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center">
+      <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center shadow">
         <h1 class="ml-2 flex-grow"> {{$t('welcome')}} Team :)    <font-awesome-icon :icon="faUserSecret" /></h1>
 
         <bmfsfj-language-select class="bg-primary-400"></bmfsfj-language-select>
