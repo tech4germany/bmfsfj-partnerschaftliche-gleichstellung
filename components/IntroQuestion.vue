@@ -6,8 +6,9 @@
 
     <button @click="toggleMoreInfos">Mehr Infos</button>
 
-    <nuxt-link :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
-    <nuxt-link :to="localeRoute('tasks')">Alle Überspringen</nuxt-link>
+    <nuxt-link v-if="!hasSelection" :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
+    <nuxt-link v-if="hasSelection" :to="localeRoute(nextLocation)">Weiter</nuxt-link>
+    <nuxt-link v-if="!hasSelection" :to="localeRoute('tasks')">Alle Überspringen</nuxt-link>
 
     <nuxt-content
       v-if="moreInfosVisible"
@@ -44,6 +45,10 @@ export default defineComponent({
     nextLocation: {
       type: String,
       required: true
+    },
+    hasSelection: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {

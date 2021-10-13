@@ -1,13 +1,12 @@
 <template>
-  <intro-question :question-id="questionId" :next-location="nextLocation">
+  <intro-question :question-id="questionId" :next-location="nextLocation" :has-selection="hasSelection">
     <bmfsfj-toggle-button v-for="type in types" :key="type" class="w-full my-1" :value="isSelected(type)" @input="select(type)">{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button>
   </intro-question>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
+import { computed, defineComponent } from '@nuxtjs/composition-api';
 import { HealthInsurance, useUserStore } from '~/store/user';
-import { useNextQuestion } from '~/utils/useIntro';
 
 export default defineComponent({
   setup() {
@@ -15,7 +14,6 @@ export default defineComponent({
     const nextLocation = 'tasks'
 
     const userStore = useUserStore()
-    const { goToNextQuestion } = useNextQuestion(nextLocation)
 
     return {
       nextLocation,
@@ -23,11 +21,11 @@ export default defineComponent({
       types: HealthInsurance,
       select: (type: HealthInsurance) => {
         userStore.setHealthInsurance(type);
-        goToNextQuestion();
       },
       isSelected: (type: HealthInsurance) => {
         return userStore.healthInsurance === type;
-      }
+      },
+      hasSelection: computed(() => userStore.healthInsurance != null)
     }
   }
 })
