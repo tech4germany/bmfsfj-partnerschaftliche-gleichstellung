@@ -2,7 +2,7 @@
   <div>
     <header>
       <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center">
-        <h1 class="ml-2 flex-grow"> {{$t('welcome')}} Team :)</h1>
+        <h1 class="ml-2 flex-grow"> {{$t('welcome')}} Team :)    <font-awesome-icon :icon="faUserSecret" /></h1>
 
         <bmfsfj-language-select class="bg-primary-400"></bmfsfj-language-select>
       </div>
@@ -22,10 +22,13 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   setup() {
-    return {}
+    return {
+      faUserSecret
+    }
   },
 })
 </script>
