@@ -1,27 +1,16 @@
 <template>
   <div>
     <label class="flex flex-row items-center space-x-1">
+      <font-awesome-icon
+        class="text-primary-500 dark:text-white dark:bg-primary-500"
+        fixed-width
+        :icon="checkboxIcon"
+      />
       <input
+        ref="checkbox"
         type="checkbox"
         :name="label"
-        class="
-          w-4
-          h-4
-          border-primary-500 border-2
-          rounded
-          appearance-none
-          relative
-          text-white
-          dark:border-white
-          dark:text-primary-500
-          dark:bg-primary-500
-          dark:checked:bg-white
-          checked:bg-primary-500
-          checked:after:top-0
-          checked:after:leading-3
-          checked:after:absolute
-          checked:after:content-['\2713']
-        "
+        class="appearance-none"
         :checked="value"
         v-bind="attrs"
         @input="$emit('input', $event.target.checked)"
@@ -32,7 +21,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { computed, defineComponent, toRef, unref } from '@vue/composition-api'
+import { faCheck, faQuestion, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -43,12 +33,28 @@ export default defineComponent({
     },
     value: {
       type: Boolean,
+      default: null,
     },
   },
   emits: ['input'],
-  setup(_props, { attrs }) {
+  setup(props, { attrs }) {
+    const value = toRef(props, 'value')
+
+    const checkboxIcon = computed(() => {
+      if (unref(value) == null) {
+        return faQuestion
+      }
+
+      if (unref(value)) {
+        return faCheck
+      }
+
+      return faTimes
+    })
+
     return {
       attrs,
+      checkboxIcon,
     }
   },
 })
