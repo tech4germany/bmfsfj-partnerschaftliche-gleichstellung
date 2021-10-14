@@ -1,5 +1,5 @@
 <template>
-  <select class="p-2" :value="value" v-bind="attrs" @input="onInput">
+  <select :value="value" v-bind="attrs" @input="onInput">
     <option
       v-for="item in items"
       :key="item.value || item"

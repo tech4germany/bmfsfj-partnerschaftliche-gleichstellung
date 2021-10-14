@@ -22,8 +22,10 @@
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/pwa": "^3.3.5",
+    "@types/vue-select": "^3.11.2",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
+    "vue-select": "^3.13.2",
     "vuex-module-decorators": "^1.0.1",
     "vuex-persist": "^3.1.3"
   },
