@@ -6,7 +6,7 @@
 
     <h2> {{content != null ? content.title : ''}} </h2>
     <div class="mx-2">
-      <bmfsfj-checkbox label="TEST 1" :checked="false"></bmfsfj-checkbox>
+      <bmfsfj-checkbox label="TEST 1" :value="false"></bmfsfj-checkbox>
       <nuxt-content
         :document="content" />
       </div>
