@@ -1,11 +1,5 @@
 <template>
-  <select class="p-2" :value="currentLocale" @input="switchLocale">
-    <option
-      v-for="locale in availableLocales"
-      :key="locale.code"
-      :value="locale.code"
-    >{{ locale.name }}</option>
-  </select>
+  <bmfsfj-select :items="availableLocales" :value="currentLocale" @input="switchLocale"></bmfsfj-select>
 </template>
 
 <script lang="ts">
@@ -25,9 +19,9 @@ export default defineComponent({
 
     return {
       attrs,
-      availableLocales: computed(() => ($i18n.locales as LocaleObject[])),
       currentLocale: computed(() => $i18n.locale),
-      switchLocale: (e: InputEvent) => $router.push(switchLocalePath((e.target! as HTMLSelectElement).value))
+      availableLocales: computed(() => ($i18n.locales as LocaleObject[]).map(a => ({label: a.name, value: a.code}))),
+      switchLocale: (e: string) => $router.push(switchLocalePath(e))
     }
   },
 })

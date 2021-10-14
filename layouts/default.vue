@@ -11,6 +11,7 @@
       <nav class="flex w-full text-center text-primary-500 font-bold">
         <NuxtLink :to="localeRoute('/tasks')" class="flex-grow m-2">Aufgaben</NuxtLink>
         <NuxtLink :to="localeRoute('/test')" class="flex-grow m-2">Übersicht</NuxtLink>
+        <NuxtLink :to="localeRoute('/profile')" class="flex-grow m-2">Ich</NuxtLink>
         <NuxtLink :to="localeRoute('/intro/married')" class="flex-grow m-2">Wir</NuxtLink>
       </nav>
     </header>
