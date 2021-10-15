@@ -12,7 +12,7 @@
     </template>
     <todo-link :todo="taskId">Go!</todo-link>
     <span>
-      <li v-for="category in categories" :key="category">{{ category }}</li>
+      <li v-for="module in modules" :key="module">{{ $t(`modules.${module}`) }}</li>
     </span>
   </bmfsfj-card>
 </template>
@@ -32,12 +32,12 @@ export default defineComponent({
   setup(props) {
     const taskId = toRef(props, 'task')
 
-    const { title, categories, document, finished, updateFinished } =
+    const { title, modules, document, finished, updateFinished } =
       useUserTask(taskId)
 
     return {
       taskId,
-      categories,
+      modules,
       title,
       document,
       finished,

@@ -16,7 +16,6 @@
 import { computed, defineComponent } from '@vue/composition-api'
 import { useT4gBannerStore } from '~/store/t4gBanner';
 
-
 export default defineComponent({
   setup() {
     const store = useT4gBannerStore();

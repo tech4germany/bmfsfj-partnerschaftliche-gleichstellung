@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-for="category in categories" :key="category" @click="selectCategory(category)">{{category}}</div>
+    <div class="flex w-full gap-2">
+      <bmfjfs-chip-select class="flex-grow" placeholder="Modul" :items="categories" :value="selectedCategory" @input="selectCategory"><template #default="{ item }">{{$t(`modules.${item}`)}}</template></bmfjfs-chip-select>
+      <bmfsfj-toggle-button class="rounded-full" :value="false">Zeitlich</bmfsfj-toggle-button>
+      <bmfsfj-toggle-button class="rounded-full" :value="true">Meine Todos</bmfsfj-toggle-button>
+      <!--<bmfjfs-chip-select class="flex-grow" ><template #default="{item}">{{item}}</template></bmfjfs-chip-select>-->
+    </div>
 
     <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
   </div>
@@ -10,7 +15,7 @@
 import { computed, defineComponent, ref, Ref, useRoute } from '@nuxtjs/composition-api'
 import { Task } from '~/utils/Task';
 import { useTasks } from '~/utils/useTask';
-import { useCategories } from '~/utils/useCategories';
+import { useModuleIds } from '~/utils/useModules';
 
 export default defineComponent({
   setup() {
@@ -20,12 +25,12 @@ export default defineComponent({
     const search = computed(() => $route.value.query?.search?.toString() ?? '')
 
     const tasks: Ref<Task[]> = useTasks(computed(() => selectedCategory.value != null ? {
-      categories: {
+      modules: {
         $contains: selectedCategory.value
       }
     }: {}), search)
 
-    const categories: Ref<string[]> = useCategories()
+    const categories: Ref<string[]> = useModuleIds()
 
     function selectCategory(category: string) {
       selectedCategory.value = category

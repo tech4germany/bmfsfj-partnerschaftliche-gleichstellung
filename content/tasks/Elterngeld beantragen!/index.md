@@ -3,9 +3,9 @@ title: Elterngeld beantragen!
 id: elterngeld-beantragen
 task: true
 lang: de
-categories:
-  - arbeitgeber
-  - partnerschaft
+modules:
+  - geld
+  - beruf
 ---
 
 ## Wo?

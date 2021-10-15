@@ -3,9 +3,9 @@ title: Mutterschaftsgeld
 id: mutterschaftsgeld
 task: true
 lang: de
-categories:
-  - test
-  - partnerschaft
+modules:
+  - geld
+  - behoerden
 ---
 
 ## Wo?

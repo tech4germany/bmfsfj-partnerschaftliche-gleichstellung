@@ -16,7 +16,13 @@ const translations = {
     GESETZLICH_FAMILIENVERSICHERT: 'Gesetzlich Familienversichert',
     PRIVAT: 'Privat'
   },
-  welcome: 'Willkommen'
+  welcome: 'Willkommen',
+  modules: {
+    geld: 'Geld',
+    beruf: 'Beruf',
+    behoerden: 'Behörden & Papiere',
+    gesundheit: 'Gesundheit'
+  }
 }
 
 export default translations

@@ -54,15 +54,15 @@ export function concatArraysToUnique<T>(... arrays: T[][]): T[] {
   return [... new Set(([] as T[]).concat(... arrays))];
 }
 
-export async function getCategories($content:contentFunc): Promise<string[]> {
-  const tasksContents = await $content(`tasks`, {deep: true}).only('categories').where({
+export async function getModules($content:contentFunc): Promise<string[]> {
+  const tasksContents = await $content(`tasks`, {deep: true}).only('modules').where({
     task: { $eq: true }
   }).fetch<{categories: string[]}>();
 
   if (!Array.isArray(tasksContents)) throw new Error("Expected array of task contents");
 
   return concatArraysToUnique(
-    ... tasksContents.map(content => content.categories)
+    ... tasksContents.map(content => content.modules)
   );
 }
 
@@ -148,7 +148,7 @@ export function useUserTask(taskId: Ref<string> | string) {
 
   return {
     task,
-    categories: computed(() => task.value?.categories ?? []),
+    modules: computed(() => task.value?.modules ?? []),
     title: computed(() => task.value?.title),
     document: computed(() => task.value && ('document' in task.value) ? task.value?.document : null),
     finished: computed(() => todosStore.todos[unref(taskId)]?.finished),

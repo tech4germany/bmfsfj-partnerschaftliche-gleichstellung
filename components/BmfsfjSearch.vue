@@ -36,7 +36,6 @@ export default defineComponent({
     )
 
     function search(a: InputEvent) {
-      console.log(a)
       $router.push({
         query: {
           search: (a.target as HTMLInputElement).value,

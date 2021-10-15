@@ -1,8 +1,30 @@
 <template>
   <div class="flex flex-col gap-2">
-    <category-card color="#d3003a" name="Geld" :percent-done="50"></category-card>
-    <category-card color="#e04a09" name="Beruf" :percent-done="70"></category-card>
-    <category-card color="#004377" name="Behörden & Papiere" :percent-done="30"></category-card>
-    <category-card color="#008136" name="Gesundheit" :percent-done="97"></category-card>
+    <category-card v-for="modul in modules" :key="modul.id" :color="modul.color" :name="$t(`modules.${modul.id}`)" :percent-done="randomPercentage(modul.id)"></category-card>
   </div>
 </template>
+
+<script lang="ts">
+import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { HealthInsurance, useUserStore } from '~/store/user';
+import { useModules } from '~/utils/useModules';
+
+export default defineComponent({
+  setup(_props) {
+    const store = useUserStore()
+    const modules = useModules()
+
+    return {
+      modules,
+      randomPercentage(_key: string) {
+        return Math.floor(Math.random() * 100)
+      },
+      married: computed(() => store.married),
+      setMarried: store.setMarried,
+      healthInsurances: Object.keys(HealthInsurance),
+      healthInsurance: computed(() => store.healthInsurance),
+      setHealthInsurance: store.setHealthInsurance,
+    }
+  }
+})
+</script>

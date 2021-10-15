@@ -16,7 +16,7 @@ export type TaskContent = {
 
 export type Task = TaskContent & {
   id: string;
-  categories: Category[];
+  modules: Category[];
 }
 
 export type UserTask = Task & {
@@ -36,11 +36,11 @@ export function isContentDocumentAFile(content: IContentDocument): content is IC
 export function isContentDocumentATask(content: IContentDocument): content is IContentDocument & {
   id: string,
   title: string,
-  categories: string[]
+  modules: string[]
 } {
   return'id' in content && typeof content.id === 'string'
     && 'title' in content && typeof content.title === 'string'
-    && 'categories' in content && Array.isArray(content.categories);
+    && 'modules' in content && Array.isArray(content.modules);
 }
 
 export function contentDocumentToTask(content: IContentDocument): Task {
@@ -50,6 +50,6 @@ export function contentDocumentToTask(content: IContentDocument): Task {
     document: content as unknown as IContentDocument & File,
     id: content.id,
     title: content.title,
-    categories: content.categories
+    modules: content.modules
   }
 }
