@@ -39,11 +39,11 @@ export async function getTask($content: contentFunc, taskId: string): Promise<Ta
   return contentDocumentToTask(taskContent[0]);
 }
 
-export async function getTasks($content:contentFunc, where: object = {}): Promise<Task[]> {
+export async function getTasks($content:contentFunc, where: object = {}, searchTerm: string | null = null): Promise<Task[]> {
   const tasksContents = await $content(`tasks`, {deep: true}).without('data').where({
     task: { $eq: true },
     ... where
-  }).fetch();
+  }).search(searchTerm).fetch();
 
   if (!Array.isArray(tasksContents)) throw new Error("Expected array of task contents");
 
@@ -137,9 +137,9 @@ export const useTaskPageContent: (taskId: Ref<string>, page: Ref<string>) => Ref
 /**
  * Get a reference to all tasks.
  */
-export function useTasks(where: Ref<object> | object = {}): Ref<Task[]> {
+export function useTasks(where: Ref<object> | object = {}, searchTerm: Ref<string | null> | string | null = null): Ref<Task[]> {
   const $content = useContent();
-  return useAsnycArrayResult(() => getTasks($content, unref(where)))
+  return useAsnycArrayResult(() => getTasks($content, unref(where), unref(searchTerm)))
 }
 
 export function useUserTask(taskId: Ref<string> | string) {
@@ -151,7 +151,7 @@ export function useUserTask(taskId: Ref<string> | string) {
     categories: computed(() => task.value?.categories ?? []),
     title: computed(() => task.value?.title),
     document: computed(() => task.value && ('document' in task.value) ? task.value?.document : null),
-    finished: computed(() => todosStore.todos[unref(taskId)]?.finished ?? false),
+    finished: computed(() => todosStore.todos[unref(taskId)]?.finished),
     updateFinished: (value: boolean) => todosStore.updateTodoFinished({ todoId: unref(taskId), finished: value })
   }
 }
