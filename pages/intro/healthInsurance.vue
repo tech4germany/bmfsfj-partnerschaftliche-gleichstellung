@@ -9,6 +9,7 @@ import { computed, defineComponent } from '@nuxtjs/composition-api';
 import { HealthInsurance, useUserStore } from '~/store/user';
 
 export default defineComponent({
+  layout: 'intro',
   setup() {
     const questionId = 'healthInsurance';
     const nextLocation = 'tasks'

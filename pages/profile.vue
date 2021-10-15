@@ -1,5 +1,10 @@
 <template>
   <div>
+    <NuxtLink :to="localeRoute('/intro/married')" class="block w-full">Restart Intro</NuxtLink>
+
+
+    <bmfsfj-language-select></bmfsfj-language-select>
+
     <bmfsfj-checkbox label="Verheiratet" :value="married" @input="setMarried"></bmfsfj-checkbox>
 
     <h4>Krankenversicherung</h4>

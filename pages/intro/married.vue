@@ -10,6 +10,7 @@ import { computed, defineComponent } from '@nuxtjs/composition-api';
 import { useUserStore } from '~/store/user';
 
 export default defineComponent({
+  layout: 'intro',
   setup() {
     const questionId = 'married';
     const nextLocation = 'intro-healthInsurance';
