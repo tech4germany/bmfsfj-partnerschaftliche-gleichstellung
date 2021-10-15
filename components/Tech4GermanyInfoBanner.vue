@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="bg-rot-500 text-gray-50 p-4 flex">
+  <div v-if="!hidden" class="bg-rot-500 text-gray-50 p-4 flex">
     <div class="flex-grow self-center">
       <slot>
         <span>Diese Seite ist ein Prototyp der im Rahmen des Tech4Germany Fellowship 2021 entsteht.</span>
@@ -13,19 +13,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { computed, defineComponent } from '@vue/composition-api'
+import { useT4gBannerStore } from '~/store/t4gBanner';
+
 
 export default defineComponent({
   setup() {
-    const visible = ref(true);
-
-    function hide() {
-      visible.value = false
-    }
+    const store = useT4gBannerStore();
 
     return {
-      visible,
-      hide
+      hidden: computed(() => store.hidden || false),
+      hide: store.hide
     }
   }
 })
