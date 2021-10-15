@@ -102,4 +102,8 @@ export default {
   purgeCSS: {
     whitelistPatterns: [/svg.*/, /fa.*/]
   },
+
+  router: {
+    base: '/bmfsfj-partnerschaftliche-gleichstellung/'
+  }
 }
