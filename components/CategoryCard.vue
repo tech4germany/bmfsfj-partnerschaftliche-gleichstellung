@@ -39,10 +39,6 @@ export default defineComponent({
   border-color: var(--color);
 }
 
-.growing-background-parent {
-  filter: invert();
-}
-
 .growing-background {
   @apply flex;
   width: 100%;
@@ -55,13 +51,38 @@ export default defineComponent({
   left: 0;
   width: var(--background-width);
   height: 100%;
-  filter: invert();
   background-color: var(--color);
 }
 
 .growing-background span {
-  filter: invert();
   color: var(--color);
+}
+
+/*
+ * We want the color of the text to be white when on the colored part of the background.
+ * When the text is on the uncolored part it should be in the color of the background.
+ * The colored width of the background is changing based on the percantage of done tasks.
+ *
+ * To change the color on the text based on the color of the background we use `mix-blend-mode: difference` which is changing
+ * the color of the text to the difference of the background-color and the text-color. Therfore the text color is black (`#000`)
+ * when both the color and background-color are the same. As we want the color to be white we then use `filter: invert()` to invert
+ * this color to white (`#000` -> `#fff`). This is done on the parent element of the element that has the background. In this case
+ * it is the same css-class as the background is defined on the `::before` pseudo-element and therefore still a child element.
+ * As this would require us to provide the invers color of the color we actually want to see on the page we add further
+ * `filter: invert()` statements on the elment with the background definition (`.growing-background::before`) and on the element
+ * containing the text (`.growing-background span`). This appearantly works...
+ */
+
+.growing-background {
+  filter: invert();
+}
+
+.growing-background::before {
+  filter: invert();
+}
+
+.growing-background span {
   mix-blend-mode: difference;
+  filter: invert();
 }
 </style>
