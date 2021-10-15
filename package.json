@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "lint:js:githook": "eslint",
     "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "format:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore . --fix",
     "lint": "npm run lint:js",

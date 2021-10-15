@@ -1,5 +1,5 @@
 module.exports = {
-  "**/*.js": ["npm run lint"],
-  "**/*.vue": ["npm run lint"],
-  "**/*.ts": ["npm run lint"],
+  "**/*.js": ["npm run lint:js:githook"],
+  "**/*.vue": ["npm run lint:js:githook"],
+  "**/*.ts": ["npm run lint:js:githook"],
 };
