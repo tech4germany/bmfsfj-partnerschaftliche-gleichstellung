@@ -3,9 +3,8 @@
 </template>
 
 <script lang="ts">
-import { wrapProperty } from '@nuxtjs/composition-api';
-import { computed, defineComponent } from '@vue/composition-api'
-export const useLocalRoute = wrapProperty('localeRoute', false)
+import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { useLocalRoute } from '~/utils/composables/useLocalRoute'
 
 export default defineComponent({
   props: {
