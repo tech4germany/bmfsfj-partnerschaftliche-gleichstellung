@@ -18,8 +18,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, Ref, ref, toRefs, unref } from '@nuxtjs/composition-api';
-import { usePageContent } from '~/utils/useContent';
-import { useNextQuestion } from '~/utils/useIntro';
+import { usePageContent } from '~/utils/composables/useContent';
+import { useNextQuestion } from '~/utils/composables/useIntro';
 
 function useMoreQuestionInfos(questionId: Ref<string> | string) {
   const moreInfosVisible = ref(false);

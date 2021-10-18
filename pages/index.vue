@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
-import { usePageContent } from '~/utils/useContent';
+import { usePageContent } from '~/utils/composables/useContent';
 
 export default defineComponent({
   setup(_props) {

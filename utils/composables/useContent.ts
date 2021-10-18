@@ -1,10 +1,10 @@
 import { wrapProperty, unref, Ref } from '@nuxtjs/composition-api'
-import { useAsnycResult } from './useTask';
+import { useAsnycResult } from '~/utils/composables/useAsnycResult'
 
 export const useContent = wrapProperty('$content', false)
 
 export const usePageContent = (page: Ref<string> | string) => {
-  const $content = useContent();
+  const $content = useContent()
 
-  return useAsnycResult(() => $content(unref(page)).fetch<{title: string}>())
+  return useAsnycResult(() => $content(unref(page)).fetch<{ title: string }>())
 }

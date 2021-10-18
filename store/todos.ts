@@ -1,6 +1,19 @@
-import { useStore } from '@nuxtjs/composition-api'
+import { useStore, computed, reactive, unref } from '@nuxtjs/composition-api'
 import { Module, VuexModule, Mutation, getModule } from 'vuex-module-decorators'
-import { User, UserTask } from '~/utils/Task'
+
+export type User = {
+  name: string
+}
+
+export type Task = {
+  finished: boolean
+  assignees: User[]
+}
+
+const DEFAULT_TASK: Task = {
+  finished: false,
+  assignees: [],
+}
 
 /**
  * Get the todo of the id from the store, also adds it to the store if it is still missing.
@@ -9,36 +22,51 @@ import { User, UserTask } from '~/utils/Task'
  */
 function getTodo(this: Todos, todoId: string) {
   if (this.todos[todoId] == null) {
-    this.todos[todoId] = {}
+    this.todos[todoId] = DEFAULT_TASK
   }
 
-  return this.todos[todoId];
+  return this.todos[todoId]
 }
 
 @Module({
   stateFactory: true,
   namespaced: true,
-  name: 'todos' // MUST be the path of this file starting in the `store` folder
+  name: 'todos', // MUST be the path of this file starting in the `store` folder
 })
 export default class Todos extends VuexModule {
-  todos: {[key: string]: Partial<UserTask>} = {}
+  todos: { [key: string]: Task } = {}
 
   @Mutation
-  updateTodoFinished({todoId, finished}: { todoId: string, finished: boolean }) {
-    const todo = getTodo.bind(this)(todoId);
-    todo.finished = finished;
+  updateTodoFinished({
+    todoId,
+    finished,
+  }: {
+    todoId: string
+    finished: boolean
+  }) {
+    const todo = getTodo.bind(this)(todoId)
+    todo.finished = finished
   }
 
   @Mutation
-  addAssigneeToTodo({todoId, assignee}: { todoId: string, assignee: User }) {
-    const todo = getTodo.bind(this)(todoId);
+  addAssigneeToTodo({ todoId, assignee }: { todoId: string; assignee: User }) {
+    const todo = getTodo.bind(this)(todoId)
 
     if (todo.assignees == null) {
-      todo.assignees = [];
+      todo.assignees = []
     }
 
-    todo.assignees.push(assignee);
+    todo.assignees.push(assignee)
   }
 }
 
 export const useTodosStore = () => getModule(Todos, useStore())
+
+export function getTask(store: Todos, taskId: string): Task {
+  const task = computed(() => store.todos[taskId] ?? DEFAULT_TASK)
+
+  return reactive({
+    finished: computed(() => unref(task).finished),
+    assignees: computed(() => unref(task).assignees),
+  })
+}

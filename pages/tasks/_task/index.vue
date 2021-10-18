@@ -4,23 +4,30 @@
     <bmfsfj-checkbox :value="finished" label="TEST 3" @input="updateFinished"></bmfsfj-checkbox>
     <nuxt-content
       class="mx-auto"
-      :document="task != null ? task.document : null" />
+      :document="document" />
   </bmfsfj-card>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, useRoute } from '@nuxtjs/composition-api'
-import { useUserTask } from '~/utils/useTask';
+import { computed, defineComponent, unref, useRoute } from '@nuxtjs/composition-api'
+import { useTodosStore } from '~/store/todos';
+import { useTask } from '~/utils/composables/useTasks';
 
 export default defineComponent({
   setup() {
     const $route = useRoute()
     const taskId = computed(() => $route.value.params.task)
 
-    const { task, title, document, finished, updateFinished } = useUserTask(taskId)
+    const task = useTask(taskId);
+    const store = useTodosStore()
 
     return {
-      taskId, task, title, document, finished, updateFinished
+      taskId,
+      title: computed(() => unref(task)?.title),
+      document: computed(() => unref(task)?.document),
+      finished: computed(() => unref(task)?.finished),
+      updateFinished: (value: boolean) =>
+        store.updateTodoFinished({ todoId: unref(taskId), finished: value })
     }
   }
 })

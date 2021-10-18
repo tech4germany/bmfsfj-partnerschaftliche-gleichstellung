@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRef } from '@nuxtjs/composition-api'
-import { useUserTask } from '~/utils/useTask'
+import { computed, defineComponent, toRef, unref } from '@nuxtjs/composition-api'
+import { useTodosStore } from '~/store/todos';
+import { useTask } from '~/utils/composables/useTasks'
 
 export default defineComponent({
   props: {
@@ -32,16 +33,16 @@ export default defineComponent({
   setup(props) {
     const taskId = toRef(props, 'task')
 
-    const { title, modules, document, finished, updateFinished } =
-      useUserTask(taskId)
+    const task = useTask(taskId);
+    const store = useTodosStore()
 
     return {
       taskId,
-      modules,
-      title,
-      document,
-      finished,
-      updateFinished,
+      title: computed(() => unref(task)?.title),
+      finished: computed(() => unref(task)?.finished),
+      modules: computed(() => unref(task)?.modules),
+      updateFinished: (value: boolean) =>
+        store.updateTodoFinished({ todoId: unref(taskId), finished: value })
     }
   },
 })

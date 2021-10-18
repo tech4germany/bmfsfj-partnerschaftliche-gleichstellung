@@ -5,7 +5,7 @@
         class="growing-background"
         :style="`--background-width: ${percentDone}%;`"
       >
-        <span class="flex-grow m-2">{{ name }}</span>
+        <span class="flex-grow m-2">{{ $t(`modules.${module}`) }}</span>
         <span class="m-2">{{ percentDone }}%</span>
       </div>
     </div>
@@ -13,23 +13,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, toRef, unref } from '@nuxtjs/composition-api'
+import { useModule, useModuleFinishedPercent } from '~/utils/composables/useModules'
 
 export default defineComponent({
   props: {
-    name: {
-      default: 'test',
+    module: {
+      default: 'beruf',
       type: String,
-    },
-    percentDone: {
-      default: 0,
-      type: Number,
-    },
-    color: {
-      default: '#00797f',
-      type: String,
-    },
+    }
   },
+  setup(props) {
+    const id = toRef(props, 'module');
+    const module = useModule(id);
+    const percentDone = useModuleFinishedPercent(id);
+
+    return {
+      color: computed(() => unref(module)?.color ?? '#0f0'),
+      percentDone
+    }
+  }
 })
 </script>
 

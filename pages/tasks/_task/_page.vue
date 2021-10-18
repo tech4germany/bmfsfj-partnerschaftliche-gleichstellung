@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, useRoute } from '@nuxtjs/composition-api'
-import { useTaskPageContent } from '~/utils/useTask'
+import { useTaskPageContent } from '~/utils/composables/useTasks'
 
 export default defineComponent({
   setup() {

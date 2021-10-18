@@ -14,8 +14,8 @@
 <script lang="ts">
 import { computed, defineComponent, ref, Ref, useRoute } from '@nuxtjs/composition-api'
 import { Task } from '~/utils/Task';
-import { useTasks } from '~/utils/useTask';
-import { useModuleIds } from '~/utils/useModules';
+import { useTasks } from '~/utils/composables/useTasks';
+import { useModuleIds } from '~/utils/composables/useModules';
 
 export default defineComponent({
   setup() {
