@@ -1,7 +1,7 @@
 <template>
   <div>
     <tech-4-germany-info-banner></tech-4-germany-info-banner>
-    <header>
+    <header class="shadow">
       <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center shadow">
         <bmfsfj-search class="my-3"></bmfsfj-search>
 
