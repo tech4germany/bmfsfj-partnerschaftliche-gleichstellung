@@ -1,3 +1,26 @@
+const locales = [
+  {
+    code: 'de',
+    file: 'de',
+    name: 'Deutsch',
+  },
+  {
+    code: 'en',
+    file: 'en',
+    name: 'English',
+  },
+  {
+    code: 'ru',
+    file: 'ru',
+    name: 'Russisch',
+  },
+  {
+    code: 'tr',
+    file: 'tr',
+    name: 'Türkisch',
+  },
+]
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -12,17 +35,15 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
-    'vue-select/dist/vue-select.css'
+    'vue-select/dist/vue-select.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -54,47 +75,34 @@ export default {
     [
       '@nuxtjs/i18n',
       {
-        locales: [ {
-          code: 'de',
-          file: 'de',
-          name: 'Deutsch'
-        }, {
-          code: 'en',
-          file: 'en',
-          name: 'English'
-         }, {
-           code: 'ru',
-           file: 'ru',
-           name: 'Russisch'
-         }, {
-           code: 'tr',
-           file: 'tr',
-           name: 'Türkisch'
-         }],
+        locales,
         defaultLocale: 'de',
         langDir: 'lang/',
         vueI18n: {
           fallbackLocale: ['en', 'de'],
-        }
-      }
-    ]
+        },
+      },
+    ],
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
       name: 'BMFSFJ PG',
-      theme_color: '#3b82f6'
+      theme_color: '#3b82f6',
     },
     manifest: {
       lang: 'de',
-      name: 'BMFSFJ PG'
-    }
+      name: 'BMFSFJ PG',
+    },
+    workbox: {
+      offlinePage: '/',
+    },
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    fullTextSearchFields: ['title', 'description', 'category']
+    fullTextSearchFields: ['title', 'description', 'category'],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -102,10 +110,55 @@ export default {
   },
 
   purgeCSS: {
-    whitelistPatterns: [/svg.*/, /fa.*/]
+    whitelistPatterns: [/svg.*/, /fa.*/],
+  },
+
+  crawler: true,
+
+  generate: {
+    async routes() {
+      const { $content } = require('@nuxt/content')
+
+      const tasks = await $content('tasks', { deep: true })
+        .where({
+          task: { $eq: true },
+        })
+        .only(['id', 'path', 'dir'])
+        .fetch()
+
+      const taskInfoPages = await $content('tasks', { deep: true })
+        .where({
+          task: { $eq: false },
+        })
+        .only(['slug', 'dir'])
+        .fetch()
+
+      const dirToTaskId = tasks.reduce(
+        (acc, { dir, id }) => ({
+          ...acc,
+          [dir]: id,
+        }),
+        {}
+      )
+
+      const routes = [
+        ...tasks.map(({ id }) => `/tasks/${id}`),
+        ...taskInfoPages.map(
+          ({ dir, slug }) => `/tasks/${dirToTaskId[dir]}/${slug}`
+        ),
+      ]
+
+      const localePrefixes = locales.map(({ code }) =>
+        code === 'de' ? '' : `/${code}`
+      )
+
+      return localePrefixes
+        .map((prefix) => routes.map((route) => `${prefix}${route}`))
+        .flat()
+    },
   },
 
   router: {
-    base: '/bmfsfj-partnerschaftliche-gleichstellung/'
-  }
+    base: '/bmfsfj-partnerschaftliche-gleichstellung/',
+  },
 }
