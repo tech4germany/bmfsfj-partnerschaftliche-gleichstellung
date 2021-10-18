@@ -12,17 +12,20 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, Ref, useRoute } from '@nuxtjs/composition-api'
+import { computed, defineComponent, Ref, unref, useRoute, useRouter } from '@nuxtjs/composition-api'
 import { Task } from '~/utils/Task';
 import { useTasks } from '~/utils/composables/useTasks';
 import { useModuleIds } from '~/utils/composables/useModules';
+import { useLocalLocation } from '~/utils/composables/useLocalRoute';
 
 export default defineComponent({
   setup() {
-    const selectedCategory = ref()
-    const $route = useRoute();
+    const $route = useRoute()
+    const $router = useRouter()
+    const localLocation = useLocalLocation()
 
     const search = computed(() => $route.value.query?.search?.toString() ?? '')
+    const selectedCategory = computed(() => $route.value.query?.module?.toString() ?? null)
 
     const tasks: Ref<Task[]> = useTasks(computed(() => selectedCategory.value != null ? {
       modules: {
@@ -33,7 +36,16 @@ export default defineComponent({
     const categories: Ref<string[]> = useModuleIds()
 
     function selectCategory(category: string) {
-      selectedCategory.value = category
+      const location = localLocation({
+        query: {
+          ... unref($route).query,
+          module: unref(category) ?? undefined
+        }
+      });
+
+      if (location != null) {
+        $router.push(location)
+      }
     }
 
     return {

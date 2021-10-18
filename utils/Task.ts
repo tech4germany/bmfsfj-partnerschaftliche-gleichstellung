@@ -52,7 +52,7 @@ export function tasksFinished(tasks: Task[]): number {
 export function tasksFinishedPercent(tasks: Task[]): number {
   const finishedPercent = (tasksFinished(tasks) / tasks.length) * 100
 
-  return Number.isNaN(finishedPercent) ? 0 : finishedPercent
+  return Number.isNaN(finishedPercent) ? 100 : finishedPercent
 }
 
 export { getTaskDirectory, getTaskPageContent } from '~/utils/content/Task'

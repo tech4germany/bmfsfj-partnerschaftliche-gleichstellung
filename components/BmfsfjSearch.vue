@@ -52,7 +52,8 @@ export default defineComponent({
       const route = localLocation({
         path: 'tasks',
         query: {
-          search: searchTerm,
+          ... unref($route).query,
+          search: searchTerm !== '' ? searchTerm : undefined
         },
       })
 
@@ -70,7 +71,10 @@ export default defineComponent({
     }
 
     function onSubmitSearch() {
-      search(unref(newSearchTerm))
+      const searchTerm = unref(newSearchTerm);
+      if( searchTerm.length > 0 ) {
+        search(searchTerm)
+      }
     }
 
     return {

@@ -1,15 +1,17 @@
 <template>
-  <div class="category-card" :style="`--color: ${color};`">
-    <div class="growing-background-parent">
-      <div
-        class="growing-background"
-        :style="`--background-width: ${percentDone}%;`"
-      >
-        <span class="flex-grow m-2">{{ $t(`modules.${module}`) }}</span>
-        <span class="m-2">{{ percentDone }}%</span>
+  <nuxt-link :to="localeRoute(`/tasks?module=${module}`)">
+    <div class="category-card" :style="`--color: ${color};`">
+      <div class="growing-background-parent">
+        <div
+          class="growing-background"
+          :style="`--background-width: ${percentDone}%;`"
+        >
+          <span class="flex-grow m-2">{{ $t(`modules.${module}`) }}</span>
+          <span class="m-2">{{ percentDone }}%</span>
+        </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
