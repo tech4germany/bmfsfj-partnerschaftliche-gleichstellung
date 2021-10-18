@@ -86,13 +86,13 @@ export async function getTaskPageContent(
   taskDirectory: string,
   page: string
 ): Promise<TaskPageContent> {
-  const taskContent = await $content(
-    `${taskDirectory}/${page}`
-  ).fetch<TaskPageContent>()
+  const taskPagePath = `${taskDirectory.slice(1)}/${page}`
+
+  const taskContent = await $content(taskPagePath).fetch<TaskPageContent>()
 
   if (Array.isArray(taskContent)) throw new TypeError('Unexpected array')
   if (taskContent == null)
-    throw new Error(`Found no task page at ${taskDirectory}/${page}`)
+    throw new Error(`Found no task page at ${taskPagePath}`)
 
   return taskContent
 }
