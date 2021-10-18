@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "npm: dev",
+			"detail": "nuxt",
+      "isBackground": true,
+      "runOptions": {
+        "instanceLimit": 1,
+        "reevaluateOnRerun": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true,
+        "revealProblems": "onProblem"
+      }
+		}
+	]
+}
