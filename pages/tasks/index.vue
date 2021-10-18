@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="flex w-full gap-2">
-      <bmfjfs-chip-select class="flex-grow" placeholder="Modul" :items="categories" :value="selectedCategory" @input="selectCategory"><template #default="{ item }">{{$t(`modules.${item}`)}}</template></bmfjfs-chip-select>
+      <bmfjfs-chip-select class="flex-grow" placeholder="Modul" :items="categories" :value="selectedCategory" @input="selectCategory">
+        <template #option="{ label }">{{$t(`modules.${label}`)}}</template>
+        <template #selected-option="{ label }">{{$t(`modules.${label}`)}}</template>
+      </bmfjfs-chip-select>
       <bmfsfj-toggle-button class="rounded-full" :value="false">Zeitlich</bmfsfj-toggle-button>
       <bmfsfj-toggle-button class="rounded-full" :value="true">Meine Todos</bmfsfj-toggle-button>
       <!--<bmfjfs-chip-select class="flex-grow" ><template #default="{item}">{{item}}</template></bmfjfs-chip-select>-->

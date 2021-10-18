@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-row border-2 border-primary-500 rounded-full">
     <button v-if="value != null" class="ml-2" @click="unselect"><font-awesome-icon class="text-primary-500" :icon="faTimesCircle" /></button>
-    <v-select class="flex-grow" :options="items" :clearable="false" :searchable="false"  v-bind="attrs" :value="value" @input="onInput"></v-select>
+    <v-select class="flex-grow" :options="items" :clearable="false" :searchable="false" v-bind="attrs" :value="value" @input="onInput">
+      <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData"><slot :name="name" v-bind="slotData" /></template>
+    </v-select>
   </div>
 </template>
 
@@ -49,5 +51,15 @@ export default defineComponent({
 .vs__dropdown-toggle {
   border: unset;
   border-radius: unset;
+  @apply flex-grow
+}
+
+.v-select {
+  @apply flex flex-col
+}
+
+.vs__dropdown-menu .vs__dropdown-option--selected,
+.vs__dropdown-menu .vs__dropdown-option--highlight {
+  @apply bg-primary-500 text-white
 }
 </style>
