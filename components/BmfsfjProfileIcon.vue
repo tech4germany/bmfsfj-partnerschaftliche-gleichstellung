@@ -1,6 +1,6 @@
 <template>
-  <div class="profile-icon">
-    <nuxt-link :to="localeRoute('/profile')" class="w-10 h-10 my-3 mr-2 p-2 rounded-full bg-white text-primary-500 flex">
+  <div class="profile-icon flex">
+    <nuxt-link :to="localeRoute('/profile')" class="my-auto w-11 h-11 p-2 rounded-full border-primary-500 border-2 bg-white text-primary-500 flex">
       <font-awesome-icon class="flex-grow m-auto" :icon="faUser" fixed-width/>
     </nuxt-link>
   </div>
@@ -21,6 +21,6 @@ export default defineComponent({
 
 <style scoped>
   .profile-icon >>> .nuxt-link-active {
-    @apply border-2 border-white bg-primary-500 text-white;
+    @apply bg-primary-500 text-white;
   }
 </style>

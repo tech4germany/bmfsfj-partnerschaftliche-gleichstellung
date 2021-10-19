@@ -289,9 +289,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ... bundColorsAlternative,
-        ... bmfsfjColors,
-        primary: bmfsfjColors.engagement.primary,
+        ...bundColorsAlternative,
+        ...bmfsfjColors,
+        primary: bmfsfjColors.familie.primary,
       },
     },
     fontFamily: {

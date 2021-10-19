@@ -1,6 +1,6 @@
 <template>
   <label
-    class="flex-grow bg-white rounded-full m-2 text-black self-center p-1 flex"
+    class="flex-grow bg-white rounded-full text-black self-center p-1 flex"
   >
     <font-awesome-icon
       class="self-center mx-2 text-primary-500"
