@@ -23,6 +23,8 @@ export type TaskPageContent = {
   document?: File & IContentDocument
 }
 
+export const TODOS_DIRECTORY = 'todos'
+
 export function isContentDocumentAFile(
   content: IContentDocument
 ): content is IContentDocument & File {
@@ -62,7 +64,7 @@ export function getTaskQuery(
   $content: contentFunc,
   taskId: string
 ): QueryBuilder {
-  return $content(`tasks`, { deep: true })
+  return $content(TODOS_DIRECTORY, { deep: true })
     .where({
       id: taskId,
       task: true,
@@ -115,7 +117,7 @@ export async function getTasks(
   where: object = {},
   searchTerm: string | null = null
 ): Promise<Task[]> {
-  const tasksContents = await $content(`tasks`, { deep: true })
+  const tasksContents = await $content(TODOS_DIRECTORY, { deep: true })
     .without('data')
     .where({
       task: { $eq: true },
