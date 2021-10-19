@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import { config } from '@fortawesome/fontawesome-svg-core'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { config , library } from '@fortawesome/fontawesome-svg-core'
 import {
   faMapMarkerAlt,
   faEuroSign,

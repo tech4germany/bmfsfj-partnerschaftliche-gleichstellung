@@ -1,23 +1,35 @@
 <template>
-  <bmfsfj-card>
-    <template #header>{{ $t(`intro.${questionId}.question`) }}</template>
+  <div class="text-center flex flex-col h-full">
+    <h2 class="text-2xl mt-24"><slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot></h2>
 
-    <slot></slot>
+    <div class="flex-grow mt-24">
+      <slot></slot>
+    </div>
 
-    <button @click="toggleMoreInfos">Mehr Infos</button>
+    <div v-if="!hasSelection" class="mb-12 gap-2 flex flex-col" >
+      <button @click="toggleMoreInfos">
+        <font-awesome-icon class="fa-lg" :icon="faInfoCircle" />
+      </button>
+      <nuxt-link :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
+    </div>
 
-    <nuxt-link v-if="!hasSelection" :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
-    <nuxt-link v-if="hasSelection" :to="localeRoute(nextLocation)">Weiter</nuxt-link>
-    <nuxt-link v-if="!hasSelection" :to="localeRoute('tasks')">Alle Überspringen</nuxt-link>
+<!--    <nuxt-link v-if="!hasSelection" :to="localeRoute('tasks')">Alle Überspringen</nuxt-link>-->
 
     <nuxt-content
       v-if="moreInfosVisible"
       :document="moreInfos" />
-  </bmfsfj-card>
+
+      <div ></div>
+
+    <nuxt-link v-if="hasSelection" class="mb-12" :to="localeRoute(nextLocation)">
+      <font-awesome-icon class="fa-2x" :icon="faArrowRight" />
+    </nuxt-link>
+  </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, Ref, ref, toRefs, unref } from '@nuxtjs/composition-api';
+import { faArrowRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { usePageContent } from '~/utils/composables/useContent';
 import { useNextQuestion } from '~/utils/composables/useIntro';
 
@@ -58,13 +70,15 @@ export default defineComponent({
     } = toRefs(props);
 
     const { goToNextQuestion } = useNextQuestion(nextLocation)
-    const { moreInfosVisible, moreInfos, toggleMoreInfos }  = useMoreQuestionInfos(questionId)
+    const { moreInfosVisible, moreInfos, toggleMoreInfos } = useMoreQuestionInfos(questionId)
 
     return {
       goToNextQuestion,
       toggleMoreInfos,
       moreInfosVisible,
-      moreInfos
+      moreInfos,
+      faArrowRight,
+      faInfoCircle
     }
   }
 })

@@ -12,7 +12,7 @@ export default defineComponent({
   layout: 'intro',
   setup() {
     const questionId = 'healthInsurance';
-    const nextLocation = 'tasks'
+    const nextLocation = 'intro-6-relationship'
 
     const userStore = useUserStore()
 

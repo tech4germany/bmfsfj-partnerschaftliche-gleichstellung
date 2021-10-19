@@ -4,25 +4,28 @@ const translations = {
   yes: 'Ja',
   no: 'Nein',
   intro: {
+    language: {
+      question: 'Wie verstehst du uns am besten? Bitte wählen!',
+    },
     married: {
-      question: 'Bist du verheiratet?'
+      question: 'Bist du verheiratet?',
     },
     healthInsurance: {
-      question: 'Wie bist du krankenversichert?'
-    }
+      question: 'Wie bist du krankenversichert?',
+    },
   },
   healthInsurance: {
     GESETZLICH: 'Gesetzlich',
     GESETZLICH_FAMILIENVERSICHERT: 'Gesetzlich Familienversichert',
-    PRIVAT: 'Privat'
+    PRIVAT: 'Privat',
   },
   welcome: 'Willkommen',
   modules: {
     geld: 'Geld',
     beruf: 'Beruf',
     behoerden: 'Behörden & Papiere',
-    gesundheit: 'Gesundheit'
-  }
+    gesundheit: 'Gesundheit',
+  },
 }
 
 export default translations

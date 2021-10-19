@@ -1,7 +1,6 @@
 <template>
   <div>
-    <NuxtLink :to="localeRoute('/intro/married')" class="block w-full">Restart Intro</NuxtLink>
-
+    <NuxtLink :to="localeRoute('/intro/0-willkommen')" class="block w-full">Restart Intro</NuxtLink>
 
     <bmfsfj-language-select></bmfsfj-language-select>
 
