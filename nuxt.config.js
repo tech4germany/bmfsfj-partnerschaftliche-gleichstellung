@@ -124,34 +124,11 @@ export default {
     async routes() {
       const { $content } = require('@nuxt/content')
 
-      const tasks = await $content('tasks', { deep: true })
-        .where({
-          task: { $eq: true },
-        })
+      const tasks = await $content('todos', { deep: true })
         .only(['id', 'path', 'dir'])
         .fetch()
 
-      const taskInfoPages = await $content('tasks', { deep: true })
-        .where({
-          task: { $eq: false },
-        })
-        .only(['slug', 'dir'])
-        .fetch()
-
-      const dirToTaskId = tasks.reduce(
-        (acc, { dir, id }) => ({
-          ...acc,
-          [dir]: id,
-        }),
-        {}
-      )
-
-      const routes = [
-        ...tasks.map(({ id }) => `/tasks/${id}`),
-        ...taskInfoPages.map(
-          ({ dir, slug }) => `/tasks/${dirToTaskId[dir]}/${slug}`
-        ),
-      ]
+      const routes = tasks.map(({ id }) => `/tasks/${id}`)
 
       const localePrefixes = locales.map(({ code }) =>
         code === 'de' ? '' : `/${code}`

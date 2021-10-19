@@ -1,7 +1,6 @@
 ---
 title: Mutterschaftsgeld
 id: mutterschaftsgeld
-task: true
 lang: de
 modules:
   - geld

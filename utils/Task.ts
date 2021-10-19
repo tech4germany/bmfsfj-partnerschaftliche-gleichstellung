@@ -6,13 +6,11 @@ import Todos, {
 } from '~/store/todos'
 import {
   Task as ContentTask,
-  TaskPageContent as ContentTaskPageContent,
   getTask as getContentTask,
   getTasks as getContentTasks,
 } from '~/utils/content/Task'
 
 export type Task = Readonly<StoreTask & ContentTask>
-export type TaskPageContent = ContentTaskPageContent
 
 export async function getTask(
   store: Todos,
@@ -54,5 +52,3 @@ export function tasksFinishedPercent(tasks: Task[]): number {
 
   return Number.isNaN(finishedPercent) ? 100 : finishedPercent
 }
-
-export { getTaskDirectory, getTaskPageContent } from '~/utils/content/Task'

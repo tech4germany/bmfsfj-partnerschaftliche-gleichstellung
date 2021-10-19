@@ -4,8 +4,6 @@ import {
   contentFunc,
 } from '@nuxt/content/types/content'
 
-import { QueryBuilder } from '@nuxt/content/types/query-builder'
-
 export type Module = string
 
 export type TaskContent = {
@@ -16,11 +14,6 @@ export type TaskContent = {
 export type Task = TaskContent & {
   id: string
   modules: Module[]
-}
-
-export type TaskPageContent = {
-  title: string
-  document?: File & IContentDocument
 }
 
 export const TODOS_DIRECTORY = 'todos'
@@ -60,50 +53,16 @@ export function contentDocumentToTask(content: IContentDocument): Task {
   }
 }
 
-export function getTaskQuery(
-  $content: contentFunc,
-  taskId: string
-): QueryBuilder {
-  return $content(TODOS_DIRECTORY, { deep: true })
-    .where({
-      id: taskId,
-      task: true,
-    })
-    .limit(1)
-}
-
-export async function getTaskDirectory(
-  $content: contentFunc,
-  taskId: string
-): Promise<string> {
-  const taskContent = await getTaskQuery($content, taskId).only('dir').fetch()
-
-  if (!Array.isArray(taskContent)) throw new TypeError('Expected an array')
-
-  return taskContent[0].dir
-}
-
-export async function getTaskPageContent(
-  $content: contentFunc,
-  taskDirectory: string,
-  page: string
-): Promise<TaskPageContent> {
-  const taskPagePath = `${taskDirectory.slice(1)}/${page}`
-
-  const taskContent = await $content(taskPagePath).fetch<TaskPageContent>()
-
-  if (Array.isArray(taskContent)) throw new TypeError('Unexpected array')
-  if (taskContent == null)
-    throw new Error(`Found no task page at ${taskPagePath}`)
-
-  return taskContent
-}
-
 export async function getTask(
   $content: contentFunc,
   taskId: string
 ): Promise<Task> {
-  const taskContent = await getTaskQuery($content, taskId).fetch()
+  const taskContent = await $content(TODOS_DIRECTORY, { deep: true })
+    .where({
+      id: taskId,
+    })
+    .limit(1)
+    .fetch()
 
   if (!Array.isArray(taskContent)) throw new TypeError('Expected an array')
   if (taskContent.length !== 1)
@@ -119,10 +78,7 @@ export async function getTasks(
 ): Promise<Task[]> {
   const tasksContents = await $content(TODOS_DIRECTORY, { deep: true })
     .without('data')
-    .where({
-      task: { $eq: true },
-      ...where,
-    })
+    .where(where)
     .search(searchTerm)
     .fetch()
 

@@ -12,7 +12,6 @@ Verschiedene Eigenschaften der Todos müssen oben in der Markdown Datei in einem
 ---
 title: Elterngeld beantragen!
 id: elterngeld-beantragen
-task: true
 lang: de
 modules:
   - geld
@@ -24,7 +23,6 @@ modules:
 | ----------- | ------------ |
 | title       | Der Titel des Todos, der z.B. auf der Übersicht angezeigt wird |
 | id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! |
-| task        | Muss immer `true` sein |
 | lang        | Der ISO 639-1 Code der Sprache in der das Todo verfasst ist. (`de`, `en`, `tr` oder `ru`) |
 | modules     | Eine auflistung der Module in denen das Todo verortet wird. |
 
