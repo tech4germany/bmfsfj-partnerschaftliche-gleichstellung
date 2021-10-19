@@ -30,7 +30,24 @@ modules:
 
 Nach diesem Block mit den Eigenschaften des Todos kommt der eigentliche Inhalt des Todos als Text. In diesem Text wird die Markdown Syntax unterstützt [https://www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax).
 
-## Unterstützte Elemente
+## Module
+
+In der Datei `modules.csv` werden die Module im CSV-Format definiert. Die Übersetzungen der Namen geschieht in den Übersetzungsdatein anhand der `id` des jeweiligen Modules.
+
+```csv
+id,color,icon
+geld,#d3003a,euro-sign
+beruf,#e04a09,briefcase
+behoerden,#004377,paste
+```
+
+| Eigenschaft | Beschreibung |
+| ----------- | ------------ |
+| id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! Dieser Wert wird auch in den Todos verwendet um die Todos Modulen zuzuweisen |
+| color       | Der Hexcode der Farbe des Moduls |
+| icon        | Der Name des Icons das für das Modul verwendet wird. Eine Auflistung der unterstützten Icons gibt es weiter unten. |
+
+## Unterstützte Elemente (Markdown)
 
 ### Extension Panel
 
@@ -68,5 +85,8 @@ Der Wert nacht `icon=` muss durch ein Icon aus der folgenden Liste ersetzt werde
 
 Unterstützte Icons:
 * map-marker-alt
+* euro-sign
+* briefcase
+* paste
 
 Weitere Icons von Font Awesome (siehe hier: [fontawesome.com](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid)) können in der Datei `plugins/fontawesome.ts` registriert werden.

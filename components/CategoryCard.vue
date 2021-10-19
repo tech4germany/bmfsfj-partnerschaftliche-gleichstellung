@@ -1,14 +1,15 @@
 <template>
   <nuxt-link :to="localeRoute(`/tasks?module=${module}`)">
     <div class="category-card" :style="`--color: ${color};`">
-      <div class="growing-background-parent">
-        <div
-          class="growing-background"
-          :style="`--background-width: ${percentDone}%;`"
-        >
-          <span class="flex-grow m-2">{{ $t(`modules.${module}`) }}</span>
-          <span class="m-2">{{ percentDone }}%</span>
-        </div>
+      <div
+        class="growing-background gap-4 text-xl px-4 align-middle"
+        :style="`--background-width: ${percentDone}%;`"
+      >
+        <font-awesome-icon class="my-auto" :icon="icon" />
+        <span class="flex-grow my-auto">
+          {{ $t(`modules.${module}`) }}
+        </span>
+        <span class="my-auto">{{ percentDone }}%</span>
       </div>
     </div>
   </nuxt-link>
@@ -32,6 +33,7 @@ export default defineComponent({
 
     return {
       color: computed(() => unref(module)?.color ?? '#0f0'),
+      icon: computed(() => unref(module)?.icon ?? 'euro-sign'),
       percentDone
     }
   }
@@ -40,13 +42,12 @@ export default defineComponent({
 
 <style scoped>
 .category-card {
-  @apply rounded-xl font-bold border-4 relative;
+  @apply rounded-xl font-bold border-4 relative h-32;
   border-color: var(--color);
 }
 
 .growing-background {
-  @apply flex;
-  width: 100%;
+  @apply flex w-full h-full;
 }
 
 .growing-background::before {
@@ -59,7 +60,7 @@ export default defineComponent({
   background-color: var(--color);
 }
 
-.growing-background span {
+.growing-background > * {
   color: var(--color);
 }
 
@@ -86,7 +87,7 @@ export default defineComponent({
   filter: invert();
 }
 
-.growing-background span {
+.growing-background > * {
   mix-blend-mode: difference;
   filter: invert();
 }
