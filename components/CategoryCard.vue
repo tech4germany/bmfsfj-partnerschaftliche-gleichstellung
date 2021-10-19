@@ -34,7 +34,7 @@ export default defineComponent({
     return {
       color: computed(() => unref(module)?.color ?? '#0f0'),
       icon: computed(() => unref(module)?.icon ?? 'euro-sign'),
-      percentDone
+      percentDone: computed(() => unref(percentDone).toFixed(0))
     }
   }
 })

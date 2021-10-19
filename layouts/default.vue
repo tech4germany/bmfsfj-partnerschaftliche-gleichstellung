@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="flex flex-col h-screen">
     <tech-4-germany-info-banner></tech-4-germany-info-banner>
     <header class="shadow">
-      <div class="w-full bg-primary-500 text-white h-16 flex flex-row justify-center shadow">
-        <bmfsfj-search class="my-3"></bmfsfj-search>
+      <div class="w-full bg-white text-primary-500 h-16 flex flex-row justify-center gap-2 px-2">
+        <bmfsfj-search class="border-2 border-primary-500"></bmfsfj-search>
 
         <bmfsfj-profile-icon></bmfsfj-profile-icon>
       </div>
@@ -14,7 +14,7 @@
       </nav>
     </header>
 
-    <div class="m-2">
+    <div class="p-2 max-h-full flex-grow overflow-auto">
       <Nuxt />
     </div>
   </div>

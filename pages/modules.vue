@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2 overflow-auto">
     <category-card v-for="module in modules" :key="module" :module="module"></category-card>
   </div>
 </template>

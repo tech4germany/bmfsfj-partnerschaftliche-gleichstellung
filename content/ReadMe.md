@@ -54,7 +54,7 @@ behoerden,#004377,paste
 Um ein "Extension Panel" einzubinden muss folgender Code an der Entsprechenden Stelle im Text eingefügt werden (die leerzeilen sind zwingend erforderlich):
 
 ```html
-<todo-extension-panel title="Wo" icon="fa-map-marker-alt">
+<todo-extension-panel title="Wo" icon="map-marker-alt">
 
 Antrag bei der Krankenkasse
 
@@ -89,4 +89,4 @@ Unterstützte Icons:
 * briefcase
 * paste
 
-Weitere Icons von Font Awesome (siehe hier: [fontawesome.com](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid)) können in der Datei `plugins/fontawesome.ts` registriert werden.
+Weitere Icons von Font Awesome (siehe hier: [fontawesome.com](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid)) können in der Datei `/plugins/fontawesome.ts` registriert und dann ebenfalls verwendet werden.
