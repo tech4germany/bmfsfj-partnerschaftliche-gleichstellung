@@ -54,7 +54,7 @@ behoerden,#004377,paste
 Um ein "Extension Panel" einzubinden muss folgender Code an der Entsprechenden Stelle im Text eingefügt werden (die leerzeilen sind zwingend erforderlich):
 
 ```html
-<todo-extension-panel title="Wo" icon="map-marker-alt">
+<todo-extension-panel title="Wo" icon="map-marked-alt">
 
 Antrag bei der Krankenkasse
 
@@ -78,15 +78,25 @@ Der Wert in den Anführungszeichen nach `todo=` ist die `id` von dem Todo auf da
 Icons können wie folgt eingebunden werden:
 
 ```html
-<font-awesome-icon icon="map-marker-alt"></font-awesome-icon>
+<font-awesome-icon icon="map-marked-alt"></font-awesome-icon>
 ```
 
 Der Wert nacht `icon=` muss durch ein Icon aus der folgenden Liste ersetzt werden:
 
 Unterstützte Icons:
-* map-marker-alt
 * euro-sign
 * briefcase
 * paste
+* map-marked-alt
+* calendar-alt
+* calendar-check
+* calendar-times
+* exclamation
+* info-circle
+* glass-cheers
+* external-link-alt
+* brain
+* puzzle-piece
+* lightbulb
 
 Weitere Icons von Font Awesome (siehe hier: [fontawesome.com](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid)) können in der Datei `/plugins/fontawesome.ts` registriert und dann ebenfalls verwendet werden.
