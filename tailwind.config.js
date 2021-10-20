@@ -302,7 +302,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'BundesSans',
+        'BundesSansWeb',
         'Calibri',
         'Verdana',
         'Arial',

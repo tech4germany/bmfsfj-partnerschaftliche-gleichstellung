@@ -44,6 +44,7 @@ export default {
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     'vue-select/dist/vue-select.css',
+    '~/assets/css/fonts.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
