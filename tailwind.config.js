@@ -293,6 +293,12 @@ module.exports = {
         ...bmfsfjColors,
         primary: bmfsfjColors.familie.primary,
       },
+      borderWidth: {
+        3: '3px',
+      },
+      fontSize: {
+        '1.5xl': '22px',
+      },
     },
     fontFamily: {
       sans: [

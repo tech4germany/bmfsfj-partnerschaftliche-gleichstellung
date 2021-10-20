@@ -2,7 +2,7 @@
   <nuxt-link :to="localeRoute(`/tasks?module=${module}`)">
     <div class="category-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
       <div
-        class="growing-background gap-4 text-xl px-4 align-middle"
+        class="growing-background gap-4 text-1.5xl px-4 align-middle"
         :style="`--background-width: ${percentDone}%;`"
       >
         <font-awesome-icon class="my-auto" :icon="icon" />
@@ -43,7 +43,7 @@ export default defineComponent({
 
 <style scoped>
 .category-card {
-  @apply rounded-xl font-bold border-4 relative h-32;
+  @apply rounded-xl border-3 relative h-24;
   border-color: var(--border-color);
 }
 
@@ -52,6 +52,7 @@ export default defineComponent({
 }
 
 .growing-background::before {
+  @apply rounded-l;
   content: '';
   position: absolute;
   top: 0;
