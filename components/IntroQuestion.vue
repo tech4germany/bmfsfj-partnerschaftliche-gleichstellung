@@ -1,8 +1,8 @@
 <template>
   <div class="text-center flex flex-col h-full">
-    <h2 class="text-2xl mt-24"><slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot></h2>
+    <h2 class="text-2xl mt-12"><slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot></h2>
 
-    <div class="flex-grow mt-24">
+    <div class="flex-grow mt-12">
       <slot></slot>
     </div>
 
@@ -12,8 +12,6 @@
       </button>
       <nuxt-link :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
     </div>
-
-<!--    <nuxt-link v-if="!hasSelection" :to="localeRoute('tasks')">Alle Überspringen</nuxt-link>-->
 
     <nuxt-content
       v-if="moreInfosVisible"

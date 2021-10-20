@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div class="flex w-full gap-2">
-      <bmfjfs-chip-select class="flex-grow" placeholder="Modul" :items="categories" :value="selectedCategory" @input="selectCategory">
-        <template #option="{ label }">{{$t(`modules.${label}`)}}</template>
-        <template #selected-option="{ label }">{{$t(`modules.${label}`)}}</template>
-      </bmfjfs-chip-select>
-      <bmfsfj-toggle-button class="rounded-full" :value="false">Zeitlich</bmfsfj-toggle-button>
-      <bmfsfj-toggle-button class="rounded-full" :value="true">Meine Todos</bmfsfj-toggle-button>
-      <!--<bmfjfs-chip-select class="flex-grow" ><template #default="{item}">{{item}}</template></bmfjfs-chip-select>-->
-    </div>
+    <bmfsfj-todos-filter></bmfsfj-todos-filter>
 
     <div class="mt-2 flex flex-col gap-2">
       <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
