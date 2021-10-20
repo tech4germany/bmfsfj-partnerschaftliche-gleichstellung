@@ -1,7 +1,7 @@
 <template>
   <bmfsfj-card>
     <template #header>{{title}}</template>
-    <bmfsfj-checkbox :value="finished" label="TEST 3" @input="updateFinished"></bmfsfj-checkbox>
+    <bmfsfj-checkbox :value="finished" label="Erledigt?" @input="updateFinished"></bmfsfj-checkbox>
     <nuxt-content
       class="mx-auto"
       :document="document" />
