@@ -1,4 +1,4 @@
-id,color,icon
-geld,#d3003a,euro-sign
-beruf,#e04a09,briefcase
-behoerden,#004377,paste
+id,color,color2,icon
+geld,#55a9af,#00797f,euro-sign
+beruf,#ec8963,#e04a09,briefcase
+behoerden,#bf6e6a,#991228,paste

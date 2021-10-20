@@ -3,6 +3,7 @@ import { contentFunc } from '@nuxt/content/types/content'
 export type Module = {
   id: string
   color: string
+  color2: string
   icon: string
 }
 

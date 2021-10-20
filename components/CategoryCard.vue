@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="localeRoute(`/tasks?module=${module}`)">
-    <div class="category-card" :style="`--color: ${color};`">
+    <div class="category-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
       <div
         class="growing-background gap-4 text-xl px-4 align-middle"
         :style="`--background-width: ${percentDone}%;`"
@@ -33,6 +33,7 @@ export default defineComponent({
 
     return {
       color: computed(() => unref(module)?.color ?? '#0f0'),
+      borderColor: computed(() => unref(module)?.color2 ?? '#0f0'),
       icon: computed(() => unref(module)?.icon ?? 'euro-sign'),
       percentDone: computed(() => unref(percentDone).toFixed(0))
     }
@@ -43,7 +44,7 @@ export default defineComponent({
 <style scoped>
 .category-card {
   @apply rounded-xl font-bold border-4 relative h-32;
-  border-color: var(--color);
+  border-color: var(--border-color);
 }
 
 .growing-background {
@@ -57,12 +58,15 @@ export default defineComponent({
   left: 0;
   width: var(--background-width);
   height: 100%;
+  z-index: -1;
   background-color: var(--color);
 }
 
+/*
 .growing-background > * {
   color: var(--color);
 }
+*/
 
 /*
  * We want the color of the text to be white when on the colored part of the background.
@@ -79,6 +83,7 @@ export default defineComponent({
  * containing the text (`.growing-background span`). This appearantly works...
  */
 
+/*
 .growing-background {
   filter: invert();
 }
@@ -91,4 +96,5 @@ export default defineComponent({
   mix-blend-mode: difference;
   filter: invert();
 }
+*/
 </style>
