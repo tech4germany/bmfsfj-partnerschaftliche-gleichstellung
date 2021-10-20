@@ -1,5 +1,6 @@
 <template>
   <button
+    class="p-1 border-primary-500 border-2 rounded-xl"
     :class="{ checked: value }"
     :aria-pressed="value"
     v-bind="attrs"
@@ -29,10 +30,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-button {
-  @apply p-1 border-primary-500 border-2 rounded;
-}
-
 button.checked {
   @apply bg-primary-500 text-white;
 }
