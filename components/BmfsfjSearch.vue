@@ -1,13 +1,13 @@
 <template>
   <label
-    class="flex-grow bg-white rounded-full text-black self-center p-1 flex"
+    class="flex-grow bg-white rounded-full text-black self-center flex"
   >
     <font-awesome-icon
-      class="self-center mx-2 text-primary-500"
+      class="self-center mx-1 text-primary-500"
       :icon="faSearch"
     />
     <input
-      class="p-1 mr-2 flex-grow"
+      class="p-1 flex-grow"
       :value="searchTerm"
       type="search"
       inputmode="latin"
@@ -17,7 +17,7 @@
     />
     <button @click="onSubmitSearch">
       <font-awesome-icon
-        class="self-center mx-2 text-primary-500"
+        class="self-center mx-1 text-primary-500"
         :icon="faArrowCircleRight"
       />
     </button>

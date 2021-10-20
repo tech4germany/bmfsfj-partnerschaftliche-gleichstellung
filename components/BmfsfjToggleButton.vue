@@ -30,7 +30,7 @@ export default defineComponent({
 
 <style scoped>
 button {
-  @apply p-2 border-primary-500 border-2 rounded;
+  @apply p-1 border-primary-500 border-2 rounded;
 }
 
 button.checked {

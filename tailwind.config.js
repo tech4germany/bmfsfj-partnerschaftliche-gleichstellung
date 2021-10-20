@@ -291,13 +291,18 @@ module.exports = {
       colors: {
         ...bundColorsAlternative,
         ...bmfsfjColors,
-        primary: bmfsfjColors.familie.primary,
+        primary: bmfsfjColors.ältereMenschen.primary,
       },
       borderWidth: {
         3: '3px',
       },
       fontSize: {
         '1.5xl': '22px',
+      },
+      spacing: {
+        1: '10px',
+        2: '20px',
+        4: '40px',
       },
     },
     fontFamily: {

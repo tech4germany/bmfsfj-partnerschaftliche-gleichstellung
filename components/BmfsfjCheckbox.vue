@@ -1,9 +1,10 @@
 <template>
   <div>
-    <label class="flex flex-row items-center space-x-1">
+    <label class="flex flex-row items-center">
       <font-awesome-icon
         class="text-primary-500 dark:text-white dark:bg-primary-500"
         fixed-width
+        size="lg"
         :icon="checkboxIcon"
       />
       <input
@@ -15,21 +16,22 @@
         v-bind="attrs"
         @input="$emit('input', $event.target.checked)"
       />
-      <span>{{ label }}</span>
+      <span class="mr-1">{{ label }}</span>
     </label>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, toRef, unref } from '@vue/composition-api'
-import { faCheck, faQuestion, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 export default defineComponent({
   inheritAttrs: false,
   props: {
     label: {
       type: String,
-      default: '',
+      default: null,
     },
     value: {
       type: Boolean,
@@ -49,7 +51,7 @@ export default defineComponent({
         return faCheck
       }
 
-      return faTimes
+      return faCircle
     })
 
     return {

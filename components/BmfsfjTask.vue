@@ -1,17 +1,22 @@
 <template>
-  <div class="flex h-24 bg-gray-200 rounded-xl">
-    <div class="module-icon-wrapper w-8 flex flex-col ">
-      <div v-for="module in modules" :key="module.id" class="module-icon w-8 h-8 flex first:rounded-tl-xl" :style="`--color: ${module.color2}`">
-        <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
+  <div class="flex">
+    <div class="flex">
+      <bmfsfj-checkbox class="m-auto" :value="finished" @input="updateFinished"></bmfsfj-checkbox>
+    </div>
+    <todo-link :todo="taskId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
+      <div class="module-icon-wrapper w-8 flex flex-col ">
+        <div v-for="module in modules" :key="module.id" class="module-icon w-8 h-8 flex first:rounded-tl-xl" :style="`--color: ${module.color2}`">
+          <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
+        </div>
       </div>
-    </div>
-    <div class="flex-grow p-2">
-      <h4>
-        {{ title }}
-      </h4>
-    </div>
-    <todo-link class="w-12 flex h-full" :todo="taskId">
-      <font-awesome-icon size="lg" style="margin: auto" fixed-width :icon="faChevronRight"></font-awesome-icon>
+      <div class="flex-grow p-2">
+        <h4>
+          {{ title }}
+        </h4>
+      </div>
+      <div class="w-12 flex h-full">
+        <font-awesome-icon size="lg" style="margin: auto" fixed-width :icon="faChevronRight"></font-awesome-icon>
+      </div>
     </todo-link>
   </div>
   <!--<bmfsfj-card class="my-2">
@@ -35,6 +40,7 @@
 <script lang="ts">
 import { computed, defineComponent, Ref, toRef, unref } from '@nuxtjs/composition-api'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import BmfsfjCheckbox from './BmfsfjCheckbox.vue';
 import { useTodosStore } from '~/store/todos';
 import { useModules } from '~/utils/composables/useModules';
 import { Module }  from '~/utils/Module';
@@ -54,6 +60,7 @@ function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
 }
 
 export default defineComponent({
+  components: { BmfsfjCheckbox },
   props: {
     task: {
       default: 'mutterschaftsgeld-beantragen',
