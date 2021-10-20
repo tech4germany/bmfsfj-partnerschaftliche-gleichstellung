@@ -12,12 +12,12 @@ const locales = [
   {
     code: 'ru',
     file: 'ru',
-    name: 'Russisch',
+    name: 'Русский',
   },
   {
     code: 'tr',
     file: 'tr',
-    name: 'Türkisch',
+    name: 'Türkçe',
   },
 ]
 
