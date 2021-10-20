@@ -10,7 +10,9 @@
       <!--<bmfjfs-chip-select class="flex-grow" ><template #default="{item}">{{item}}</template></bmfjfs-chip-select>-->
     </div>
 
-    <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
+    <div class="mt-2 flex flex-col gap-2">
+      <bmfsfj-task v-for="task in tasks" :key="task.id" :task="task.id"></bmfsfj-task>
+    </div>
   </div>
 </template>
 

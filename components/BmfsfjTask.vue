@@ -1,5 +1,20 @@
 <template>
-  <bmfsfj-card class="my-2">
+  <div class="flex h-24 bg-gray-200 rounded-xl">
+    <div class="module-icon-wrapper w-8 flex flex-col ">
+      <div v-for="module in modules" :key="module.id" class="module-icon w-8 h-8 flex first:rounded-tl-xl" :style="`--color: ${module.color2}`">
+        <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
+      </div>
+    </div>
+    <div class="flex-grow p-2">
+      <h4>
+        {{ title }}
+      </h4>
+    </div>
+    <todo-link class="w-12 flex h-full" :todo="taskId">
+      <font-awesome-icon size="lg" style="margin: auto" fixed-width :icon="faChevronRight"></font-awesome-icon>
+    </todo-link>
+  </div>
+  <!--<bmfsfj-card class="my-2">
     <template #header>
       <div class="flex dark flex-row">
         <bmfsfj-checkbox
@@ -14,13 +29,29 @@
     <span>
       <li v-for="module in modules" :key="module">{{ $t(`modules.${module}`) }}</li>
     </span>
-  </bmfsfj-card>
+  </bmfsfj-card>-->
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, toRef, unref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, Ref, toRef, unref } from '@nuxtjs/composition-api'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useTodosStore } from '~/store/todos';
+import { useModules } from '~/utils/composables/useModules';
+import { Module }  from '~/utils/Module';
 import { useTask } from '~/utils/composables/useTasks'
+import { Task } from '~/utils/Task';
+
+function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
+  const modules = useModules();
+
+  return computed(() => {
+    if (task.value === null) return [];
+
+    const taskModules = task.value.modules
+
+    return modules.value.filter(module => taskModules.find((id) => id === module.id) != null);
+  });
+}
 
 export default defineComponent({
   props: {
@@ -40,10 +71,23 @@ export default defineComponent({
       taskId,
       title: computed(() => unref(task)?.title),
       finished: computed(() => unref(task)?.finished),
-      modules: computed(() => unref(task)?.modules),
+      modules: useTaskModules(task),
       updateFinished: (value: boolean) =>
-        store.updateTodoFinished({ todoId: unref(taskId), finished: value })
+        store.updateTodoFinished({ todoId: unref(taskId), finished: value }),
+      faChevronRight
     }
   },
 })
 </script>
+
+<style scoped>
+.module-icon {
+  @apply text-white;
+  background-color: var(--color);
+}
+
+.module-icon:nth-child(3) {
+  @apply rounded-bl-xl;
+}
+
+</style>
