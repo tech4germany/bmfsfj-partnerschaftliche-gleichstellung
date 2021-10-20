@@ -31,7 +31,7 @@
 import { computed, defineComponent, Ref, ref, toRefs, unref } from '@nuxtjs/composition-api';
 import { faArrowRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { usePageContent } from '~/utils/composables/useContent';
-import { useNextQuestion } from '~/utils/composables/useIntro';
+import { useLocalRoute } from '~/utils/composables/useLocalRoute';
 
 function useMoreQuestionInfos(questionId: Ref<string> | string) {
   const moreInfosVisible = ref(false);
@@ -69,11 +69,11 @@ export default defineComponent({
       questionId
     } = toRefs(props);
 
-    const { goToNextQuestion } = useNextQuestion(nextLocation)
     const { moreInfosVisible, moreInfos, toggleMoreInfos } = useMoreQuestionInfos(questionId)
+    const localeRoute = useLocalRoute()
 
     return {
-      goToNextQuestion,
+      nextQuestion: computed(() => localeRoute(unref(nextLocation))),
       toggleMoreInfos,
       moreInfosVisible,
       moreInfos,

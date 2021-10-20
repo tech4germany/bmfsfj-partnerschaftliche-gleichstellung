@@ -1,45 +1,33 @@
 <template>
-  <intro-question
-    :question-id="questionId"
+  <intro-question-select
+    question-id="baby"
     :next-location="nextLocation"
+    :types="types"
     :has-selection="hasSelection"
-  >
-    <bmfsfj-toggle-button
-      v-for="type in types"
-      :key="type"
-      class="w-full my-1"
-      :value="isSelected(type)"
-      @input="select(type)"
-      >{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button
-    >
-  </intro-question>
+    :is-selected="isSelected"
+    @input="(type) => select(type)"
+  ></intro-question-select>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, unref } from '@nuxtjs/composition-api'
-import { BabySituation, useUserStore } from '~/store/user'
+import { useUserStore, BabySituation } from '~/store/user'
 
 export default defineComponent({
   layout: 'intro',
   setup() {
-    const questionId = 'baby'
-    const nextLocation = 'intro-10-birthday'
-
     const userStore = useUserStore()
-
     const babySituation = computed(() => userStore.babySituation)
+    const nextLocation = computed(() =>
+      unref(babySituation) === BabySituation.EXPECTED ? 'intro-10-birthday' : 'intro-11-finished'
+    )
 
     return {
       nextLocation,
-      questionId,
-      types: BabySituation,
-      select: (type: BabySituation) => {
-        userStore.setBabySituation(type)
-      },
-      isSelected: (type: BabySituation) => {
-        return unref(babySituation) === type
-      },
-      hasSelection: computed(() => userStore.babySituation != null),
+      types: Object.keys(BabySituation),
+      select: userStore.setBabySituation,
+      isSelected: (type: BabySituation) => unref(babySituation) === type,
+      hasSelection: computed(() => unref(babySituation) != null),
     }
   },
 })

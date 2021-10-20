@@ -1,18 +1,12 @@
 <template>
-  <intro-question
-    :question-id="questionId"
-    :next-location="nextLocation"
+  <intro-question-select
+    question-id="work"
+    next-location="intro-5-healthInsurance"
     :has-selection="hasSelection"
-  >
-    <bmfsfj-toggle-button
-      v-for="type in types"
-      :key="type"
-      class="w-full my-1"
-      :value="isSelected(type)"
-      @input="select(type)"
-      >{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button
-    >
-  </intro-question>
+    :is-selected="isSelected"
+    :types="types"
+    @input="(type) => select(type)"
+  ></intro-question-select>
 </template>
 
 <script lang="ts">
@@ -22,21 +16,12 @@ import { WorkSituation, useUserStore } from '~/store/user'
 export default defineComponent({
   layout: 'intro',
   setup() {
-    const questionId = 'work'
-    const nextLocation = 'intro-5-healthInsurance'
-
     const userStore = useUserStore()
 
     return {
-      nextLocation,
-      questionId,
-      types: WorkSituation,
-      select: (type: WorkSituation) => {
-        userStore.setWorkSituation(type)
-      },
-      isSelected: (type: WorkSituation) => {
-        return userStore.workSituation === type
-      },
+      types: Object.keys(WorkSituation),
+      select: userStore.setWorkSituation,
+      isSelected: (type: WorkSituation) => userStore.workSituation === type,
       hasSelection: computed(() => userStore.workSituation != null),
     }
   },

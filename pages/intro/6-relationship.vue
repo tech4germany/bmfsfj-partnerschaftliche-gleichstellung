@@ -6,13 +6,13 @@
   >
     <bmfsfj-toggle-button
       class="w-full my-1"
-      :value="married === true"
+      :value="relationship === true"
       @input="yes"
       >{{ $t('yes') }}</bmfsfj-toggle-button
     >
     <bmfsfj-toggle-button
       class="w-full my-1"
-      :value="married === false"
+      :value="relationship === false"
       @input="no"
       >{{ $t('no') }}</bmfsfj-toggle-button
     >
@@ -20,14 +20,17 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, unref } from '@nuxtjs/composition-api'
 import { useUserStore } from '~/store/user'
 
 export default defineComponent({
   layout: 'intro',
   setup() {
+    const relationship = computed(() => userStore.relationship)
     const questionId = 'relationship'
-    const nextLocation = 'intro-7-partner-name'
+    const nextLocation = computed(() =>
+      unref(relationship) ? 'intro-7-partner-name' : 'intro-9-baby'
+    )
 
     const userStore = useUserStore()
 
@@ -40,7 +43,7 @@ export default defineComponent({
       no: () => {
         userStore.setRelationship(false)
       },
-      married: computed(() => userStore.relationship),
+      relationship: computed(() => userStore.relationship),
       hasSelection: computed(() => userStore.relationship != null),
     }
   },

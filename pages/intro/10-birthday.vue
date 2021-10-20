@@ -9,7 +9,6 @@
       placeholder="Geburtstag"
       type="date"
       :value="birthday"
-      @input="help"
       @change="updateBirthday"
     />
   </intro-question>

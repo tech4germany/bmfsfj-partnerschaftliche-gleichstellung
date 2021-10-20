@@ -1,33 +1,29 @@
 <template>
-  <intro-question :question-id="questionId" :next-location="nextLocation" :has-selection="hasSelection">
-    <bmfsfj-toggle-button v-for="type in types" :key="type" class="w-full my-1" :value="isSelected(type)" @input="select(type)">{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button>
-  </intro-question>
+  <intro-question-select
+    question-id="healthInsurance"
+    next-location="intro-6-relationship"
+    :has-selection="hasSelection"
+    :is-selected="isSelected"
+    :types="types"
+    @input="(type) => select(type)"
+  ></intro-question-select>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api';
-import { HealthInsurance, useUserStore } from '~/store/user';
+import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { useUserStore, HealthInsurance } from '~/store/user'
 
 export default defineComponent({
   layout: 'intro',
   setup() {
-    const questionId = 'healthInsurance';
-    const nextLocation = 'intro-6-relationship'
-
     const userStore = useUserStore()
 
     return {
-      nextLocation,
-      questionId,
-      types: HealthInsurance,
-      select: (type: HealthInsurance) => {
-        userStore.setHealthInsurance(type);
-      },
-      isSelected: (type: HealthInsurance) => {
-        return userStore.healthInsurance === type;
-      },
-      hasSelection: computed(() => userStore.healthInsurance != null)
+      types: Object.keys(HealthInsurance),
+      select: userStore.setHealthInsurance,
+      isSelected: (type: HealthInsurance) => userStore.healthInsurance === type,
+      hasSelection: computed(() => userStore.healthInsurance != null),
     }
-  }
+  },
 })
 </script>
