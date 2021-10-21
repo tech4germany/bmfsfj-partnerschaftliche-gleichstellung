@@ -65,7 +65,7 @@ export default defineComponent({
 
     const task = useTask(taskId);
     const store = useTodosStore();
-    const assignees = computed(() => Object.keys(unref(task)?.assignees ?? {}))
+    const assignees = computed(() => Object.entries(unref(task)?.assignees ?? {}).filter(([_id, status]) => status).map(([id]) => id))
 
     return {
       taskId,
