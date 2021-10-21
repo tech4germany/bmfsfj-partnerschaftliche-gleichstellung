@@ -1,4 +1,5 @@
 id,color,color2,icon
 geld,#55a9af,#00797f,euro-sign
-beruf,#ec8963,#e04a09,briefcase
-behoerden,#bf6e6a,#991228,paste
+beruf,#bf6e6a,#991228,briefcase
+behoerden,#ec8963,#e04a09,paste
+private,#65ae78,#008136,id-badge

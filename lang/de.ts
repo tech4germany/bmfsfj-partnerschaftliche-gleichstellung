@@ -24,7 +24,7 @@ const translations = {
     geld: 'Geld',
     beruf: 'Beruf',
     behoerden: 'Behörden & Papiere',
-    gesundheit: 'Gesundheit',
+    private: 'Persönliches',
   },
 }
 

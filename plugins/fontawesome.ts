@@ -15,12 +15,14 @@ import {
   faBrain,
   faPuzzlePiece,
   faLightbulb,
+  faIdBadge
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faEuroSign) // Modul: Geld
 library.add(faBriefcase) // Modul: Beruf
 library.add(faPaste) // Modul: Behörden & Dokumente
+library.add(faIdBadge) // Modul: Persönliches
 
 library.add(faMapMarkedAlt) // Ort
 library.add(faCalendarAlt) // Gesetzliche Frist
