@@ -16,7 +16,7 @@
         v-bind="attrs"
         @input="$emit('input', $event.target.checked)"
       />
-      <span class="mr-1">{{ label }}</span>
+      <slot><span class="ml-1">{{ label }}</span></slot>
     </label>
   </div>
 </template>

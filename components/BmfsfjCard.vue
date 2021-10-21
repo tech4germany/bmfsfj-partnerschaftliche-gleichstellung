@@ -1,9 +1,9 @@
 <template>
   <div class="border-2 border-primary-500 rounded-lg">
-    <header class="bg-primary-500 text-white pl-4 p-2">
+    <header class="border-b-2 border-primary-500">
       <slot name="header"></slot>
     </header>
-    <div class="m-2">
+    <div class="mx-2 mt-1 mb-2">
       <slot></slot>
     </div>
   </div>

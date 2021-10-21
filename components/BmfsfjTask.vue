@@ -19,28 +19,11 @@
       </div>
     </todo-link>
   </div>
-  <!--<bmfsfj-card class="my-2">
-    <template #header>
-      <div class="flex dark flex-row">
-        <bmfsfj-checkbox
-          class=""
-          :value="finished"
-          :label="title"
-          @input="updateFinished"
-        ></bmfsfj-checkbox>
-      </div>
-    </template>
-    <todo-link :todo="taskId">Go!</todo-link>
-    <span>
-      <li v-for="module in modules" :key="module">{{ $t(`modules.${module}`) }}</li>
-    </span>
-  </bmfsfj-card>-->
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, Ref, toRef, unref } from '@nuxtjs/composition-api'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import BmfsfjCheckbox from './BmfsfjCheckbox.vue';
 import { useTodosStore } from '~/store/todos';
 import { useModules } from '~/utils/composables/useModules';
 import { Module }  from '~/utils/Module';
@@ -60,7 +43,6 @@ function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
 }
 
 export default defineComponent({
-  components: { BmfsfjCheckbox },
   props: {
     task: {
       default: 'mutterschaftsgeld-beantragen',
