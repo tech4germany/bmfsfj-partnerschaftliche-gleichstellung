@@ -1,27 +1,29 @@
 <template>
-  <div class="text-center flex flex-col h-full">
-    <h2 class="text-2xl mt-12"><slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot></h2>
+  <div class="flex flex-col h-full">
+    <h2 class="text-xl mt-12 mx-1"><slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot></h2>
 
-    <div class="flex-grow mt-12">
+    <div class="flex-grow flex">
+      <div class="my-auto w-full">
       <slot></slot>
+      </div>
     </div>
 
-    <div v-if="!hasSelection" class="mb-12 gap-2 flex flex-col" >
+    <div class="gap-4 flex flex-col mb-2" >
       <button @click="toggleMoreInfos">
         <font-awesome-icon class="fa-lg" :icon="faInfoCircle" />
       </button>
-      <nuxt-link :to="localeRoute(nextLocation)">Überspringen</nuxt-link>
+      <nuxt-link  v-if="!hasSelection" class="text-primary-500 self-center text-center text-xl" :to="localeRoute(nextLocation)">{{$t(`intro.skip-question`)}}</nuxt-link>
     </div>
 
     <nuxt-content
       v-if="moreInfosVisible"
       :document="moreInfos" />
 
-      <div ></div>
-
-    <nuxt-link v-if="hasSelection" class="mb-12" :to="localeRoute(nextLocation)">
-      <font-awesome-icon class="fa-2x" :icon="faArrowRight" />
-    </nuxt-link>
+    <div v-if="hasSelection" class="mb-2 flex flex-row-reverse mr-2 mt-2">
+      <nuxt-link :to="localeRoute(nextLocation)">
+        <font-awesome-icon class="fa-3x text-primary-500" :icon="faArrowRight" />
+      </nuxt-link>
+    </div>
   </div>
 </template>
 

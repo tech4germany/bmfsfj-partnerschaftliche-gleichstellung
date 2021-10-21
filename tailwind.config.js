@@ -302,6 +302,7 @@ module.exports = {
       spacing: {
         1: '10px',
         2: '20px',
+        3: '30px',
         4: '40px',
       },
     },

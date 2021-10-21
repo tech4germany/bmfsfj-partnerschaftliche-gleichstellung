@@ -1,11 +1,9 @@
 <template>
   <div class="flex flex-col text-center h-screen">
-    <h1 class="text-4xl font- mt-24">Willkommen</h1>
+    <h1 class="text-4xl text-primary-500 mt-24">{{$t(`intro.welcome`)}}</h1>
 
-    <span class="flex-grow mt-24"
-      >Wir freuen uns dich auf dem spannenden Weg
-      <span class="line-through">in den nächsten Monaten</span>
-      <b>durch unseren Prototypen</b> zu begleiten!</span
+    <span class="flex-grow mt-24 text-xl"
+      >{{$t(`intro.introduction`)}}</span
     >
 
     <div class="flex mb-24">
@@ -19,8 +17,8 @@
       </div>
     </div>
 
-    <nuxt-link class="mb-12" to="/intro/1-language">
-      <font-awesome-icon class="fa-2x" :icon="faArrowRight" />
+    <nuxt-link class="mb-12" :to="localeRoute(`/intro/1-language`)">
+      <font-awesome-icon class="fa-3x text-primary-500" :icon="faArrowRight" />
     </nuxt-link>
   </div>
 </template>

@@ -10,6 +10,7 @@
         :key="type"
         class="w-full"
         :value="isSelected(type)"
+        :multi="multi"
         @input="$emit('input', type)"
         >{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button
       >
@@ -37,6 +38,10 @@ export default defineComponent({
     isSelected: {
       type: Function,
       required: true
+    },
+    multi: {
+      type: Boolean,
+      default: false
     },
     types: {
       type: Array,

@@ -4,6 +4,11 @@ const translations = {
   yes: 'Ja',
   no: 'Nein',
   intro: {
+    title: 'Einführung',
+    'skip-question': 'Frage überspringen',
+    work: {
+      question: 'Wie ist deine berufliche Situation?',
+    },
     language: {
       question: 'Wie verstehst du uns am besten? Bitte wählen!',
     },

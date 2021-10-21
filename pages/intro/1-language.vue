@@ -5,8 +5,8 @@
     has-selection
   >
     <template #header>
-      <span class="block">{{ $t(`intro.language.question`) }}</span>
-      <span class="block text-gray-600 text-xl">
+      <span class="block ">{{ $t(`intro.language.question`) }}</span>
+      <span class="block text-gray-600 text-lg">
         {{
           $t(`intro.language.question`, currentLocale === 'en' ? 'de' : 'en')
         }}

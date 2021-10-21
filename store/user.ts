@@ -3,8 +3,7 @@ import { Module, VuexModule, Mutation, getModule } from 'vuex-module-decorators'
 
 export enum HealthInsurance {
   GESETZLICH = 'GESETZLICH',
-  GESETZLICH_FAMILIENVERSICHERT = 'GESETZLICH_FAMILIENVERSICHERT',
-  PRIVAT = 'PRIVAT'
+  PRIVAT = 'PRIVAT',
 }
 
 export enum WorkSituation {
