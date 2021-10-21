@@ -71,4 +71,5 @@ Der Arbeitgeber ist verpflichtet die Anmeldung der Elternzeit zu bestätigen. Di
 </todo-extension-panel>
 
 Ähnliche Aufgaben:
+<todo-link todo="elterngeld-durchrechnen">Mit Elterngeldrechner finanzielle Möglichkeiten durchrechnen</todo-link>
 <todo-link todo="elterngeld-beantragen">Elterngeld beantragen</todo-link>

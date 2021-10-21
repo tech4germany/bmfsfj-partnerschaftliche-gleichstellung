@@ -85,4 +85,5 @@ kannst du deine Elternzeit und Elterngeld besser aufeinander abstimmen.
 Ähnliche Aufgaben:
 
 <todo-link todo="elternzeit-anmelden">Elternzeit anmelden</todo-link>
+<todo-link todo="elterngeld-durchrechnen">Mit Elterngeldrechner finanzielle Möglichkeiten durchrechnen</todo-link>
 <todo-link todo="elterngeld-beantragen">Elterngeld beantragen</todo-link>

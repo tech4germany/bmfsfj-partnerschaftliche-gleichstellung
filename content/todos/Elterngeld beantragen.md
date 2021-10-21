@@ -1,5 +1,5 @@
 ---
-title: Elterngeld beantragen (& informieren)
+title: Elterngeld beantragen
 id: elterngeld-beantragen
 lang: de
 modules:
@@ -8,11 +8,19 @@ modules:
 ---
 
 <todo-extension-panel title="Wo" icon="map-marked-alt">
-??
+Online
 </todo-extension-panel>
 
-<todo-extension-panel title="Wann?" icon="calendar-check">
-??
+<todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
+
+Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
+</todo-extension-panel>
+
+<todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
+
+Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
 </todo-extension-panel>
 
 <todo-extension-panel title="Info" icon="info-circle">
