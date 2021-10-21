@@ -8,9 +8,9 @@
         <bmfsfj-profile-icon></bmfsfj-profile-icon>
       </div>
 
-      <nav class="flex w-full text-center text-primary-500 font-bold">
-        <NuxtLink :to="localeRoute('/modules')" class="flex-grow m-2">Module</NuxtLink>
-        <NuxtLink :to="localeRoute('/tasks')" class="flex-grow m-2">ToDos</NuxtLink>
+      <nav class="flex w-full text-center text-dunkelgrau-300 text-3xl my-1">
+        <NuxtLink :to="localeRoute('/modules')" class="flex-grow pb-1 border-b-2 mr-px ml-2 border-dunkelgrau-300">Module</NuxtLink>
+        <NuxtLink :to="localeRoute('/tasks')" class="flex-grow pb-1 border-b-2 ml-px mr-2 border-dunkelgrau-300">To Do</NuxtLink>
       </nav>
     </header>
 
@@ -22,6 +22,6 @@
 
 <style scoped>
   nav >>> .nuxt-link-active {
-    @apply border-b-2 border-primary-500;
+    @apply border-primary-500 text-primary-500;
   }
 </style>
