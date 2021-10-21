@@ -22,6 +22,7 @@ Zum Ausgleich kannst du Elterngeld beantragen.
 
 </todo-extension-panel>
 
+<todo-assignees todo="elterngeld-beantragen"></todo-assignees>
 
 <todo-extension-panel title="Stolperfalle" icon="exclamation">
 

@@ -9,10 +9,18 @@
           <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
         </div>
       </div>
-      <div class="flex-grow p-2">
-        <h4>
+      <div class="flex-grow px-2 py-1 flex flex-col">
+        <h4 class="flex-grow">
           {{ title }}
         </h4>
+
+        <div class="flex flex-row gap-1">
+          <bmfsfj-user-icon
+            v-for="assignes in assignees"
+            :key="assignes"
+            :user-id="assignes"
+          ></bmfsfj-user-icon>
+        </div>
       </div>
       <div class="w-12 flex h-full">
         <font-awesome-icon size="lg" style="margin: auto" fixed-width :icon="faChevronRight"></font-awesome-icon>
@@ -24,6 +32,7 @@
 <script lang="ts">
 import { computed, defineComponent, Ref, toRef, unref } from '@nuxtjs/composition-api'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import BmfsfjUserIcon from './BmfsfjUserIcon.vue';
 import { useTodosStore } from '~/store/todos';
 import { useModules } from '~/utils/composables/useModules';
 import { Module }  from '~/utils/Module';
@@ -43,6 +52,7 @@ function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
 }
 
 export default defineComponent({
+  components: { BmfsfjUserIcon },
   props: {
     task: {
       default: 'mutterschaftsgeld-beantragen',
@@ -54,13 +64,15 @@ export default defineComponent({
     const taskId = toRef(props, 'task')
 
     const task = useTask(taskId);
-    const store = useTodosStore()
+    const store = useTodosStore();
+    const assignees = computed(() => Object.keys(unref(task)?.assignees ?? {}))
 
     return {
       taskId,
       title: computed(() => unref(task)?.title),
       finished: computed(() => unref(task)?.finished),
       modules: useTaskModules(task),
+      assignees,
       updateFinished: (value: boolean) =>
         store.updateTodoFinished({ todoId: unref(taskId), finished: value }),
       faChevronRight

@@ -1,13 +1,11 @@
 <template>
-  <button
+  <custom-toggle-button
     class="p-1 border-primary-500 border-2 rounded-xl"
-    :class="{ checked: value }"
-    :aria-pressed="value"
     v-bind="attrs"
-    @click="$emit('input', !value)"
+    v-on="listeners"
   >
     <slot></slot>
-  </button>
+  </custom-toggle-button>
 </template>
 
 <script lang="ts">
@@ -15,15 +13,10 @@ import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   inheritAttrs: false,
-  props: {
-    value: {
-      type: Boolean,
-    },
-  },
-  emits: ['input'],
-  setup(_props, { attrs }) {
+  setup(_props, { attrs, listeners }) {
     return {
       attrs,
+      listeners
     }
   },
 })

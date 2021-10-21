@@ -19,6 +19,8 @@ Ein gemeinsames Konto ermöglicht es euch, den **Überblick über alle getätigt
 
 </todo-extension-panel>
 
+<todo-assignees todo="familienkonto-anlegen"></todo-assignees>
+
 <todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
 
 Wenn gemeinsame und individuelle Aufwendungen klar getrennt werden sollen, empfiehlt es sich, dass jeder Partner sein persönliches **Gehalts- oder Girokonto** behält. So kann jeder seine eigenen Kosten im Blick behalten, während die gemeinsamen Lebenserhaltungskosten auf einem separaten Konto abgewickelt werden. Gemeinschaftskonten funktionieren jedoch nicht nur für (Ehe-)Paare, sondern auch für Wohngemeinschaften und in Familien mit älteren Kindern, die hier und da auch schon über die Haushaltskasse verfügen dürfen

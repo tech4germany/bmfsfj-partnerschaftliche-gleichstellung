@@ -25,6 +25,7 @@ Mutterschaftsgeld wird anteilig von der Krankenkasse und von dem Arbeitgeber gez
 
 </todo-extension-panel>
 
+<todo-assignees todo="mutterschaftsgeld"></todo-assignees>
 
 <todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
 

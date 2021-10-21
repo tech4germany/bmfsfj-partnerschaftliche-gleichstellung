@@ -36,6 +36,7 @@ modules:
 
 </todo-extension-panel>
 
+<todo-assignees todo="elternzeit-informieren"></todo-assignees>
 
 <todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
 

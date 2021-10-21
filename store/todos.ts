@@ -7,31 +7,14 @@ import {
   Action,
 } from 'vuex-module-decorators'
 
-export type User = {
-  name: string
-}
-
 export type Task = {
   finished: boolean
-  assignees: User[]
+  assignees: { [key: string]: boolean }
 }
 
 const DEFAULT_TASK: Task = {
   finished: false,
-  assignees: [],
-}
-
-/**
- * Get the todo of the id from the store, also adds it to the store if it is still missing.
- *
- * MUST be rebinded to `this` inside a `@Mutation` to work.
- */
-function getTodo(this: Todos, todoId: string) {
-  if (this.todos[todoId] == null) {
-    this.todos[todoId] = DEFAULT_TASK
-  }
-
-  return this.todos[todoId]
+  assignees: {},
 }
 
 @Module({
@@ -62,7 +45,6 @@ export default class Todos extends VuexModule {
     todoId: string
     finished: boolean
   }) {
-    console.log(todoId, finished)
     this.context.commit('updateTodo', {
       taskId: todoId,
       todo: {
@@ -71,15 +53,17 @@ export default class Todos extends VuexModule {
     })
   }
 
-  @Mutation
-  addAssigneeToTodo({ todoId, assignee }: { todoId: string; assignee: User }) {
-    const todo = getTodo.bind(this)(todoId)
-
-    if (todo.assignees == null) {
-      todo.assignees = []
-    }
-
-    todo.assignees.push(assignee)
+  @Action
+  toggleTodoAssignee({ todoId, userId }: { todoId: string; userId: string }) {
+    this.context.commit('updateTodo', {
+      taskId: todoId,
+      todo: {
+        assignees: {
+          ...this.todos[todoId].assignees,
+          [userId]: !(this.todos[todoId].assignees[userId] ?? false),
+        },
+      },
+    })
   }
 }
 
