@@ -1,5 +1,11 @@
 import { useStore, computed, reactive, unref } from '@nuxtjs/composition-api'
-import { Module, VuexModule, Mutation, getModule } from 'vuex-module-decorators'
+import {
+  Module,
+  VuexModule,
+  Mutation,
+  getModule,
+  Action,
+} from 'vuex-module-decorators'
 
 export type User = {
   name: string
@@ -37,6 +43,18 @@ export default class Todos extends VuexModule {
   todos: { [key: string]: Task } = {}
 
   @Mutation
+  updateTodo({ taskId, todo }: { taskId: string; todo: Partial<Task> }) {
+    this.todos = {
+      ...this.todos,
+      [taskId]: {
+        ...DEFAULT_TASK,
+        ...this.todos[taskId],
+        ...todo,
+      },
+    }
+  }
+
+  @Action
   updateTodoFinished({
     todoId,
     finished,
@@ -44,8 +62,13 @@ export default class Todos extends VuexModule {
     todoId: string
     finished: boolean
   }) {
-    const todo = getTodo.bind(this)(todoId)
-    todo.finished = finished
+    console.log(todoId, finished)
+    this.context.commit('updateTodo', {
+      taskId: todoId,
+      todo: {
+        finished,
+      },
+    })
   }
 
   @Mutation
