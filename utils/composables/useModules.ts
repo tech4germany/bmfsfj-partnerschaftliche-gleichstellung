@@ -41,3 +41,17 @@ export function useModuleFinishedPercent(
 
   return computed(() => tasksFinishedPercent(unref(tasks)))
 }
+
+export function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
+  const modules = useModules()
+
+  return computed(() => {
+    if (task.value === null) return []
+
+    const taskModules = task.value.modules
+
+    return modules.value.filter(
+      (module) => taskModules.find((id) => id === module.id) != null
+    )
+  })
+}

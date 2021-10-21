@@ -4,11 +4,7 @@
       <bmfsfj-checkbox class="m-auto" :value="finished" @input="updateFinished"></bmfsfj-checkbox>
     </div>
     <todo-link :todo="taskId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
-      <div class="module-icon-wrapper w-8 flex flex-col ">
-        <div v-for="module in modules" :key="module.id" class="module-icon w-8 h-8 flex first:rounded-tl-xl" :style="`--color: ${module.color2}`">
-          <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
-        </div>
-      </div>
+      <bmfsfj-modul-icon-bar class="rounded-l-xl" :modules="modules"></bmfsfj-modul-icon-bar>
       <div class="flex-grow px-2 py-1 flex flex-col">
         <h4 class="flex-grow">
           {{ title }}
@@ -30,26 +26,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref, toRef, unref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, toRef, unref } from '@nuxtjs/composition-api'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import BmfsfjUserIcon from './BmfsfjUserIcon.vue';
 import { useTodosStore } from '~/store/todos';
-import { useModules } from '~/utils/composables/useModules';
-import { Module }  from '~/utils/Module';
 import { useTask } from '~/utils/composables/useTasks'
-import { Task } from '~/utils/Task';
-
-function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
-  const modules = useModules();
-
-  return computed(() => {
-    if (task.value === null) return [];
-
-    const taskModules = task.value.modules
-
-    return modules.value.filter(module => taskModules.find((id) => id === module.id) != null);
-  });
-}
+import { useTaskModules } from '~/utils/composables/useModules';
 
 export default defineComponent({
   components: { BmfsfjUserIcon },
@@ -80,15 +62,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.module-icon {
-  @apply text-white;
-  background-color: var(--color);
-}
-
-.module-icon:nth-child(3) {
-  @apply rounded-bl-xl;
-}
-
-</style>
