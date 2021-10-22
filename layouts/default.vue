@@ -6,7 +6,7 @@
         <div class="w-full bg-white text-primary-500 h-16 flex flex-row justify-center gap-2 px-2">
           <bmfsfj-search class="border-2 border-primary-500"></bmfsfj-search>
 
-          <bmfsfj-profile-icon></bmfsfj-profile-icon>
+          <bmfsfj-icon-profile></bmfsfj-icon-profile>
         </div>
 
         <nav class="flex w-full text-center text-dunkelgrau-300 text-3xl my-1">
