@@ -4,7 +4,6 @@ import {
   contentFunc,
 } from '@nuxt/content/types/content'
 import type { Duration } from 'date-fns'
-import { add, compareDesc } from 'date-fns/fp'
 
 export type Module = string
 
@@ -48,7 +47,7 @@ export function isContentDocumentATask(
 
 export function contentDocumentToTask(content: IContentDocument): Task {
   if (!isContentDocumentATask(content))
-    throw new Error('Non task content document')
+    throw new Error(`Non task content document: ${JSON.stringify(content)}`)
 
   return {
     document: content as unknown as IContentDocument & File,
@@ -91,21 +90,5 @@ export async function getTasks(
   if (!Array.isArray(tasksContents))
     throw new Error('Expected array of task contents')
 
-  const tasks = tasksContents.map((content) => contentDocumentToTask(content))
-
-  if (searchTerm === '') {
-    return tasks.sort(sortTasksByDueDate(new Date()))
-  }
-
-  return tasks
-}
-
-export function sortTasksByDueDate(
-  expectedBirthday: Date
-): (taskA: Task, taskB: Task) => number {
-  return (taskA: Task, taskB: Task) => {
-    return compareDesc(
-      add(taskA.recommendedDateFromExpectedBirth)(expectedBirthday)
-    )(add(taskB.recommendedDateFromExpectedBirth)(expectedBirthday))
-  }
+  return tasksContents.map((content) => contentDocumentToTask(content))
 }

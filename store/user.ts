@@ -30,8 +30,7 @@ export default class User extends VuexModule {
   babySituation: BabySituation | null = null
   healthInsurance: HealthInsurance | null = null
   workSituation: WorkSituation | null = null
-  // TODO: store as a date or so (and use a moment.js alternative for handling of the date)
-  expectedBirthday: string | null = null
+  expectedBirthday: number | null = null // in ms since 1.1.1970
 
   @Mutation
   setMarried(married: boolean) {
@@ -59,7 +58,7 @@ export default class User extends VuexModule {
   }
 
   @Mutation
-  setExpectedBirthday(expectedBirthday: string) {
+  setExpectedBirthday(expectedBirthday: number) {
     this.expectedBirthday = expectedBirthday
   }
 

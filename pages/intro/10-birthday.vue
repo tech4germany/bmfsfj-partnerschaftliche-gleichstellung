@@ -17,6 +17,7 @@
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { format, parse } from 'date-fns/fp'
 import { useUserStore } from '~/store/user'
 
 export default defineComponent({
@@ -26,16 +27,17 @@ export default defineComponent({
 
     const store = useUserStore()
 
+    const parseHTMLDateInput = parse(new Date())('yyyy-MM-dd')
+
     function updateBirthday(birthday: string) {
-      store.setExpectedBirthday(birthday)
+      store.setExpectedBirthday(parseHTMLDateInput(birthday).getTime())
     }
 
     return {
       nextLocation,
       faArrowRight,
-      birthday: computed(() => store.expectedBirthday),
-      updateBirthday: (e: InputEvent) =>
-        updateBirthday((e.target! as HTMLInputElement).value),
+      birthday: computed(() => format('yyyy-MM-dd')(new Date(store.expectedBirthday ?? new Date().getTime()))),
+      updateBirthday: (e: InputEvent) => updateBirthday((e.target! as HTMLInputElement).value),
     }
   },
 })
