@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NuxtLogo/>
     <div>TEST</div>
     <ModuleCard name="hello world"/>
 
