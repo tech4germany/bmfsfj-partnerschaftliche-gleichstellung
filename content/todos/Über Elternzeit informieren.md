@@ -4,6 +4,8 @@ id: elternzeit-informieren
 lang: de
 modules:
   - beruf
+recommendedDateFromExpectedBirth:
+  weeks: -6
 ---
 
 <todo-extension-panel title="Wo?" icon="map-marked-alt">

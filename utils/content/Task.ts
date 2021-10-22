@@ -3,6 +3,8 @@ import {
   IContentDocument,
   contentFunc,
 } from '@nuxt/content/types/content'
+import type { Duration } from 'date-fns'
+import { add, compareDesc } from 'date-fns/fp'
 
 export type Module = string
 
@@ -14,6 +16,7 @@ export type TaskContent = {
 export type Task = TaskContent & {
   id: string
   modules: Module[]
+  recommendedDateFromExpectedBirth: Duration
 }
 
 export const TODOS_DIRECTORY = 'todos'
@@ -30,6 +33,7 @@ export function isContentDocumentATask(
   id: string
   title: string
   modules: string[]
+  recommendedDateFromExpectedBirth: Duration
 } {
   return (
     'id' in content &&
@@ -37,7 +41,8 @@ export function isContentDocumentATask(
     'title' in content &&
     typeof content.title === 'string' &&
     'modules' in content &&
-    Array.isArray(content.modules)
+    Array.isArray(content.modules) &&
+    'recommendedDateFromExpectedBirth' in content
   )
 }
 
@@ -50,6 +55,7 @@ export function contentDocumentToTask(content: IContentDocument): Task {
     id: content.id,
     title: content.title,
     modules: content.modules,
+    recommendedDateFromExpectedBirth: content.recommendedDateFromExpectedBirth,
   }
 }
 
@@ -85,5 +91,21 @@ export async function getTasks(
   if (!Array.isArray(tasksContents))
     throw new Error('Expected array of task contents')
 
-  return tasksContents.map((content) => contentDocumentToTask(content))
+  const tasks = tasksContents.map((content) => contentDocumentToTask(content))
+
+  if (searchTerm === '') {
+    return tasks.sort(sortTasksByDueDate(new Date()))
+  }
+
+  return tasks
+}
+
+export function sortTasksByDueDate(
+  expectedBirthday: Date
+): (taskA: Task, taskB: Task) => number {
+  return (taskA: Task, taskB: Task) => {
+    return compareDesc(
+      add(taskA.recommendedDateFromExpectedBirth)(expectedBirthday)
+    )(add(taskB.recommendedDateFromExpectedBirth)(expectedBirthday))
+  }
 }

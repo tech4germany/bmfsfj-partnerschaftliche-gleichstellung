@@ -5,6 +5,8 @@ lang: de
 modules:
   - geld
   - beruf
+recommendedDateFromExpectedBirth:
+  weeks: -8
 ---
 
 <todo-extension-panel title="Wo" icon="map-marked-alt">

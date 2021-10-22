@@ -16,6 +16,8 @@ lang: de
 modules:
   - geld
   - beruf
+recommendedDateFromExpectedBirth:
+  weeks: -5
 ---
 ```
 
@@ -25,10 +27,15 @@ modules:
 | id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! |
 | lang        | Der ISO 639-1 Code der Sprache in der das Todo verfasst ist. (`de`, `en`, `tr` oder `ru`) |
 | modules     | Eine auflistung der Module in denen das Todo verortet wird. |
+| recommendedDateFromExpectedBirth | siehe unten |
 
 ### Inhalt
 
 Nach diesem Block mit den Eigenschaften des Todos kommt der eigentliche Inhalt des Todos als Text. In diesem Text wird die Markdown Syntax unterstützt [https://www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax).
+
+### recommendedDateFromExpectedBirth
+
+Eine Angabe darüber zu welchem Datum die Aufgabe bestenfalls erledigt wird. Dieses Datum wird in Abhängigkeit vom erwarten Geburtstermin angegeben. Dies kann in Wochen (`weeks`), Monaten (`months`) oder auch Tagen (`days`) geschehen. Negative Werte bedeuten, dass die Aufgabe vor der Geburt gemacht werden sollte, positive stehen für Zeitpunkte nach der Geburt.
 
 ## Module
 

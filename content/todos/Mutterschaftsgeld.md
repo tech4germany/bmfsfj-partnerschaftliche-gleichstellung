@@ -5,6 +5,8 @@ lang: de
 modules:
   - geld
   - behoerden
+recommendedDateFromExpectedBirth:
+  weeks: -6
 ---
 
 <todo-extension-panel title="Anlaufstelle" icon="map-marked-alt">

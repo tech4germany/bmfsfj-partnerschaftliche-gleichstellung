@@ -4,6 +4,8 @@ id: geburtsurkunde
 lang: de
 modules:
   - behoerden
+recommendedDateFromExpectedBirth:
+  weeks: 1
 ---
 
 <todo-extension-panel title="Wo" icon="map-marked-alt">

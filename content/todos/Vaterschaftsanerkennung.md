@@ -4,6 +4,8 @@ id: vaterschaftsanerkennung
 lang: de
 modules:
   - behoerden
+recommendedDateFromExpectedBirth:
+  weeks: 2
 ---
 
 <todo-extension-panel title="Wo" icon="map-marked-alt">

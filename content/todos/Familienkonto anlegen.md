@@ -4,6 +4,8 @@ id: familienkonto-anlegen
 lang: de
 modules:
   - geld
+recommendedDateFromExpectedBirth:
+  months: -2
 ---
 
 <todo-extension-panel title="Anlaufstelle" icon="map-marked-alt">

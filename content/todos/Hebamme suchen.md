@@ -4,6 +4,8 @@ id: hebamme
 lang: de
 modules:
   - private
+recommendedDateFromExpectedBirth:
+  months: -6
 ---
 
 <todo-extension-panel title="Wo" icon="map-marked-alt">

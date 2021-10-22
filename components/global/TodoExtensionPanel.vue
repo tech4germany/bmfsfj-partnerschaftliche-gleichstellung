@@ -21,8 +21,9 @@
       </button>
     </div>
 
-    <div class="extension mt-1 mb-1" :hidden="!extended">
+    <div class="extension mt-1" :hidden="!extended">
       <slot></slot>
+      <hr class="my-1" />
     </div>
   </div>
 </template>

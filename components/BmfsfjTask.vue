@@ -53,6 +53,7 @@ export default defineComponent({
       taskId,
       title: computed(() => unref(task)?.title),
       finished: computed(() => unref(task)?.finished),
+      date: computed(() => unref(task)?.recommendedDateFromExpectedBirth),
       modules: useTaskModules(task),
       assignees,
       updateFinished: (value: boolean) =>
