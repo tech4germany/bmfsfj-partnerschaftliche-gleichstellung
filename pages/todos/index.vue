@@ -12,13 +12,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref, useRoute } from '@nuxtjs/composition-api'
+import { computed, defineComponent, Ref } from '@nuxtjs/composition-api'
 import { formatDistanceWithOptions, isAfter } from 'date-fns/fp';
 import { de, enGB, ru, tr } from 'date-fns/locale'
 import { Todo , groupTodosByDateGroup } from '~/utils/Todo';
 import { useTodos } from '~/utils/composables/useTodos';
 import { useModuleIds } from '~/utils/composables/useModules';
-
+import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters';
 import { useI18n } from '~/components/BmfsfjSelectLanguage.vue';
 import { useUserStore } from '~/store/user';
 
@@ -28,15 +28,14 @@ const locales = {
 
 export default defineComponent({
   setup() {
-    const $route = useRoute()
     const $i18n = useI18n();
 
-    const search = computed(() => $route.value.query?.search?.toString() ?? '')
-    const selectedModule = computed(() => $route.value.query?.module?.toString() ?? null)
-    const selectedUser = computed(
-      () => $route.value.query?.user?.toString() ?? null
-    )
-    const doneFilter = computed(() => $route.value.query?.done != null)
+    const {
+      search,
+      module: selectedModule,
+      user: selectedUser,
+      done: doneFilter
+    } = useTodosRouteParameters()
 
     const todos: Ref<Todo[]> = useTodos(selectedModule, search, selectedUser, doneFilter)
 

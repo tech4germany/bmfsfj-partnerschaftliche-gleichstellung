@@ -21,66 +21,36 @@
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  unref,
-  useRoute,
-  useRouter,
-} from '@nuxtjs/composition-api'
-import { useLocalLocation } from '~/utils/composables/useLocalRoute'
+import { defineComponent, unref } from '@nuxtjs/composition-api'
+import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters'
+import { useUpdateQueryParameters } from '~/utils/composables/useUpdateQueryParameters'
 
 export default defineComponent({
   setup() {
-    const $route = useRoute()
-    const $router = useRouter()
-    const localLocation = useLocalLocation()
+    const updateQueryParameters = useUpdateQueryParameters()
 
-    const selectedModule = computed(
-      () => $route.value.query?.module?.toString() ?? null
-    )
-    const selectedUser = computed(
-      () => $route.value.query?.user?.toString() ?? null
-    )
-    const doneFilter = computed(() => $route.value.query?.done != null)
+    const {
+      module: selectedModule,
+      user: selectedUser,
+      done: doneFilter,
+    } = useTodosRouteParameters()
 
-    function selectModule(module: string) {
-      const location = localLocation({
-        query: {
-          ...unref($route).query,
-          module: unref(module) ?? undefined,
-        },
+    function selectModule(moduleId: string) {
+      updateQueryParameters({
+        module: unref(moduleId) ?? undefined,
       })
-
-      if (location != null) {
-        $router.push(location)
-      }
     }
 
-    function selectUser(user: string) {
-      const location = localLocation({
-        query: {
-          ...unref($route).query,
-          user: unref(user) ?? undefined,
-        },
+    function selectUser(userId: string) {
+      updateQueryParameters({
+        user: unref(userId) ?? undefined,
       })
-
-      if (location != null) {
-        $router.push(location)
-      }
     }
 
     function updateDoneFilter(value: boolean) {
-      const location = localLocation({
-        query: {
-          ...unref($route).query,
-          done: value ? 'true' : undefined,
-        },
+      updateQueryParameters({
+        done: value ? 'true' : undefined,
       })
-
-      if (location != null) {
-        $router.push(location)
-      }
     }
 
     return {
