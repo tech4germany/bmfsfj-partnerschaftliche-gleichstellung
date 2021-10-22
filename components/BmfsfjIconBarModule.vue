@@ -1,6 +1,6 @@
 <template>
   <div class="module-icon-wrapper w-8 flex flex-col overflow-hidden">
-    <bmfsfj-module-icon v-for="module in moduleIds" :key="module" class="w-8 h-8" :module-id="module"></bmfsfj-module-icon>
+    <bmfsfj-icon-module v-for="module in moduleIds" :key="module" class="w-8 h-8" :module-id="module"></bmfsfj-icon-module>
   </div>
 </template>
 

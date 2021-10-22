@@ -2,7 +2,7 @@
   <div>
     <NuxtLink :to="localeRoute('/intro/0-willkommen')" class="block w-full">Restart Intro</NuxtLink>
 
-    <bmfsfj-language-select></bmfsfj-language-select>
+    <bmfsfj-select-language></bmfsfj-select-language>
 
     <bmfsfj-checkbox label="Verheiratet" :value="married" @input="setMarried"></bmfsfj-checkbox>
 

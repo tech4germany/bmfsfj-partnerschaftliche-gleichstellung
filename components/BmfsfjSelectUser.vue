@@ -1,8 +1,8 @@
 <template>
-  <bmfjfs-chip-select class="w-1/3 rounded-xl" placeholder="Zuständig" :items="users" :value="value" @input="selectUser">
+  <bmfsfj-select-chip class="w-1/3 rounded-xl" placeholder="Zuständig" :items="users" :value="value" @input="selectUser">
     <template #option="{ label }">{{label}}</template>
     <template #selected-option="{ label }"><bmfsfj-user-icon class="w-6 h-6 text-xs" :user-id="label"></bmfsfj-user-icon></template>
-  </bmfjfs-chip-select>
+  </bmfsfj-select-chip>
 </template>
 
 <script lang="ts">

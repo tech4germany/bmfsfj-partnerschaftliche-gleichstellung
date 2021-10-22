@@ -19,7 +19,7 @@ import { Task , groupTasksByDateGroup } from '~/utils/Task';
 import { useTasks } from '~/utils/composables/useTasks';
 import { useModuleIds } from '~/utils/composables/useModules';
 
-import { useI18n } from '~/components/BmfsfjLanguageSelect.vue';
+import { useI18n } from '~/components/BmfsfjSelectLanguage.vue';
 import { useUserStore } from '~/store/user';
 
 const locales = {

@@ -1,10 +1,10 @@
 <template>
-  <bmfjfs-chip-select class="w-1/3 h-10 rounded-xl" placeholder="Modul" :items="categories" :value="value" @input="selectCategory">
+  <bmfsfj-select-chip class="w-1/3 h-10 rounded-xl" placeholder="Modul" :items="categories" :value="value" @input="selectCategory">
     <template #option="{ label }">{{$t(`modules.${label}`)}}</template>
     <template #selected-option="{ label }">
-      <bmfsfj-module-icon class="w-6 h-6 text-xs rounded-full" :module-id="label"></bmfsfj-module-icon>
+      <bmfsfj-icon-module class="w-6 h-6 text-xs rounded-full" :module-id="label"></bmfsfj-icon-module>
     </template>
-  </bmfjfs-chip-select>
+  </bmfsfj-select-chip>
 </template>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
   <bmfsfj-card>
     <template #header>
       <div class="w-full flex h-24">
-        <bmfsfj-module-icon-bar class="rounded-tl min-w-max" :module-ids="modules"></bmfsfj-module-icon-bar>
+        <bmfsfj-icon-bar-module class="rounded-tl min-w-max" :module-ids="modules"></bmfsfj-icon-bar-module>
         <bmfsfj-checkbox class="py-1 px-2 my-auto flex-grow" :value="finished" @input="updateFinished">
           <h2 class="text-xl ml-1 my-auto">{{title}}</h2>
         </bmfsfj-checkbox>
