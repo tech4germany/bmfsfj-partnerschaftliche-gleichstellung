@@ -1,22 +1,22 @@
 <template>
-  <intro-question
+  <bmfsfj-intro-question
     :question-id="questionId"
     :next-location="nextLocation"
     :has-selection="hasSelection"
   >
-    <bmfsfj-toggle-button
+    <bmfsfj-intro-toggle-button
       class="w-full my-1"
       :value="married === true"
       @input="yes"
-      >{{ $t('yes') }}</bmfsfj-toggle-button
+      >{{ $t('yes') }}</bmfsfj-intro-toggle-button
     >
-    <bmfsfj-toggle-button
+    <bmfsfj-intro-toggle-button
       class="w-full my-1"
       :value="married === false"
       @input="no"
-      >{{ $t('no') }}</bmfsfj-toggle-button
+      >{{ $t('no') }}</bmfsfj-intro-toggle-button
     >
-  </intro-question>
+  </bmfsfj-intro-question>
 </template>
 
 <script lang="ts">

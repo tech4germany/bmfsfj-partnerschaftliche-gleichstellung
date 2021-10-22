@@ -61,21 +61,21 @@ behoerden,#004377,paste
 Um ein "Extension Panel" einzubinden muss folgender Code an der Entsprechenden Stelle im Text eingefügt werden (die leerzeilen sind zwingend erforderlich):
 
 ```html
-<todo-extension-panel title="Wo" icon="map-marked-alt">
+<bmfsfj-todo-extension-panel title="Wo" icon="map-marked-alt">
 
 Antrag bei der Krankenkasse
 
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 ```
 
-Der Wert in den Anführungszeichen nach `title=` gibt den Text an der auch im eingeklappten Zustand sichtbar ist. Der Wert nach `icon=` ist das Icon neben diesem Text (Eine Auflistung der möglichen Icons folgt später). In den darauffolgenden Zeilen vor `</todo-extension-panel>` kann dann normal weiterer Text geschrieben werden der nur sichtbar ist wenn das Extension-Panel ausgeklappt ist.
+Der Wert in den Anführungszeichen nach `title=` gibt den Text an der auch im eingeklappten Zustand sichtbar ist. Der Wert nach `icon=` ist das Icon neben diesem Text (Eine Auflistung der möglichen Icons folgt später). In den darauffolgenden Zeilen vor `</bmfsfj-todo-extension-panel>` kann dann normal weiterer Text geschrieben werden der nur sichtbar ist wenn das Extension-Panel ausgeklappt ist.
 
 ### Links zu anderen Todos
 
 Um auf andere Todos zu verlinken kann die folgende Zeile genutzt werden:
 
 ```html
-<todo-link todo="elterngeld-beantragen"> Elterngeld Beantragen </todo-link>
+<bmfsfj-todo-link todo="elterngeld-beantragen"> Elterngeld Beantragen </bmfsfj-todo-link>
 ```
 
 Der Wert in den Anführungszeichen nach `todo=` ist die `id` von dem Todo auf das verlinkt werden soll. 

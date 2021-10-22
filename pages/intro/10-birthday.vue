@@ -1,5 +1,5 @@
 <template>
-  <intro-question
+  <bmfsfj-intro-question
     :next-location="nextLocation"
     question-id="birthday"
     :has-selection="birthday != null"
@@ -11,7 +11,7 @@
       :value="birthday"
       @change="updateBirthday"
     />
-  </intro-question>
+  </bmfsfj-intro-question>
 </template>
 
 <script lang="ts">

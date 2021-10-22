@@ -1,12 +1,12 @@
 <template>
-  <intro-question-select
+  <bmfsfj-intro-question-select
     question-id="healthInsurance"
     next-location="intro-6-relationship"
     :has-selection="hasSelection"
     :is-selected="isSelected"
     :types="types"
     @input="(type) => select(type)"
-  ></intro-question-select>
+  ></bmfsfj-intro-question-select>
 </template>
 
 <script lang="ts">

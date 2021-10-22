@@ -1,21 +1,21 @@
 <template>
-  <intro-question
+  <bmfsfj-intro-question
     :question-id="questionId"
     :next-location="nextLocation"
     :has-selection="hasSelection"
   >
     <div class="flex flex-col gap-2">
-      <bmfsfj-toggle-button
+      <bmfsfj-intro-toggle-button
         v-for="type in types"
         :key="type"
         class="w-full"
         :value="isSelected(type)"
         :multi="multi"
         @input="$emit('input', type)"
-        >{{ $t(`${questionId}.${type}`) }}</bmfsfj-toggle-button
+        >{{ $t(`${questionId}.${type}`) }}</bmfsfj-intro-toggle-button
       >
     </div>
-  </intro-question>
+  </bmfsfj-intro-question>
 </template>
 
 <script lang="ts">

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-2 overflow-auto">
-    <module-card v-for="module in modules" :key="module" :module="module"></module-card>
+    <bmfsfj-module-card v-for="module in modules" :key="module" :module="module"></bmfsfj-module-card>
   </div>
 </template>
 

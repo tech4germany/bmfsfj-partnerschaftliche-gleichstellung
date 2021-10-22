@@ -10,12 +10,12 @@
       :value="selectedUser"
       @input="selectUser"
     ></bmfsfj-select-user>
-    <custom-toggle-button
+    <bmfsfj-toggle-button
       class="w-1/3 rounded-xl border-2 border-primary-500"
       :class="{ checked: doneFilter }"
       :value="doneFilter"
       @input="updateDoneFilter"
-      >Erledigt</custom-toggle-button
+      >Erledigt</bmfsfj-toggle-button
     >
   </div>
 </template>

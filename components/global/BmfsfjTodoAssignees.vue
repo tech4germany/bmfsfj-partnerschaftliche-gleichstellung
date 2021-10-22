@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row gap-1">
-    <custom-toggle-button
+    <bmfsfj-toggle-button
       v-for="user in users"
       :key="user.id"
       class="user-icon w-10 h-10 rounded-full"
@@ -9,7 +9,7 @@
       @input="toggleAssigned(user.id)"
     >
       {{ user.name.toUpperCase().substring(0, 2) }}
-    </custom-toggle-button>
+    </bmfsfj-toggle-button>
   </div>
 </template>
 

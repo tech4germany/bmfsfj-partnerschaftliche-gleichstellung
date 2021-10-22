@@ -1,5 +1,5 @@
 <template>
-  <intro-question
+  <bmfsfj-intro-question
     :next-location="nextLocation"
     question-id="language"
     has-selection
@@ -14,7 +14,7 @@
     </template>
 
     <div class="flex flex-col gap-2 w-full">
-      <bmfsfj-toggle-button
+      <bmfsfj-intro-toggle-button
         v-for="locale in availableLocales"
         :key="locale.value"
         class="w-full"
@@ -22,9 +22,9 @@
         @input="select(locale.code)"
       >
         {{ locale.name }}
-      </bmfsfj-toggle-button>
+      </bmfsfj-intro-toggle-button>
     </div>
-  </intro-question>
+  </bmfsfj-intro-question>
 </template>
 
 <script lang="ts">

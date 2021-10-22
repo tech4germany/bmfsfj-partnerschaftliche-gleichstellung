@@ -9,46 +9,46 @@ recommendedDateFromExpectedBirth:
   weeks: -8
 ---
 
-<todo-extension-panel title="Wo" icon="map-marked-alt">
+<bmfsfj-todo-extension-panel title="Wo" icon="map-marked-alt">
 Online
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
-<todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+<bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
 Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
 
 Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
-<todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+<bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
 Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
 
 Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
-<todo-extension-panel title="Info" icon="info-circle">
+<bmfsfj-todo-extension-panel title="Info" icon="info-circle">
 
 Falls du während deiner Elternzeit nicht arbeitest, erhältst du keinen Lohn.
 Zum Ausgleich kannst du Elterngeld beantragen. 
 
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
-<todo-assignees todo-id="elterngeld-beantragen"></todo-assignees>
+<bmfsfj-todo-assignees todo-id="elterngeld-beantragen"></bmfsfj-todo-assignees>
 
-<todo-extension-panel title="Stolperfalle" icon="exclamation">
+<bmfsfj-todo-extension-panel title="Stolperfalle" icon="exclamation">
 
 Der Elterngeldrechner kann sich deine Eingaben nicht merken, wenn du das Tool zu einem späteren Zeitpunkt nutzen möchtest.
 Nimm dir also genug Zeit.
 
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
-<todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
+<bmfsfj-todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
 
 * Das ElterngeldPlus und der  Partnerschaftsbonus sind besonders interessant, da es beiden Partner:innen ermöglicht, gleichzeitig Teilzeit zu arbeiten.
 
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
 
-<todo-extension-panel title="Weiterführende Informationen" icon="external-link-alt">
+<bmfsfj-todo-extension-panel title="Weiterführende Informationen" icon="external-link-alt">
 
 [FAQ](https://familienportal.de/familienportal/familienleistungen/elterngeld)
 
@@ -60,5 +60,5 @@ Nimm dir also genug Zeit.
 
 [Partnerschaftsbonus](https://www.bmfsfj.de/bmfsfj/themen/familie/familienleistungen/elterngeld/elterngeld-73752)
 
-</todo-extension-panel>
+</bmfsfj-todo-extension-panel>
 
