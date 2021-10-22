@@ -51,6 +51,10 @@ export default defineComponent({
   @apply flex w-full h-full;
 }
 
+.growing-background * {
+  z-index: 1;
+}
+
 .growing-background::before {
   @apply rounded-l;
   content: '';
@@ -59,7 +63,7 @@ export default defineComponent({
   left: 0;
   width: var(--background-width);
   height: 100%;
-  z-index: -1;
+  z-index: 0;
   background-color: var(--color);
 }
 
