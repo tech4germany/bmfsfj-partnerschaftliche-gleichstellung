@@ -3,13 +3,13 @@
     <bmfsfj-select-module
       class="w-1/3 rounded-xl"
       :value="selectedModule"
-      :placeholder="todos.filter.module"
+      :placeholder="$t(`todos.filter.module`)"
       @input="selectModule"
     ></bmfsfj-select-module>
     <bmfsfj-select-user
       class="w-1/3 rounded-xl"
       :value="selectedUser"
-      :placeholder="todos.filter.assignee"
+      :placeholder="$t(`todos.filter.assignee`)"
       @input="selectUser"
     ></bmfsfj-select-user>
     <bmfsfj-toggle-button
