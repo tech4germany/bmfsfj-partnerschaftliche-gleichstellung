@@ -1,16 +1,18 @@
 <template>
   <bmfjfs-chip-select class="w-1/3 rounded-xl" placeholder="Zuständig" :items="users" :value="value" @input="selectUser">
     <template #option="{ label }">{{label}}</template>
-    <template #selected-option="{ label }">{{userName(label).value}}</template>
+    <template #selected-option="{ label }"><bmfsfj-user-icon class="w-6 h-6 text-xs" :user-id="label"></bmfsfj-user-icon></template>
   </bmfjfs-chip-select>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, Ref, unref } from '@nuxtjs/composition-api'
+import BmfsfjUserIcon from './BmfsfjUserIcon.vue';
 import { User } from '~/store/users';
 import { useUser, useUsers } from '~/utils/composables/useUsers';
 
 export default defineComponent({
+  components: { BmfsfjUserIcon },
   props: {
     value: {
       type: String,

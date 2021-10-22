@@ -4,7 +4,7 @@
       <bmfsfj-checkbox class="m-auto" :value="finished" @input="updateFinished"></bmfsfj-checkbox>
     </div>
     <todo-link :todo="taskId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
-      <bmfsfj-modul-icon-bar class="rounded-l-xl min-w-max" :modules="modules"></bmfsfj-modul-icon-bar>
+      <bmfsfj-module-icon-bar class="rounded-l-xl min-w-max" :module-ids="modules"></bmfsfj-module-icon-bar>
       <div class="flex-grow px-2 py-1 flex flex-col">
         <h4 class="flex-grow">
           {{ title }}
@@ -31,7 +31,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import BmfsfjUserIcon from './BmfsfjUserIcon.vue';
 import { useTodosStore } from '~/store/todos';
 import { useTask } from '~/utils/composables/useTasks'
-import { useTaskModules } from '~/utils/composables/useModules';
 
 export default defineComponent({
   components: { BmfsfjUserIcon },
@@ -54,7 +53,7 @@ export default defineComponent({
       title: computed(() => unref(task)?.title),
       finished: computed(() => unref(task)?.finished),
       date: computed(() => unref(task)?.recommendedDateFromExpectedBirth),
-      modules: useTaskModules(task),
+      modules: computed(() => unref(task)?.modules),
       assignees,
       updateFinished: (value: boolean) =>
         store.updateTodoFinished({ todoId: unref(taskId), finished: value }),

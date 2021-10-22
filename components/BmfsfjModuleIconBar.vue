@@ -1,8 +1,6 @@
 <template>
   <div class="module-icon-wrapper w-8 flex flex-col overflow-hidden">
-    <div v-for="module in modules" :key="module.id" class="module-icon w-8 h-8 flex" :style="`--color: ${module.color2}`">
-      <font-awesome-icon style="margin: auto" fixed-width :icon="module.icon"></font-awesome-icon>
-    </div>
+    <bmfsfj-module-icon v-for="module in moduleIds" :key="module" class="w-8 h-8" :module-id="module"></bmfsfj-module-icon>
   </div>
 </template>
 
@@ -11,8 +9,8 @@ import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   props: {
-    modules: {
-      type: Array, // Array<Modul>
+    moduleIds: {
+      type: Array, // Array<string>
       default: () => []
     }
   }

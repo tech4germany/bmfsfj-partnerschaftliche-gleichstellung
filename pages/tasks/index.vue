@@ -12,13 +12,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref, unref, useRoute, useRouter } from '@nuxtjs/composition-api'
+import { computed, defineComponent, Ref, useRoute } from '@nuxtjs/composition-api'
 import { formatDistanceWithOptions, isAfter } from 'date-fns/fp';
 import { de, enGB, ru, tr } from 'date-fns/locale'
 import { Task , groupTasksByDateGroup } from '~/utils/Task';
 import { useTasks } from '~/utils/composables/useTasks';
 import { useModuleIds } from '~/utils/composables/useModules';
-import { useLocalLocation } from '~/utils/composables/useLocalRoute';
 
 import { useI18n } from '~/components/BmfsfjLanguageSelect.vue';
 import { useUserStore } from '~/store/user';
@@ -30,33 +29,18 @@ const locales = {
 export default defineComponent({
   setup() {
     const $route = useRoute()
-    const $router = useRouter()
-    const localLocation = useLocalLocation()
     const $i18n = useI18n();
 
     const search = computed(() => $route.value.query?.search?.toString() ?? '')
     const selectedCategory = computed(() => $route.value.query?.module?.toString() ?? null)
+    const selectedUser = computed(
+      () => $route.value.query?.user?.toString() ?? null
+    )
+    const doneFilter = computed(() => $route.value.query?.done != null)
 
-    const tasks: Ref<Task[]> = useTasks(computed(() => selectedCategory.value != null ? {
-      modules: {
-        $contains: selectedCategory.value
-      }
-    }: {}), search)
+    const tasks: Ref<Task[]> = useTasks(selectedCategory, search, selectedUser, doneFilter)
 
     const categories: Ref<string[]> = useModuleIds()
-
-    function selectCategory(category: string) {
-      const location = localLocation({
-        query: {
-          ... unref($route).query,
-          module: unref(category) ?? undefined
-        }
-      });
-
-      if (location != null) {
-        $router.push(location)
-      }
-    }
 
     const userStore = useUserStore();
 
@@ -64,7 +48,6 @@ export default defineComponent({
 
     return {
       selectedCategory,
-      selectCategory,
       tasks,
       groupedTasks,
       categories,

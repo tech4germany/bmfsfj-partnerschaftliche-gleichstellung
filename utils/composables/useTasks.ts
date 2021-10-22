@@ -28,11 +28,28 @@ export const useTask: (taskId: Ref<string> | string) => Ref<Task | null> = (
  * Get a reference to all tasks.
  */
 export function useTasks(
-  where: Ref<object> | object = {},
-  searchTerm: Ref<string | null> | string | null = null
+  moduleId: Ref<string> | string | null = null,
+  searchTerm: Ref<string | null> | string | null = null,
+  assignee: Ref<string | null> | string | null = null,
+  done: Ref<boolean | null> | boolean | null = null
 ): Ref<Task[]> {
   const { store, $content } = useContentAndStore()
-  return useAsnycArrayResult(() =>
-    getTasks(store, $content, unref(where), unref(searchTerm))
-  )
+  return useAsnycArrayResult(async () => {
+    const where = unref(moduleId)
+      ? {
+          modules: {
+            $contains: unref(moduleId),
+          },
+        }
+      : {}
+
+    const tasks = await getTasks(store, $content, where, unref(searchTerm))
+
+    return tasks
+      .filter(
+        (task) =>
+          unref(assignee) == null || task.assignees[unref(assignee)!] === true
+      )
+      .filter((task) => unref(done) == null || !unref(done) || task.finished)
+  })
 }

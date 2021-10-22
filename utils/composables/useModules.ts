@@ -27,11 +27,7 @@ export function useModule(
 }
 
 export function useModuleTasks(moduleId: string | Ref<string>): Ref<Task[]> {
-  return useTasks({
-    modules: {
-      $contains: unref(moduleId),
-    },
-  })
+  return useTasks(unref(moduleId))
 }
 
 export function useModuleFinishedPercent(

@@ -119,7 +119,10 @@ export function groupTasksByDateGroup(
 
   const groupedTasks = tasks.reduce((acc, task) => {
     const date = add(task.recommendedDateFromExpectedBirth)(referenceDate)
-    const dateGroup = formatISO(closestDate(date).getTime())
+    const closestDateToDate = closestDate(date).getTime()
+    const dateGroup = formatISO(
+      Number.isNaN(closestDateToDate) ? 0 : closestDateToDate
+    )
 
     return {
       ...acc,
