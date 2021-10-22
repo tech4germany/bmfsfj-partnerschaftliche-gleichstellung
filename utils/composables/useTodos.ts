@@ -28,7 +28,7 @@ export const useTodo: (todoId: Ref<string> | string) => Ref<Todo | null> = (
  * Get a reference to all todos.
  */
 export function useTodos(
-  moduleId: Ref<string> | string | null = null,
+  moduleId: Ref<string | null> | string | null = null,
   searchTerm: Ref<string | null> | string | null = null,
   assignee: Ref<string | null> | string | null = null,
   done: Ref<boolean | null> | boolean | null = null
