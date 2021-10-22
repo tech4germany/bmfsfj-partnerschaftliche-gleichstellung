@@ -32,25 +32,25 @@ export default defineComponent({
     const $i18n = useI18n();
 
     const search = computed(() => $route.value.query?.search?.toString() ?? '')
-    const selectedCategory = computed(() => $route.value.query?.module?.toString() ?? null)
+    const selectedModule = computed(() => $route.value.query?.module?.toString() ?? null)
     const selectedUser = computed(
       () => $route.value.query?.user?.toString() ?? null
     )
     const doneFilter = computed(() => $route.value.query?.done != null)
 
-    const todos: Ref<Todo[]> = useTodos(selectedCategory, search, selectedUser, doneFilter)
+    const todos: Ref<Todo[]> = useTodos(selectedModule, search, selectedUser, doneFilter)
 
-    const categories: Ref<string[]> = useModuleIds()
+    const modules: Ref<string[]> = useModuleIds()
 
     const userStore = useUserStore();
 
     const groupedTodos = computed(() => groupTodosByDateGroup(todos.value, new Date(userStore.expectedBirthday ?? 0)))
 
     return {
-      selectedCategory,
+      selectedModule,
       todos,
       groupedTodos,
-      categories,
+      modules,
       formatDistance: formatDistanceWithOptions({locale: (locales as any)[$i18n.locale]})(new Date()),
       isInFuture: isAfter(new Date())
     }

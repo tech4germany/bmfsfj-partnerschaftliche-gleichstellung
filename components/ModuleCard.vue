@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="localeRoute(`/todos?module=${module}`)">
-    <div class="category-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
+    <div class="module-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
       <div
         class="growing-background gap-4 text-1.5xl px-4 align-middle"
         :style="`--background-width: ${percentDone}%;`"
@@ -42,7 +42,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.category-card {
+.module-card {
   @apply rounded-xl border-3 relative h-24;
   border-color: var(--border-color);
 }

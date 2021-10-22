@@ -2,7 +2,7 @@
   <div>
     <NuxtLogo/>
     <div>TEST</div>
-    <CategoryCard name="hello world"/>
+    <ModuleCard name="hello world"/>
 
     <h2> {{content != null ? content.title : ''}} </h2>
     <div class="mx-2">

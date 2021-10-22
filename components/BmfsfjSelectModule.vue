@@ -1,5 +1,5 @@
 <template>
-  <bmfsfj-select-chip class="w-1/3 h-10 rounded-xl" placeholder="Modul" :items="categories" :value="value" @input="selectCategory">
+  <bmfsfj-select-chip class="w-1/3 h-10 rounded-xl" placeholder="Modul" :items="modules" :value="value" @input="selectModule">
     <template #option="{ label }">{{$t(`modules.${label}`)}}</template>
     <template #selected-option="{ label }">
       <bmfsfj-icon-module class="w-6 h-6 text-xs rounded-full" :module-id="label"></bmfsfj-icon-module>
@@ -19,15 +19,15 @@ export default defineComponent({
     }
   },
   setup(_props, { emit }) {
-    const categories: Ref<string[]> = useModuleIds()
+    const modules: Ref<string[]> = useModuleIds()
 
-    function selectCategory(category: string) {
-      emit('input', category)
+    function selectModule(module: string) {
+      emit('input', module)
     }
 
     return {
-      selectCategory,
-      categories
+      selectModule,
+      modules
     }
   }
 })

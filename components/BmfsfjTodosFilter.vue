@@ -2,8 +2,8 @@
   <div class="flex flex-row w-full gap-1">
     <bmfsfj-select-module
       class="w-1/3 rounded-xl"
-      :value="selectedCategory"
-      @input="selectCategory"
+      :value="selectedModule"
+      @input="selectModule"
     ></bmfsfj-select-module>
     <bmfsfj-select-user
       class="w-1/3 rounded-xl"
@@ -36,7 +36,7 @@ export default defineComponent({
     const $router = useRouter()
     const localLocation = useLocalLocation()
 
-    const selectedCategory = computed(
+    const selectedModule = computed(
       () => $route.value.query?.module?.toString() ?? null
     )
     const selectedUser = computed(
@@ -44,11 +44,11 @@ export default defineComponent({
     )
     const doneFilter = computed(() => $route.value.query?.done != null)
 
-    function selectCategory(category: string) {
+    function selectModule(module: string) {
       const location = localLocation({
         query: {
           ...unref($route).query,
-          module: unref(category) ?? undefined,
+          module: unref(module) ?? undefined,
         },
       })
 
@@ -84,8 +84,8 @@ export default defineComponent({
     }
 
     return {
-      selectedCategory,
-      selectCategory,
+      selectedModule,
+      selectModule,
       doneFilter,
       updateDoneFilter,
       selectedUser,
