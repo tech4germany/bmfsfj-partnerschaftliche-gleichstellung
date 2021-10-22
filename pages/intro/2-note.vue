@@ -15,7 +15,7 @@
       <font-awesome-icon class="fa-2x" :icon="faArrowRight" />
     </nuxt-link>
 
-    <nuxt-link class="mb-12" to="/tasks">
+    <nuxt-link class="mb-12" to="/todos">
       Ohne Personalisierung fortfahren
     </nuxt-link>
   </div>

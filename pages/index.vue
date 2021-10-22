@@ -11,9 +11,9 @@
         :document="content" />
       </div>
 
-      <input v-model="task" type="text" />
+      <input v-model="todo" type="text" />
 
-      <bmfsfj-task :task="task"></bmfsfj-task>
+      <bmfsfj-todo :todo-id="todo"></bmfsfj-todo>
   </div>
 </template>
 
@@ -24,11 +24,11 @@ import { usePageContent } from '~/utils/composables/useContent';
 export default defineComponent({
   setup(_props) {
     const content = usePageContent('hello')
-    const task = ref('mutterschaftsgeld')
+    const todo = ref('mutterschaftsgeld')
 
     return {
       content,
-      task
+      todo
     }
   }
 })

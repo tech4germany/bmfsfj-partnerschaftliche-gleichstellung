@@ -125,11 +125,11 @@ export default {
     async routes() {
       const { $content } = require('@nuxt/content')
 
-      const tasks = await $content('todos', { deep: true })
+      const todos = await $content('todos', { deep: true })
         .only(['id', 'path', 'dir'])
         .fetch()
 
-      const routes = tasks.map(({ id }) => `/tasks/${id}`)
+      const routes = todos.map(({ id }) => `/todos/${id}`)
 
       const localePrefixes = locales.map(({ code }) =>
         code === 'de' ? '' : `/${code}`

@@ -50,7 +50,7 @@ export default defineComponent({
 
     function search(searchTerm: string) {
       const route = localLocation({
-        path: 'tasks',
+        path: 'todos',
         query: {
           ... unref($route).query,
           search: searchTerm !== '' ? searchTerm : undefined
@@ -65,7 +65,7 @@ export default defineComponent({
     function onSearchChange(a: InputEvent) {
       newSearchTerm.value = (a.target as HTMLInputElement).value
 
-      if (unref($route).path === '/tasks') {
+      if (unref($route).path === '/todos') {
         search(unref(newSearchTerm))
       }
     }

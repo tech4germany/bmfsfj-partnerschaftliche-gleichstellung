@@ -21,29 +21,29 @@ import {
   unref,
 } from '@nuxtjs/composition-api'
 import { useTodosStore } from '~/store/todos'
-import { useTask } from '~/utils/composables/useTasks'
+import { useTodo } from '~/utils/composables/useTodos'
 import { useUsers } from '~/utils/composables/useUsers'
 
 export default defineComponent({
   props: {
-    todo: {
+    todoId: {
       type: String,
       default: null,
     },
   },
   setup(props) {
-    const { todo } = toRefs(props)
-    const task = useTask(todo)
+    const { todoId } = toRefs(props)
+    const todo = useTodo(todoId)
     const store = useTodosStore()
     const users = useUsers()
-    const assignees = computed(() => unref(task)?.assignees)
+    const assignees = computed(() => unref(todo)?.assignees)
 
     function isAssigned(userId: string): boolean {
       return unref(assignees)?.[userId] ?? false
     }
 
     function toggleAssigned(userId: string) {
-      store.toggleTodoAssignee({ todoId: unref(todo), userId })
+      store.toggleTodoAssignee({ todoId: unref(todoId), userId })
     }
 
     return {

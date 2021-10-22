@@ -3,7 +3,7 @@
     <div class="flex">
       <bmfsfj-checkbox class="m-auto" :value="finished" @input="updateFinished"></bmfsfj-checkbox>
     </div>
-    <todo-link :todo="taskId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
+    <todo-link :todo="todoId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
       <bmfsfj-icon-bar-module class="rounded-l-xl min-w-max" :module-ids="modules"></bmfsfj-icon-bar-module>
       <div class="flex-grow px-2 py-1 flex flex-col">
         <h4 class="flex-grow">
@@ -26,37 +26,39 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, toRef, unref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, toRefs, unref } from '@nuxtjs/composition-api'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import BmfsfjUserIcon from './BmfsfjUserIcon.vue';
 import { useTodosStore } from '~/store/todos';
-import { useTask } from '~/utils/composables/useTasks'
+import { useTodo } from '~/utils/composables/useTodos'
 
 export default defineComponent({
   components: { BmfsfjUserIcon },
   props: {
-    task: {
+    todoId: {
       default: 'mutterschaftsgeld-beantragen',
       type: String,
       required: true,
     },
   },
   setup(props) {
-    const taskId = toRef(props, 'task')
+    const { todoId } = toRefs(props)
 
-    const task = useTask(taskId);
+    const todo = useTodo(todoId);
     const store = useTodosStore();
-    const assignees = computed(() => Object.entries(unref(task)?.assignees ?? {}).filter(([_id, status]) => status).map(([id]) => id))
+    const assignees = computed(() => Object.entries(unref(todo)?.assignees ?? {}).filter(([_id, status]) => status).map(([id]) => id))
+
+    function updateFinished(value: boolean) {
+      return store.updateTodoFinished({ todoId: unref(todoId), finished: value })
+    }
 
     return {
-      taskId,
-      title: computed(() => unref(task)?.title),
-      finished: computed(() => unref(task)?.finished),
-      date: computed(() => unref(task)?.recommendedDateFromExpectedBirth),
-      modules: computed(() => unref(task)?.modules),
+      title: computed(() => unref(todo)?.title),
+      finished: computed(() => unref(todo)?.finished),
+      date: computed(() => unref(todo)?.recommendedDateFromExpectedBirth),
+      modules: computed(() => unref(todo)?.modules),
       assignees,
-      updateFinished: (value: boolean) =>
-        store.updateTodoFinished({ todoId: unref(taskId), finished: value }),
+      updateFinished,
       faChevronRight
     }
   },

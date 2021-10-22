@@ -1,7 +1,7 @@
 import { computed, unref } from '@vue/composition-api'
 import type { Ref } from '@vue/composition-api'
-import { Task, tasksFinishedPercent } from '../Task'
-import { useTasks } from './useTasks'
+import { Todo, todosFinishedPercent } from '../Todo'
+import { useTodos } from './useTodos'
 import { getModules, Module } from '~/utils/Module'
 import { useContent } from '~/utils/composables/useContent'
 import { useAsnycArrayResult } from '~/utils/composables/useAsnycResult'
@@ -26,28 +26,28 @@ export function useModule(
   )
 }
 
-export function useModuleTasks(moduleId: string | Ref<string>): Ref<Task[]> {
-  return useTasks(unref(moduleId))
+export function useModuleTodos(moduleId: string | Ref<string>): Ref<Todo[]> {
+  return useTodos(unref(moduleId))
 }
 
 export function useModuleFinishedPercent(
   moduleId: string | Ref<string>
 ): Ref<number> {
-  const tasks = useModuleTasks(moduleId)
+  const todos = useModuleTodos(moduleId)
 
-  return computed(() => tasksFinishedPercent(unref(tasks)))
+  return computed(() => todosFinishedPercent(unref(todos)))
 }
 
-export function useTaskModules(task: Ref<Task | null>): Ref<Module[]> {
+export function useTodoModules(todo: Ref<Todo | null>): Ref<Module[]> {
   const modules = useModules()
 
   return computed(() => {
-    if (task.value === null) return []
+    if (todo.value === null) return []
 
-    const taskModules = task.value.modules
+    const todoModules = todo.value.modules
 
     return modules.value.filter(
-      (module) => taskModules.find((id) => id === module.id) != null
+      (module) => todoModules.find((id) => id === module.id) != null
     )
   })
 }

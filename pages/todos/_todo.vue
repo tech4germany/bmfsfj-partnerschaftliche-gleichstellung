@@ -12,7 +12,7 @@
       class="mx-auto"
       :document="document" />
 
-    <nuxt-link :to="localeRoute('/tasks')">
+    <nuxt-link :to="localeRoute('/todos')">
       <font-awesome-icon
           class="self-center mt-2 text-primary-500"
           fixed-width
@@ -27,24 +27,24 @@
 import { computed, defineComponent, unref, useRoute } from '@nuxtjs/composition-api'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useTodosStore } from '~/store/todos';
-import { useTask } from '~/utils/composables/useTasks';
+import { useTodo } from '~/utils/composables/useTodos';
 
 export default defineComponent({
   setup() {
     const $route = useRoute()
-    const taskId = computed(() => $route.value.params.task)
+    const todoId = computed(() => $route.value.params.todo)
 
-    const task = useTask(taskId);
+    const todo = useTodo(todoId);
     const store = useTodosStore()
 
     return {
-      taskId,
-      title: computed(() => unref(task)?.title),
-      document: computed(() => unref(task)?.document),
-      finished: computed(() => unref(task)?.finished),
-      modules: computed(() => unref(task)?.modules),
+      todoId,
+      title: computed(() => unref(todo)?.title),
+      document: computed(() => unref(todo)?.document),
+      finished: computed(() => unref(todo)?.finished),
+      modules: computed(() => unref(todo)?.modules),
       updateFinished: (value: boolean) =>
-        store.updateTodoFinished({ todoId: unref(taskId), finished: value }),
+        store.updateTodoFinished({ todoId: unref(todoId), finished: value }),
       faArrowLeft
     }
   }

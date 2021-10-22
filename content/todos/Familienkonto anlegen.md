@@ -21,7 +21,7 @@ Ein gemeinsames Konto ermöglicht es euch, den **Überblick über alle getätigt
 
 </todo-extension-panel>
 
-<todo-assignees todo="familienkonto-anlegen"></todo-assignees>
+<todo-assignees todo-id="familienkonto-anlegen"></todo-assignees>
 
 <todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="glass-cheers">
 

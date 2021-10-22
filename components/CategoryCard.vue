@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localeRoute(`/tasks?module=${module}`)">
+  <nuxt-link :to="localeRoute(`/todos?module=${module}`)">
     <div class="category-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
       <div
         class="growing-background gap-4 text-1.5xl px-4 align-middle"
@@ -76,7 +76,7 @@ export default defineComponent({
 /*
  * We want the color of the text to be white when on the colored part of the background.
  * When the text is on the uncolored part it should be in the color of the background.
- * The colored width of the background is changing based on the percantage of done tasks.
+ * The colored width of the background is changing based on the percantage of done todos.
  *
  * To change the color on the text based on the color of the background we use `mix-blend-mode: difference` which is changing
  * the color of the text to the difference of the background-color and the text-color. Therfore the text color is black (`#000`)

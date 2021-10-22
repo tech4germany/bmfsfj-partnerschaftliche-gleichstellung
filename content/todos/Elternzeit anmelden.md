@@ -14,7 +14,7 @@ Arbeitgeber
 
 </todo-extension-panel>
 
-<todo-assignees todo="elternzeit-anmelden"></todo-assignees>
+<todo-assignees todo-id="elternzeit-anmelden"></todo-assignees>
 
 <todo-extension-panel title="Wann (empfohlen)?" icon="calendar-check">
 

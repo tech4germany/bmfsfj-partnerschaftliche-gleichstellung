@@ -7,12 +7,12 @@ import type { Duration } from 'date-fns'
 
 export type Module = string
 
-export type TaskContent = {
+export type TodoContent = {
   title: string
   document?: File & IContentDocument
 }
 
-export type Task = TaskContent & {
+export type Todo = TodoContent & {
   id: string
   modules: Module[]
   recommendedDateFromExpectedBirth: Duration
@@ -26,7 +26,7 @@ export function isContentDocumentAFile(
   return 'data' in content
 }
 
-export function isContentDocumentATask(
+export function isContentDocumentATodo(
   content: IContentDocument
 ): content is IContentDocument & {
   id: string
@@ -45,9 +45,9 @@ export function isContentDocumentATask(
   )
 }
 
-export function contentDocumentToTask(content: IContentDocument): Task {
-  if (!isContentDocumentATask(content))
-    throw new Error(`Non task content document: ${JSON.stringify(content)}`)
+export function contentDocumentToTodo(content: IContentDocument): Todo {
+  if (!isContentDocumentATodo(content))
+    throw new Error(`Non todo content document: ${JSON.stringify(content)}`)
 
   return {
     document: content as unknown as IContentDocument & File,
@@ -58,37 +58,37 @@ export function contentDocumentToTask(content: IContentDocument): Task {
   }
 }
 
-export async function getTask(
+export async function getTodo(
   $content: contentFunc,
-  taskId: string
-): Promise<Task> {
-  const taskContent = await $content(TODOS_DIRECTORY, { deep: true })
+  todoId: string
+): Promise<Todo> {
+  const todoContent = await $content(TODOS_DIRECTORY, { deep: true })
     .where({
-      id: taskId,
+      id: todoId,
     })
     .limit(1)
     .fetch()
 
-  if (!Array.isArray(taskContent)) throw new TypeError('Expected an array')
-  if (taskContent.length !== 1)
-    throw new Error(`Found no task with the id ${taskId}`)
+  if (!Array.isArray(todoContent)) throw new TypeError('Expected an array')
+  if (todoContent.length !== 1)
+    throw new Error(`Found no todo with the id ${todoId}`)
 
-  return contentDocumentToTask(taskContent[0])
+  return contentDocumentToTodo(todoContent[0])
 }
 
-export async function getTasks(
+export async function getTodos(
   $content: contentFunc,
   where: object = {},
   searchTerm: string | null = null
-): Promise<Task[]> {
-  const tasksContents = await $content(TODOS_DIRECTORY, { deep: true })
+): Promise<Todo[]> {
+  const todosContents = await $content(TODOS_DIRECTORY, { deep: true })
     .without('data')
     .where(where)
     .search(searchTerm)
     .fetch()
 
-  if (!Array.isArray(tasksContents))
-    throw new Error('Expected array of task contents')
+  if (!Array.isArray(todosContents))
+    throw new Error('Expected array of todo contents')
 
-  return tasksContents.map((content) => contentDocumentToTask(content))
+  return todosContents.map((content) => contentDocumentToTodo(content))
 }

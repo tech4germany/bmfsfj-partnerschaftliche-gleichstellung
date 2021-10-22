@@ -7,12 +7,12 @@ import {
   Action,
 } from 'vuex-module-decorators'
 
-export type Task = {
+export type Todo = {
   finished: boolean
   assignees: { [key: string]: boolean }
 }
 
-const DEFAULT_TASK: Task = {
+const DEFAULT_TODO: Todo = {
   finished: false,
   assignees: {},
 }
@@ -23,15 +23,15 @@ const DEFAULT_TASK: Task = {
   name: 'todos', // MUST be the path of this file starting in the `store` folder
 })
 export default class Todos extends VuexModule {
-  todos: { [key: string]: Task } = {}
+  todos: { [key: string]: Todo } = {}
 
   @Mutation
-  updateTodo({ taskId, todo }: { taskId: string; todo: Partial<Task> }) {
+  updateTodo({ todoId, todo }: { todoId: string; todo: Partial<Todo> }) {
     this.todos = {
       ...this.todos,
-      [taskId]: {
-        ...DEFAULT_TASK,
-        ...this.todos[taskId],
+      [todoId]: {
+        ...DEFAULT_TODO,
+        ...this.todos[todoId],
         ...todo,
       },
     }
@@ -46,7 +46,7 @@ export default class Todos extends VuexModule {
     finished: boolean
   }) {
     this.context.commit('updateTodo', {
-      taskId: todoId,
+      todoId,
       todo: {
         finished,
       },
@@ -56,7 +56,7 @@ export default class Todos extends VuexModule {
   @Action
   toggleTodoAssignee({ todoId, userId }: { todoId: string; userId: string }) {
     this.context.commit('updateTodo', {
-      taskId: todoId,
+      todoId,
       todo: {
         assignees: {
           ...this.todos[todoId].assignees,
@@ -69,11 +69,11 @@ export default class Todos extends VuexModule {
 
 export const useTodosStore = () => getModule(Todos, useStore())
 
-export function getTask(store: Todos, taskId: string): Task {
-  const task = computed(() => store.todos[taskId] ?? DEFAULT_TASK)
+export function getTodo(store: Todos, todoId: string): Todo {
+  const todo = computed(() => store.todos[todoId] ?? DEFAULT_TODO)
 
   return reactive({
-    finished: computed(() => unref(task).finished),
-    assignees: computed(() => unref(task).assignees),
+    finished: computed(() => unref(todo).finished),
+    assignees: computed(() => unref(todo).assignees),
   })
 }

@@ -22,10 +22,10 @@ export default defineComponent({
 
     const to = computed(() => {
       if (page == null) {
-        return localeRoute({name: 'tasks-task', params: { task: todo }})
+        return localeRoute({name: 'todos-todo', params: { todo }})
       }
 
-      return localeRoute({name: 'tasks-task-page', params: { page }})
+      return localeRoute({name: 'todos-todo-page', params: { page }})
     })
 
     return {
