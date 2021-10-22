@@ -1,5 +1,5 @@
 <template>
-  <bmfsfj-select-chip class="w-1/3 rounded-xl" :items="users" :value="value" @input="selectUser" v-bind="attrs">
+  <bmfsfj-select-chip class="w-1/3 rounded-xl" :items="users" :value="value" v-bind="attrs" @input="selectUser">
     <template #option="{ label }">{{label}}</template>
     <template #selected-option="{ label }"><bmfsfj-user-icon class="w-6 h-6 text-xs" :user-id="label"></bmfsfj-user-icon></template>
   </bmfsfj-select-chip>

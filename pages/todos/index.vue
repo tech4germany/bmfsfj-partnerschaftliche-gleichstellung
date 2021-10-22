@@ -19,8 +19,8 @@ import { Todo , groupTodosByDateGroup } from '~/utils/Todo';
 import { useTodos } from '~/utils/composables/useTodos';
 import { useModuleIds } from '~/utils/composables/useModules';
 import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters';
-import { useI18n } from '~/components/BmfsfjSelectLanguage.vue';
 import { useUserStore } from '~/store/user';
+import { useI18n } from '~/utils/composables/useI18n';
 
 const locales = {
   de, en: enGB, ru, tr

@@ -3,14 +3,14 @@
     <bmfsfj-select-module
       class="w-1/3 rounded-xl"
       :value="selectedModule"
-      @input="selectModule"
       :placeholder="todos.filter.module"
+      @input="selectModule"
     ></bmfsfj-select-module>
     <bmfsfj-select-user
       class="w-1/3 rounded-xl"
       :value="selectedUser"
-      @input="selectUser"
       :placeholder="todos.filter.assignee"
+      @input="selectUser"
     ></bmfsfj-select-user>
     <bmfsfj-toggle-button
       class="w-1/3 rounded-xl border-2 border-primary-500"

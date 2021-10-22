@@ -3,12 +3,10 @@
 </template>
 
 <script lang="ts">
-import { useRouter, wrapProperty } from '@nuxtjs/composition-api';
+import { useRouter } from '@nuxtjs/composition-api';
 import type { LocaleObject } from '@nuxtjs/i18n';
 import { computed, defineComponent } from '@vue/composition-api'
-
-export const useI18n = wrapProperty('$i18n', false)
-export const useSwitchLocalePath = wrapProperty('switchLocalePath', false)
+import { useI18n, useSwitchLocalePath } from '~/utils/composables/useI18n';
 
 export default defineComponent({
   inheritAttrs: false,

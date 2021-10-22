@@ -34,7 +34,7 @@ import type { LocaleObject } from '@nuxtjs/i18n'
 import {
   useI18n,
   useSwitchLocalePath,
-} from '~/components/BmfsfjSelectLanguage.vue'
+} from '~/utils/composables/useI18n'
 
 export default defineComponent({
   layout: 'intro',
