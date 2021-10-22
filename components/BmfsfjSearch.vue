@@ -11,7 +11,7 @@
       :value="searchTerm"
       type="search"
       inputmode="latin"
-      placeholder="Suche"
+      :placeholder="$t(`search`)"
       @submit="onSubmitSearch"
       @change="onSearchChange"
     />

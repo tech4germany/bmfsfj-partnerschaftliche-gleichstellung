@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col text-center h-full">
-    <h2 class="text-2xl mt-24">Geschafft!</h2>
+    <h2 class="text-2xl mt-24">{{$t(intro.finished.title)}}</h2>
 
     <div class="flex-grow mt-24 text-lg text-left">
       <span>

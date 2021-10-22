@@ -4,18 +4,20 @@
       class="w-1/3 rounded-xl"
       :value="selectedModule"
       @input="selectModule"
+      :placeholder="todos.filter.module"
     ></bmfsfj-select-module>
     <bmfsfj-select-user
       class="w-1/3 rounded-xl"
       :value="selectedUser"
       @input="selectUser"
+      :placeholder="todos.filter.assignee"
     ></bmfsfj-select-user>
     <bmfsfj-toggle-button
       class="w-1/3 rounded-xl border-2 border-primary-500"
       :class="{ checked: doneFilter }"
       :value="doneFilter"
       @input="updateDoneFilter"
-      >Erledigt</bmfsfj-toggle-button
+      >{{$t(`todos.filter.done`)}}</bmfsfj-toggle-button
     >
   </div>
 </template>

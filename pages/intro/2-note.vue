@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col text-center h-full">
-    <h2 class="text-2xl mt-24">Hinweis</h2>
+    <h2 class="text-2xl mt-24">{{$t(`intro.note.title`)}}</h2>
 
     <div class="flex-grow mt-24 text-lg text-left">
       <span>
@@ -16,7 +16,7 @@
     </nuxt-link>
 
     <nuxt-link class="mb-12" to="/todos">
-      Ohne Personalisierung fortfahren
+      {{$t(`intro.continue-without-personalization`)}}
     </nuxt-link>
   </div>
 </template>

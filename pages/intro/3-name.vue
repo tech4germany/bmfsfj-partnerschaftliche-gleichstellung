@@ -6,7 +6,7 @@
   >
     <input
       class="w-full border-primary-500 p-2 border-2 rounded"
-      placeholder="Name"
+      :placeholder="$t(`intro.name.placeholder`)"
       autocomplete="nickname"
       type="text"
       :value="name"

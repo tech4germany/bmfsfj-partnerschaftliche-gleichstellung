@@ -1,5 +1,5 @@
 <template>
-  <bmfsfj-select-chip class="w-1/3 rounded-xl" placeholder="Zuständig" :items="users" :value="value" @input="selectUser">
+  <bmfsfj-select-chip class="w-1/3 rounded-xl" :items="users" :value="value" @input="selectUser" v-bind="attrs">
     <template #option="{ label }">{{label}}</template>
     <template #selected-option="{ label }"><bmfsfj-user-icon class="w-6 h-6 text-xs" :user-id="label"></bmfsfj-user-icon></template>
   </bmfsfj-select-chip>
@@ -19,7 +19,7 @@ export default defineComponent({
       default: null
     }
   },
-  setup(_props, { emit }) {
+  setup(_props, { emit, attrs }) {
     const users: Ref<User[]> = useUsers()
 
     function selectUser(user: {value: User['id']} | null) {
@@ -33,6 +33,7 @@ export default defineComponent({
     }
 
     return {
+      attrs,
       selectUser,
       userName,
       users: computed(() => unref(users).map(user => ({value: user.id, label: user.name})))

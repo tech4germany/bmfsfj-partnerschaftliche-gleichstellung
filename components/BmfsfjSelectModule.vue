@@ -1,5 +1,5 @@
 <template>
-  <bmfsfj-select-chip class="w-1/3 h-10 rounded-xl" placeholder="Modul" :items="modules" :value="value" @input="selectModule">
+  <bmfsfj-select-chip class="w-1/3 h-10 rounded-xl" :items="modules" :value="value" @input="selectModule" v-bind="attrs">
     <template #option="{ label }">{{$t(`modules.${label}`)}}</template>
     <template #selected-option="{ label }">
       <bmfsfj-icon-module class="w-6 h-6 text-xs rounded-full" :module-id="label"></bmfsfj-icon-module>
@@ -18,7 +18,7 @@ export default defineComponent({
       default: null
     }
   },
-  setup(_props, { emit }) {
+  setup(_props, { emit, attrs }) {
     const modules: Ref<string[]> = useModuleIds()
 
     function selectModule(module: string) {
@@ -26,6 +26,7 @@ export default defineComponent({
     }
 
     return {
+      attrs,
       selectModule,
       modules
     }

@@ -6,7 +6,7 @@
   >
     <input
       class="w-full border-primary-500 p-2 border-2 rounded"
-      placeholder="Geburtstag"
+      :placeholder="$t(`intro.birthday.placeholder`)"
       type="date"
       :value="birthday"
       @change="updateBirthday"

@@ -3,9 +3,19 @@ import { DeepPartial } from "~/utils/DeepPartial"
 const translations = {
   yes: 'Ja',
   no: 'Nein',
+  search: 'Suche',
   intro: {
     title: 'Einführung',
     'skip-question': 'Frage überspringen',
+    note: {
+      title: 'Hinweis',
+    },
+    name: {
+      placeholder: 'Name',
+    },
+    namePartner: {
+      placeholder: 'Name',
+    },
     work: {
       question: 'Wie ist deine berufliche Situation?',
     },
@@ -17,6 +27,19 @@ const translations = {
     },
     healthInsurance: {
       question: 'Wie bist du krankenversichert?',
+    },
+    birthday: {
+      placeholder: 'Geburtstag',
+    },
+    finished: {
+      title: 'Geschafft!',
+    },
+  },
+  todos: {
+    filter: {
+      module: 'Modul',
+      assingee: 'Zuständig',
+      done: 'Erledigt',
     },
   },
   healthInsurance: {
