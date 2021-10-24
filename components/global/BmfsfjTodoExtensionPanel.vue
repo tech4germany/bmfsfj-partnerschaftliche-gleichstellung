@@ -45,7 +45,7 @@ export default defineComponent({
     },
     icon: {
       type: String,
-      default: '',
+      required: true
     },
   },
   setup({ initalValue }) {

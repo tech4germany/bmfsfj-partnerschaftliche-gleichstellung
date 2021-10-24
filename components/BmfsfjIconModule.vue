@@ -20,7 +20,7 @@ export default defineComponent({
     const module = useModule(moduleId)
 
     return {
-      icon: computed(() => unref(module)?.icon ?? ''),
+      icon: computed(() => unref(module)?.icon ?? 'question'),
       color: computed(() => unref(module)?.color2 ?? ''),
     }
   },

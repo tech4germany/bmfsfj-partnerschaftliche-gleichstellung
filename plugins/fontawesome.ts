@@ -15,10 +15,12 @@ import {
   faBrain,
   faPuzzlePiece,
   faLightbulb,
-  faIdBadge
+  faIdBadge,
+  faQuestion
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faQuestion) // Fallback icon for modules
 library.add(faEuroSign) // Modul: Geld
 library.add(faBriefcase) // Modul: Beruf
 library.add(faPaste) // Modul: Behörden & Dokumente
