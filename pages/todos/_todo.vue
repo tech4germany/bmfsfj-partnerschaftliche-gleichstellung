@@ -8,9 +8,11 @@
         </bmfsfj-checkbox>
       </div>
     </template>
-    <nuxt-content
-      class="mx-auto"
-      :document="document" />
+    <bmfsfj-content-area>
+      <nuxt-content
+        class="mx-auto"
+        :document="document" />
+    </bmfsfj-content-area>
 
     <nuxt-link :to="localeRoute('/todos')">
       <font-awesome-icon
@@ -50,21 +52,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style>
-.nuxt-content {
-  @apply flex flex-col gap-1;
-}
-
-.nuxt-content a {
-  @apply text-primary-500;
-}
-
-.nuxt-content ul {
-  @apply list-inside list-disc;
-}
-
-.nuxt-content li {
-  @apply list-item;
-}
-</style>

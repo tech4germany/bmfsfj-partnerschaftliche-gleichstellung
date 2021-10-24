@@ -9,7 +9,7 @@ export const getMatchingLanguageVariant = async (
 
       if (
         content &&
-        (!(content as unknown[]).length == null ||
+        ((content as unknown[]).length == null ||
           (content as unknown[]).length > 0)
       ) {
         return content
