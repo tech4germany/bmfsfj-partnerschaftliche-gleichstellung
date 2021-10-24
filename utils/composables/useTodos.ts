@@ -1,6 +1,7 @@
 import { unref } from '@vue/composition-api'
 import type { Ref } from '@vue/composition-api'
 import { useContent } from './useContent'
+import { useLocalesPriorityList } from './useI18n'
 import { Todo, getTodo, getTodos } from '~/utils/Todo'
 import {
   useAsnycResult,
@@ -21,7 +22,8 @@ export const useTodo: (todoId: Ref<string> | string) => Ref<Todo | null> = (
   todoId
 ) => {
   const { store, $content } = useContentAndStore()
-  return useAsnycResult(() => getTodo(store, $content, unref(todoId)))
+  const locales = useLocalesPriorityList()
+  return useAsnycResult(() => getTodo(store, $content, unref(todoId), locales))
 }
 
 /**
@@ -34,6 +36,7 @@ export function useTodos(
   done: Ref<boolean | null> | boolean | null = null
 ): Ref<Todo[]> {
   const { store, $content } = useContentAndStore()
+  const locales = useLocalesPriorityList()
   return useAsnycArrayResult(async () => {
     const where = unref(moduleId)
       ? {
@@ -43,7 +46,13 @@ export function useTodos(
         }
       : {}
 
-    const todos = await getTodos(store, $content, where, unref(searchTerm))
+    const todos = await getTodos(
+      store,
+      $content,
+      where,
+      unref(searchTerm),
+      locales
+    )
 
     return todos
       .filter(

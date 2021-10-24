@@ -4,6 +4,7 @@ import {
   contentFunc,
 } from '@nuxt/content/types/content'
 import type { Duration } from 'date-fns'
+import { getMatchingLanguageVariant } from './getMatchingPageVariant'
 
 export type Module = string
 
@@ -60,14 +61,20 @@ export function contentDocumentToTodo(content: IContentDocument): Todo {
 
 export async function getTodo(
   $content: contentFunc,
-  todoId: string
+  todoId: string,
+  locales: string[]
 ): Promise<Todo> {
-  const todoContent = await $content(TODOS_DIRECTORY, { deep: true })
-    .where({
-      id: todoId,
-    })
-    .limit(1)
-    .fetch()
+  const todoContent = await getMatchingLanguageVariant(
+    (page) =>
+      $content(page, { deep: true })
+        .where({
+          id: todoId,
+        })
+        .limit(1)
+        .fetch(),
+    TODOS_DIRECTORY,
+    locales
+  )
 
   if (!Array.isArray(todoContent)) throw new TypeError('Expected an array')
   if (todoContent.length !== 1)
@@ -76,19 +83,52 @@ export async function getTodo(
   return contentDocumentToTodo(todoContent[0])
 }
 
+async function getTodosOfLocale(
+  $content: contentFunc,
+  where: object = {},
+  searchTerm: string | null = null,
+  locale: string
+): Promise<Todo[]> {
+  const page = `${locale}/${TODOS_DIRECTORY}`
+  try {
+    const todosContents = await $content(page, {
+      deep: true,
+    })
+      .without('data')
+      .where(where)
+      .search(searchTerm)
+      .fetch()
+
+    if (!Array.isArray(todosContents))
+      throw new Error('Expected array of todo contents')
+
+    return todosContents.map((content) => contentDocumentToTodo(content))
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(`No translation for ${page} in ${locale}.`)
+    return []
+  }
+}
+
 export async function getTodos(
   $content: contentFunc,
   where: object = {},
-  searchTerm: string | null = null
+  searchTerm: string | null = null,
+  locales: string[]
 ): Promise<Todo[]> {
-  const todosContents = await $content(TODOS_DIRECTORY, { deep: true })
-    .without('data')
-    .where(where)
-    .search(searchTerm)
-    .fetch()
+  type TodoId = string
 
-  if (!Array.isArray(todosContents))
-    throw new Error('Expected array of todo contents')
+  const todosOfAllMatchingLocales: Map<TodoId, Todo> = new Map()
+  for (const locale of locales.reverse()) {
+    for (const todo of await getTodosOfLocale(
+      $content,
+      where,
+      searchTerm,
+      locale
+    )) {
+      todosOfAllMatchingLocales.set(todo.id, todo)
+    }
+  }
 
-  return todosContents.map((content) => contentDocumentToTodo(content))
+  return [...todosOfAllMatchingLocales.values()]
 }

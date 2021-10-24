@@ -16,10 +16,11 @@ export type Todo = Readonly<StoreTodo & ContentTodo>
 export async function getTodo(
   store: Todos,
   $content: contentFunc,
-  todoId: string
+  todoId: string,
+  locales: string[]
 ): Promise<Todo> {
   const storeTodo = toRefs(getStoreTodo(store, todoId))
-  const contentTodo = await getContentTodo($content, todoId)
+  const contentTodo = await getContentTodo($content, todoId, locales)
 
   return reactive({
     ...storeTodo,
@@ -31,9 +32,12 @@ export async function getTodos(
   store: Todos,
   $content: contentFunc,
   where: object = {},
-  searchTerm: string | null = null
+  searchTerm: string | null = null,
+  locales: string[]
 ): Promise<Todo[]> {
-  const todos = (await getContentTodos($content, where, searchTerm)).map(
+  const todos = (
+    await getContentTodos($content, where, searchTerm, locales)
+  ).map(
     (todo) =>
       reactive({
         ...todo,
