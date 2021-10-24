@@ -125,7 +125,7 @@ export default {
     async routes() {
       const { $content } = require('@nuxt/content')
 
-      const todos = await $content('todos', { deep: true })
+      const todos = await $content('de/todos', { deep: true })
         .only(['id', 'path', 'dir'])
         .fetch()
 
