@@ -11,21 +11,13 @@ export default defineComponent({
     todo: {
       type: String,
       default: null
-    },
-    page: {
-      type: String,
-      default: null
     }
   },
-  setup({ todo, page }) {
+  setup({ todo }) {
     const localeRoute = useLocalRoute();
 
     const to = computed(() => {
-      if (page == null) {
-        return localeRoute({name: 'todos-todo', params: { todo }})
-      }
-
-      return localeRoute({name: 'todos-todo-page', params: { page }})
+      return localeRoute({name: 'todos-todo', params: { todo }})
     })
 
     return {
