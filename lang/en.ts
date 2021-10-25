@@ -4,14 +4,19 @@ const translations: translation = {
   yes: 'Yes',
   no: 'No',
   intro: {
+    title: 'Introduction',
+    welcome: 'Welcome',
     language: {
-      question: 'How do you understand us best? Please choose!',
+      question: 'How do you understand us best?',
+    },
+    name: {
+      question: 'How should we call you?',
+      placeholder: 'name',
     },
     married: {
       question: 'Are you married?',
     },
   },
-  welcome: 'Welcome',
 }
 
 export default translations

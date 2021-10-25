@@ -1,10 +1,11 @@
 import { translation } from './de';
 
 const translations: translation = {
-  welcome: 'Добро пожаловать',
   intro: {
+    welcome: 'Добро пожаловать',
+    title: 'Введение',
     language: {
-      question: 'Hodor hodor hodor? Hodor hodor!',
+      question: 'Как вы нас лучше всего понимаете?',
     },
   },
 }

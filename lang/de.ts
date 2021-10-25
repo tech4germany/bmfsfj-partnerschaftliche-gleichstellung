@@ -5,8 +5,9 @@ const translations = {
   no: 'Nein',
   search: 'Suche',
   intro: {
+    welcome: 'Willkommen in der StartApp Familie',
+    introduction: 'Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
     title: 'Einführung',
-    welcome: 'Willkommen bei der StartApp Familie',
     'skip-question': 'Frage überspringen',
     'continue-without-personalization': 'Ohne Personalisierung fortfahren',
     note: {
@@ -14,23 +15,28 @@ const translations = {
       start: 'Und los!',
     },
     name: {
-      question:
-        'Trage hier deinen Namen ein, damir wir dich direkt ansprechen können.',
+      question: 'Wie sollen wir dich nennen?',
       placeholder: 'Name',
     },
     relationship: {
-      question: 'Lebst Du in einer Partnerschaft?',
+      question: 'Lebst du in einer Partnerschaft?'
     },
     namePartner: {
-      question:
-        'Trage hier den Namen deines Partners oder deiner Partnerin ein, damit Inhalte gegebenenfalls unter euch aufgeteilt werden können.',
+      question: 'Mit wem lebst du gemeinsam in einer Partnerschaft?',
       placeholder: 'Name',
     },
     work: {
       question: 'Wie ist deine berufliche Situation?',
     },
+    baby: {
+      question: 'Erwartet ihr ein Kind?',
+    },
+    birthday: {
+      question: 'Wann ist der errechnete Geburtstermin?',
+      placeholder: 'Geburtstag',
+    },
     language: {
-      question: 'Wie verstehst du uns am besten? Bitte wählen!',
+      question: 'Wie verstehst du uns am besten?',
     },
     married: {
       question:
@@ -38,14 +44,6 @@ const translations = {
     },
     healthInsurance: {
       question: 'Wie bist du krankenversichert?',
-    },
-    baby: {
-      question: 'Erwartet ihr ein Kind?',
-    },
-    birthday: {
-      question:
-        'Wenn euch der Geburtstermin eures Kindes bekannt ist oder ihn bereits ausgerechnet habt, tragt diesen bitte hier ein:',
-      placeholder: 'Geburtstag',
     },
     finished: {
       title: 'Jetzt kann es losgehen!',
@@ -73,6 +71,8 @@ const translations = {
     NOT_PLANED: 'Nein',
     WISH: 'Noch nicht',
     EXPECTED: 'Ja',
+    MULTIPLE: 'Ja, sogar mehr als eins',
+
   },
   welcome: 'Willkommen',
   modules: {
