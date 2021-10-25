@@ -59,8 +59,8 @@ export default class Todos extends VuexModule {
       todoId,
       todo: {
         assignees: {
-          ...this.todos[todoId].assignees,
-          [userId]: !(this.todos[todoId].assignees[userId] ?? false),
+          ...(this.todos?.[todoId]?.assignees ?? {}),
+          [userId]: !(this.todos?.[todoId]?.assignees?.[userId] ?? false),
         },
       },
     })
