@@ -25,6 +25,7 @@ export enum BabySituation {
   name: 'user', // MUST be the path of this file starting in the `store` folder
 })
 export default class User extends VuexModule {
+  introFinished: boolean = false
   married: boolean | null = null
   relationship: boolean | null = null
   babySituation: BabySituation | null = null
@@ -60,6 +61,11 @@ export default class User extends VuexModule {
   @Mutation
   setExpectedBirthday(expectedBirthday: number) {
     this.expectedBirthday = expectedBirthday
+  }
+
+  @Mutation
+  setIntroFinished(introFinished: boolean) {
+    this.introFinished = introFinished
   }
 
   get privateHealthInsurance(): boolean | null {

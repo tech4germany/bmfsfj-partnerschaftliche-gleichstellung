@@ -17,7 +17,7 @@
           {{$t(`intro.note.start`)}}
         </nuxt-link>
 
-        <nuxt-link class="mx-auto font-bold text-primary-500 text-xl" :to="localeRoute(`/todos`)">
+        <nuxt-link class="mx-auto font-bold text-primary-500 text-xl" :to="localeRoute(`/modules`)">
           {{ $t(`intro.continue-without-personalization`) }}
         </nuxt-link>
       </div>
@@ -29,11 +29,15 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 import { faArrowRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { usePageContent } from '~/utils/composables/useContent'
+import { useUserStore } from '~/store/user'
 
 export default defineComponent({
   layout: 'none',
   setup() {
     const content = usePageContent('intro/note')
+
+    const userStore = useUserStore()
+    userStore.setIntroFinished(true)
 
     return {
       content,

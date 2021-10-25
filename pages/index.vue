@@ -1,33 +1,24 @@
-<template>
-  <div>
-    <div>TEST</div>
-
-    <h2> {{content != null ? content.title : ''}} </h2>
-    <div class="mx-2">
-      <bmfsfj-checkbox label="TEST 1" :value="false"></bmfsfj-checkbox>
-      <nuxt-content
-        :document="content" />
-      </div>
-
-      <input v-model="todo" type="text" />
-
-      <bmfsfj-todo :todo-id="todo"></bmfsfj-todo>
-  </div>
-</template>
+<template><div>index</div></template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
-import { usePageContent } from '~/utils/composables/useContent';
+import { defineComponent, useRouter, watchEffect } from '@nuxtjs/composition-api'
+import { useUserStore } from '~/store/user';
+import { useLocalLocation } from '~/utils/composables/useIntro';
 
 export default defineComponent({
   setup(_props) {
-    const content = usePageContent('hello')
-    const todo = ref('mutterschaftsgeld')
+    const $router = useRouter()
+    const localLocation = useLocalLocation()
+    const userStore = useUserStore();
 
-    return {
-      content,
-      todo
-    }
+    watchEffect( () => {
+      if (userStore.introFinished !== true) {
+        $router.push(localLocation(`/intro/0-willkommen`)!)
+      } else {
+        $router.push(localLocation(`/modules`)!)
+      }
+    });
+    return {}
   }
 })
 </script>
