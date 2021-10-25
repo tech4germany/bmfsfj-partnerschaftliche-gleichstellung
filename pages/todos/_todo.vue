@@ -16,7 +16,7 @@
 
     <nuxt-link :to="localeRoute('/todos')">
       <font-awesome-icon
-          class="self-center mt-2 text-primary-500"
+          class="self-center mt-2 mb-2 text-primary-500"
           fixed-width
           size="2x"
           :icon="faArrowLeft"

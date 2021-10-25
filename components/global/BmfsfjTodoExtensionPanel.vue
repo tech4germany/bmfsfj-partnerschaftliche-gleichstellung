@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-1">
     <div class="text-lg flex w-full" @click="toggle">
       <div class="flex-grow">
         <slot name="title">
