@@ -29,7 +29,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, useRouter } from '@nuxtjs/composition-api'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import type { LocaleObject } from '@nuxtjs/i18n'
 import {
   useI18n,
@@ -47,7 +46,6 @@ export default defineComponent({
 
     return {
       nextLocation,
-      faArrowRight,
       currentLocale: computed(() => $i18n.locale),
       availableLocales: computed(() => $i18n.locales as LocaleObject[]),
       isSelected: (locale: string) => locale === $i18n.locale,
