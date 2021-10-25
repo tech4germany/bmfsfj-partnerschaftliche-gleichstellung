@@ -3,7 +3,7 @@
     <div class="flex">
       <bmfsfj-checkbox class="m-auto" :value="finished" @input="updateFinished"></bmfsfj-checkbox>
     </div>
-    <bmfsfj-todo-link :todo="todoId" class="flex h-24 bg-gray-200 rounded-xl flex-grow">
+    <bmfsfj-todo-link :todo="todoId" class="flex h-24 bg-background-300 rounded-xl flex-grow">
       <bmfsfj-icon-bar-module class="rounded-l-xl min-w-max" :module-ids="modules"></bmfsfj-icon-bar-module>
       <div class="flex-grow px-2 py-1 flex flex-col">
         <h4 class="flex-grow">

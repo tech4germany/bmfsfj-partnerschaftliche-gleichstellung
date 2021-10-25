@@ -199,8 +199,8 @@ const bmfsfjColors = {
       500: '#004c6c',
       400: '#006a8b',
       300: '#3e8ba9',
-      100: '#c1d7e4'
-    }
+      100: '#c1d7e4',
+    },
   },
   familie: {
     primary: {
@@ -213,74 +213,78 @@ const bmfsfjColors = {
       500: '#005840',
       400: '#00735d',
       300: '#4e9180',
-      100: '#c5d8d2'
-    }
+      100: '#c5d8d2',
+    },
   },
   ältereMenschen: {
     primary: {
       500: '#004377',
       400: '#1b5f90',
       300: '#5880aa',
-      100: '#c5cfe2'
+      100: '#c5cfe2',
     },
     secondary: {
       500: '#0075be',
       400: '#008ccd',
       300: '#6ba6db',
-      100: '#d3e0f4'
-    }
+      100: '#d3e0f4',
+    },
   },
   gleichstellung: {
     primary: {
       500: '#e04a09',
       400: '#e77239',
       300: '#ec8963',
-      100: '#fbdfcc'
+      100: '#fbdfcc',
     },
     secondary: {
       500: '#991228',
       400: '#ac4245',
       300: '#bf6e6a',
-      100: '#e9cec9'
-    }
+      100: '#e9cec9',
+    },
   },
   kinderUndJugend: {
     primary: {
       500: '#d3003a',
       400: '#dc4c58',
       300: '#e67e7d',
-      100: '#f7d7d3'
+      100: '#f7d7d3',
     },
     secondary: {
       500: '#77072a',
       400: '#8f3648',
       300: '#a9616d',
-      100: '#e1c8ca'
-    }
+      100: '#e1c8ca',
+    },
   },
   pink: {
     500: '#bf027f',
     400: '#ca4e97',
     300: '#d681b5',
-    100: '#f0d8ea'
+    100: '#f0d8ea',
   },
   hellgrau: {
     500: '#c7cdd0',
     300: '#e9ebec',
-    200: '#e9ebec'
+    200: '#e9ebec',
   },
   lila: {
     500: '#55246b',
     400: '#724581',
     300: '#916e9d',
-    100: '#e6e0ed'
+    100: '#e6e0ed',
   },
   dunkelgrau: {
     500: '#485960',
     400: '#6c7c85',
     300: '#8f9da6',
-    100: '#d8dfe3'
-  }
+    100: '#d8dfe3',
+  },
+  hintergrund: {
+    200: '#f2f7fc',
+    300: '#e4eef8',
+  },
 }
 
 module.exports = {
@@ -292,6 +296,7 @@ module.exports = {
         ...bundColorsAlternative,
         ...bmfsfjColors,
         primary: bmfsfjColors.ältereMenschen.primary,
+        background: bmfsfjColors.hintergrund,
       },
       borderWidth: {
         3: '3px',

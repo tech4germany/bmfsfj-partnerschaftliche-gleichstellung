@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row gap-1">
+  <div class="flex flex-row gap-1 my-1">
     <bmfsfj-toggle-button
       v-for="user in users"
       :key="user.id"
@@ -57,7 +57,7 @@ export default defineComponent({
 
 <style scoped>
 .user-icon {
-  @apply bg-white text-primary-500 border-2 border-primary-500;
+  @apply bg-transparent text-primary-500 border-2 border-primary-500;
 }
 
 .user-icon.checked {

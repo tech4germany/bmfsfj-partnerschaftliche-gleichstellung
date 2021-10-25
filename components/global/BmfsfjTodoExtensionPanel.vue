@@ -9,7 +9,7 @@
             :icon="icon"
           />
           <span>{{ title }}</span>
-      </slot>
+        </slot>
       </div>
 
       <button>

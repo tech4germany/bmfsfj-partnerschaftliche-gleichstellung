@@ -1,5 +1,5 @@
 <template>
-   <div :class="{hidden: !open}"  class="absolute top-0 left-0 md:bg-grau-100 h-screen w-full md:py-3 bg-white opacity-90" @click="$emit('close')">
+   <div :class="{hidden: !open}"  class="absolute top-0 left-0 md:bg-background-300 h-screen w-full md:py-3 bg-white opacity-90" @click="$emit('close')">
     <div
       class="
         flex flex-col

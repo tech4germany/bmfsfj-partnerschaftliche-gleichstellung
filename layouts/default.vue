@@ -1,5 +1,5 @@
 <template>
-  <div class="md:bg-grau-100 h-screen md:py-3">
+  <div class="md:bg-background-200 h-screen md:py-3">
     <div class="flex flex-col h-full bg-white md:max-h-full md:rounded-lg md:overflow-auto md:max-w-xl md:mx-auto">
       <tech-4-germany-info-banner></tech-4-germany-info-banner>
       <header class="shadow">
