@@ -16,34 +16,37 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, unref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, unref } from '@nuxtjs/composition-api'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useUsersStore } from '~/store/users'
+import { useUserStore } from '~/store/user'
 
 export default defineComponent({
   layout: 'intro',
   setup() {
     const nextLocation = 'intro-8-married'
 
-    const userId = ref('')
 
-    const store = useUsersStore()
+    const usersStore = useUsersStore()
+    const userStore = useUserStore()
+
+    const userId = computed(() => userStore.secondUser ?? '')
 
     async function updateUserName(name: string) {
       if (unref(userId).length === 0) {
-        userId.value = await store.createUser({ name })
+        const newUserId = await usersStore.createUser({ name })
+        userStore.setSecondUser(newUserId);
       } else {
-        store.updateUser({ id: unref(userId), name })
+        usersStore.updateUser({ id: unref(userId), name })
       }
     }
 
-    const users = computed(() => store.users)
-    const user = computed(() => store.users[unref(userId)])
+    const user = computed(() => usersStore.users[unref(userId)])
 
     return {
       nextLocation,
       faArrowRight,
-      hasSelection: computed(() => Object.keys(unref(users)).length >= 2),
+      hasSelection: computed(() => userId.value != null && userId.value !== ''),
       name: computed(() =>
         unref(userId).length !== 0 ? unref(user)?.name ?? '' : ''
       ),

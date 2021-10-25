@@ -1,7 +1,7 @@
 <template>
   <bmfsfj-card>
     <template #header>
-      <h1 class="text-2xl font-bold text-primary-500 ml-2 pt-1">Max</h1>
+      <h1 class="text-2xl font-bold text-primary-500 ml-2 pt-1">{{name}}</h1>
     </template>
     <div>
       <h2 class="font-bold text-lg mt-1 mb-1">Meine Informationen</h2>
@@ -38,6 +38,7 @@ import { formatWithOptions } from 'date-fns/fp';
 import { de, enGB, ru, tr } from 'date-fns/locale'
 import { useUserStore } from '~/store/user';
 import { useI18n } from '~/utils/composables/useI18n';
+import { useUser } from '~/utils/composables/useUsers';
 
 const locales = {
   de, en: enGB, ru, tr
@@ -48,6 +49,8 @@ export default defineComponent({
     const store = useUserStore()
     const $i18n = useI18n();
 
+    const user = useUser(store.firstUser)
+
     return {
       workSituation: computed(() => store.workSituation),
       married: computed(() => store.married),
@@ -57,6 +60,7 @@ export default defineComponent({
         locale: (locales as any)[$i18n.locale]
       })('d. MMMM yyyy')(store.expectedBirthday ?? 0)),
       healthInsurance: computed(() => store.healthInsurance),
+      name: computed(() => user.value?.name),
       notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :(')
     }
   }

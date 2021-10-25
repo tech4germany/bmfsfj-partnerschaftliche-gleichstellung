@@ -32,6 +32,8 @@ export default class User extends VuexModule {
   healthInsurance: HealthInsurance | null = null
   workSituation: WorkSituation | null = null
   expectedBirthday: number | null = null // in ms since 1.1.1970
+  firstUser: string | null = null
+  secondUser: string | null = null
 
   @Mutation
   setMarried(married: boolean) {
@@ -66,6 +68,16 @@ export default class User extends VuexModule {
   @Mutation
   setIntroFinished(introFinished: boolean) {
     this.introFinished = introFinished
+  }
+
+  @Mutation
+  setFirstUser(firstUser: string) {
+    this.firstUser = firstUser
+  }
+
+  @Mutation
+  setSecondUser(secondUser: string) {
+    this.secondUser = secondUser
   }
 
   get privateHealthInsurance(): boolean | null {

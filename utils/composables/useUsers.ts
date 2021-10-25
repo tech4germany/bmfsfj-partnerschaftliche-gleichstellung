@@ -8,8 +8,10 @@ export function useUsers(): Ref<User[]> {
   return computed(() => Object.values(store.users))
 }
 
-export function useUser(id: string | Ref<string>): Ref<User> {
+export function useUser(
+  id: string | null | Ref<string | null>
+): Ref<User | null> {
   const store = useUsersStore()
 
-  return computed(() => store.users[unref(id)])
+  return computed(() => (unref(id) != null ? store.users[unref(id)!] : null))
 }
