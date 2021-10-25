@@ -9,9 +9,9 @@
           <bmfsfj-icon-profile></bmfsfj-icon-profile>
         </div>
 
-        <nav class="flex w-full text-center text-dunkelgrau-300 text-3xl my-1">
-          <NuxtLink :to="localeRoute('/modules')" class="flex-grow pb-1 border-b-2 mr-px ml-2 border-dunkelgrau-300">Module</NuxtLink>
-          <NuxtLink :to="localeRoute('/todos')" class="flex-grow pb-1 border-b-2 ml-px mr-2 border-dunkelgrau-300">To Do</NuxtLink>
+        <nav class="flex w-full text-center text-dunkelgrau-300 text-2xl font-bold my-1">
+          <NuxtLink :to="localeRoute('/modules')" class="flex-grow border-b-3 mr-px ml-2 border-dunkelgrau-300">Module</NuxtLink>
+          <NuxtLink :to="localeRoute('/todos')" class="flex-grow border-b-3 ml-px mr-2 border-dunkelgrau-300">To Do</NuxtLink>
         </nav>
       </header>
 

@@ -9,20 +9,26 @@ recommendedDateFromExpectedBirth:
   weeks: -8
 ---
 
-<bmfsfj-todo-extension-panel title="Wo" icon="map-marked-alt">
+<bmfsfj-todo-extension-panel title="Wo" icon="map-marked-alt" open>
+
 Online
+
 </bmfsfj-todo-extension-panel>
 
-<bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+<bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check" open>
+
 Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
 
 Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
+
 </bmfsfj-todo-extension-panel>
 
 <bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
+
 Den Antrag auf Elterngeld kannst du erst nach der Geburt deines Kindes stellen.
 
 Den Antrag solltest du innerhalb der ersten 3 Lebensmonate deines Kindes stellen. Denn Elterngeld wird maximal für 3 Lebensmonate rückwirkend gezahlt.
+
 </bmfsfj-todo-extension-panel>
 
 <bmfsfj-todo-extension-panel title="Info" icon="info-circle">
@@ -32,7 +38,9 @@ Zum Ausgleich kannst du Elterngeld beantragen.
 
 </bmfsfj-todo-extension-panel>
 
+<bmfsfj-todo-extension-panel title="Wer?" icon="exclamation" open>
 <bmfsfj-todo-assignees todo-id="elterngeld-beantragen"></bmfsfj-todo-assignees>
+</bmfsfj-todo-extension-panel>
 
 <bmfsfj-todo-extension-panel title="Stolperfalle" icon="exclamation">
 

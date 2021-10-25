@@ -1,14 +1,18 @@
 <template>
   <div class="mb-1">
-    <div class="text-lg flex w-full" @click="toggle">
+    <div class="flex w-full" @click="toggle">
       <div class="flex-grow">
         <slot name="title">
-          <font-awesome-icon
-            class="self-center mr-1 text-primary-500"
-            fixed-width
-            :icon="icon"
-          />
-          <span>{{ title }}</span>
+          <div class="flex">
+            <div class="w-4">
+              <font-awesome-icon
+                class="self-center mx-auto text-primary-500"
+                fixed-width
+                :icon="icon"
+              />
+            </div>
+            <h3 class="font-bold">{{ title }}</h3>
+          </div>
         </slot>
       </div>
 
@@ -21,9 +25,8 @@
       </button>
     </div>
 
-    <div class="extension mt-1" :hidden="!extended">
+    <div class="extension mt-1 mb-2 ml-4" :hidden="!extended">
       <slot></slot>
-      <hr class="my-1" />
     </div>
   </div>
 </template>
@@ -35,7 +38,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   props: {
-    initalValue: {
+    open: {
       type: Boolean,
       default: false,
     },
@@ -48,8 +51,8 @@ export default defineComponent({
       required: true
     },
   },
-  setup({ initalValue }) {
-    const extended: Ref<boolean> = ref(initalValue)
+  setup({ open }) {
+    const extended: Ref<boolean> = ref(open)
 
     function toggle() {
       extended.value = !unref(extended)

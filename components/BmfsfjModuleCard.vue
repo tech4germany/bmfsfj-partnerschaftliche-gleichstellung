@@ -2,7 +2,7 @@
   <nuxt-link :to="localeRoute(`/todos?module=${module}`)">
     <div class="bmfsfj-module-card text-black" :style="`--border-color: ${borderColor}; --color: ${color};`">
       <div
-        class="growing-background gap-4 text-1.5xl px-4 align-middle"
+        class="growing-background gap-4 font-bold text-1.5xl px-2 align-middle"
         :style="`--background-width: ${percentDone}%;`"
       >
         <font-awesome-icon class="my-auto" :icon="icon" />
