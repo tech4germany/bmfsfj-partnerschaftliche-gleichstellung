@@ -89,12 +89,13 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
-      name: 'BMFSFJ PG',
+      name: 'StartApp Familie',
       theme_color: '#3b82f6',
     },
     manifest: {
       lang: 'de',
-      name: 'BMFSFJ PG',
+      short_name: 'StartApp',
+      name: 'StartApp Familie',
     },
     workbox: {
       offlinePage: '/',

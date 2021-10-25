@@ -6,7 +6,7 @@ const translations = {
   search: 'Suche',
   intro: {
     title: 'Einführung',
-    welcome: 'Willkommen bei TOOLNAME',
+    welcome: 'Willkommen bei der StartApp Familie',
     'skip-question': 'Frage überspringen',
     'continue-without-personalization': 'Ohne Personalisierung fortfahren',
     note: {
