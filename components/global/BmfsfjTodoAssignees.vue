@@ -17,9 +17,12 @@
 import {
   computed,
   defineComponent,
-  toRefs,
+  inject,
+  Ref,
+  toRef,
   unref,
 } from '@nuxtjs/composition-api'
+import { todoIdInjectionKey } from '~/pages/todos/_todo.vue'
 import { useTodosStore } from '~/store/todos'
 import { useTodo } from '~/utils/composables/useTodos'
 import { useUsers } from '~/utils/composables/useUsers'
@@ -32,7 +35,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { todoId } = toRefs(props)
+    const propsTodoId = toRef(props, 'todoId')
+    const injectedTodoId = inject(todoIdInjectionKey, null) as unknown as Ref<
+      string | null
+    >
+    const todoId = computed(() => propsTodoId.value ?? injectedTodoId.value)
+
     const todo = useTodo(todoId)
     const store = useTodosStore()
     const users = useUsers()

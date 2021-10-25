@@ -26,10 +26,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, unref, useRoute } from '@nuxtjs/composition-api'
+import { computed, defineComponent, InjectionKey, provide, readonly, unref, useRoute } from '@nuxtjs/composition-api'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useTodosStore } from '~/store/todos';
 import { useTodo } from '~/utils/composables/useTodos';
+
+export const todoIdInjectionKey: InjectionKey<string> = Symbol('Injection key for the id of an todo')
 
 export default defineComponent({
   setup() {
@@ -38,6 +40,8 @@ export default defineComponent({
 
     const todo = useTodo(todoId);
     const store = useTodosStore()
+
+    provide(todoIdInjectionKey, readonly(todoId) as any)
 
     return {
       todoId,

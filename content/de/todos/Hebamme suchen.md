@@ -14,6 +14,8 @@ in deinem Umfeld
 
 </bmfsfj-todo-extension-panel>
 
+<bmfsfj-todo-assignees></bmfsfj-todo-assignees>
+
 <bmfsfj-todo-extension-panel title="Wann (gesetzlich)?" icon="calendar-check">
 
 Mit Beginn der Schwangerschaft (heute)

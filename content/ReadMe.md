@@ -25,7 +25,6 @@ recommendedDateFromExpectedBirth:
 | ----------- | ------------ |
 | title       | Der Titel des Todos, der z.B. auf der Übersicht angezeigt wird |
 | id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! |
-| lang        | Der ISO 639-1 Code der Sprache in der das Todo verfasst ist. (`de`, `en`, `tr` oder `ru`) |
 | modules     | Eine auflistung der Module in denen das Todo verortet wird. |
 | recommendedDateFromExpectedBirth | siehe unten |
 
@@ -69,6 +68,14 @@ Antrag bei der Krankenkasse
 ```
 
 Der Wert in den Anführungszeichen nach `title=` gibt den Text an der auch im eingeklappten Zustand sichtbar ist. Der Wert nach `icon=` ist das Icon neben diesem Text (Eine Auflistung der möglichen Icons folgt später). In den darauffolgenden Zeilen vor `</bmfsfj-todo-extension-panel>` kann dann normal weiterer Text geschrieben werden der nur sichtbar ist wenn das Extension-Panel ausgeklappt ist.
+
+### Assignee Auswahl
+
+Damit einem Todo eine (oder mehrere) Personen zugewiesen werden kann muss die Assignee Auswahl im Markdown des Todos eingebunden werden. Hierfür wird der folgende Code verwendet:
+
+```html
+<bmfsfj-todo-assignees></bmfsfj-todo-assignees>
+```
 
 ### Links zu anderen Todos
 

@@ -18,12 +18,16 @@ function useContentAndStore() {
 /**
  * Get a refernce to the todo based on the todoId.
  */
-export const useTodo: (todoId: Ref<string> | string) => Ref<Todo | null> = (
-  todoId
-) => {
+export const useTodo: (
+  todoId: Ref<string | null> | string | null
+) => Ref<Todo | null> = (todoId) => {
   const { store, $content } = useContentAndStore()
   const locales = useLocalesPriorityList()
-  return useAsnycResult(() => getTodo(store, $content, unref(todoId), locales))
+  return useAsnycResult(() =>
+    unref(todoId) != null
+      ? getTodo(store, $content, unref(todoId)!, locales)
+      : Promise.resolve(null)
+  )
 }
 
 /**
