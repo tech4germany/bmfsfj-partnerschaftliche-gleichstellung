@@ -36,7 +36,12 @@ export default defineComponent({
     return {
       nextLocation,
       faArrowRight,
-      birthday: computed(() => format('yyyy-MM-dd')(new Date(store.expectedBirthday ?? new Date().getTime()))),
+      birthday: computed(() => {
+        if (store.expectedBirthday && new Date(store.expectedBirthday)) {
+          return format('yyyy-MM-dd')(new Date(store.expectedBirthday))
+        }
+        return ''
+      }),
       updateBirthday: (e: InputEvent) => updateBirthday((e.target! as HTMLInputElement).value),
     }
   },

@@ -5,7 +5,7 @@
     :has-selection="hasSelection"
   >
     <input
-      class="w-full border-primary-500 p-2 border-2 rounded"
+      class="w-full border-primary-500 p-2 border-2 rounded-lg"
       :placeholder="$t(`intro.namePartner.placeholder`)"
       autocomplete="nickname"
       type="text"

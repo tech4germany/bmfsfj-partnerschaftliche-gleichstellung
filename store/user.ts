@@ -14,9 +14,9 @@ export enum WorkSituation {
 }
 
 export enum BabySituation {
+  EXPECTED = 'EXPECTED',
   NOT_PLANED = 'NOT_PLANED',
   WISH = 'WISH',
-  EXPECTED = 'EXPECTED',
 }
 
 @Module({

@@ -1,11 +1,15 @@
 <template>
   <div class="flex flex-col text-center h-screen">
-    <h1 class="text-4xl text-primary-500 mt-24">{{$t(`intro.welcome`)}}</h1>
+    <div class="flex-grow"></div>
+    <h1 class="text-2xl text-primary-500 mt-2 font-bold mx-3">{{$t(`intro.welcome`)}}</h1>
 
-    <span class="flex-grow mt-24 text-xl"
-      >{{$t(`intro.introduction`)}}</span
-    >
+    <span class="mt-3 text-xl font-bold  mx-3">
+      <bmfsfj-content-area class="w-full">
+        <nuxt-content :document="content" />
+      </bmfsfj-content-area>
+    </span>
 
+    <div class="flex-grow"></div>
     <div class="flex mb-24">
       <div class="flex-grow">
         <a href="https://tech.4germany.org">
@@ -26,11 +30,15 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { usePageContent } from '~/utils/composables/useContent'
 
 export default defineComponent({
   layout: 'none',
   setup() {
+    const content = usePageContent(`intro/welcome`);
+
     return {
+      content,
       faArrowRight,
     }
   },

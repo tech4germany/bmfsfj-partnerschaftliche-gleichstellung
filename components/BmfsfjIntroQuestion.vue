@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col h-full">
-    <h2 class="text-xl mt-12 mx-1">
+    <h2 class="text-xl mt-2 mx-1 font-bold">
       <slot name="header">{{ $t(`intro.${questionId}.question`) }}</slot>
     </h2>
 
-    <div class="flex-grow flex">
+    <div class="flex-grow flex flex-shrink overflow-auto mt-3">
       <div class="my-auto w-full">
         <slot></slot>
       </div>
     </div>
 
-    <div class="gap-4 flex flex-col mb-2">
+    <div class="gap-4 flex flex-col my-2">
       <button @click="toggleMoreInfos">
         <font-awesome-icon class="fa-lg" :icon="faInfoCircle" />
       </button>
@@ -23,16 +23,16 @@
     </div>
 
     <bmfsfj-overlay :open="moreInfosVisible" @close="toggleMoreInfos">
-      <div class="flex flex-col h-full">
-        <header class="ml-3 flex flex-row">
-          <h1 class="text-3xl text-primary-500 mt-12 flex-grow flex-shrink">{{ $t(`intro.${questionId}.question`) }}</h1>
+      <div class="flex flex-col h-full ml-3">
+        <header class="flex flex-row">
+          <h1 class="text-3xl text-primary-500 mt-20 flex-grow flex-shrink font-bold">{{ $t(`intro.${questionId}.question`) }}</h1>
 
           <button class="w-10 h-10 rounded-full m-1 text-primary-500 border-2 border-primary-500" style="min-width: 2.5rem;">
             <font-awesome-icon class="fa-lg" fixed-width :icon="faTimes" />
           </button>
         </header>
 
-        <div class="flex-grow flex m-2">
+        <div class="flex-grow flex mt-3 mb-2">
           <bmfsfj-content-area class="w-full">
             <nuxt-content :document="moreInfos" />
           </bmfsfj-content-area>

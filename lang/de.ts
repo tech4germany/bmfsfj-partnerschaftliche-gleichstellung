@@ -6,14 +6,24 @@ const translations = {
   search: 'Suche',
   intro: {
     title: 'Einführung',
+    welcome: 'Willkommen bei TOOLNAME',
     'skip-question': 'Frage überspringen',
+    'continue-without-personalization': 'Ohne Personalisierung fortfahren',
     note: {
       title: 'Hinweis',
+      start: 'Und los!',
     },
     name: {
+      question:
+        'Trage hier deinen Namen ein, damir wir dich direkt ansprechen können.',
       placeholder: 'Name',
     },
+    relationship: {
+      question: 'Lebst Du in einer Partnerschaft?',
+    },
     namePartner: {
+      question:
+        'Trage hier den Namen deines Partners oder deiner Partnerin ein, damit Inhalte gegebenenfalls unter euch aufgeteilt werden können.',
       placeholder: 'Name',
     },
     work: {
@@ -23,22 +33,28 @@ const translations = {
       question: 'Wie verstehst du uns am besten? Bitte wählen!',
     },
     married: {
-      question: 'Bist du verheiratet?',
+      question:
+        'Seid ihr verheiratet oder lebt in einer eingetragenen Partnerschaft?',
     },
     healthInsurance: {
       question: 'Wie bist du krankenversichert?',
     },
+    baby: {
+      question: 'Erwartet ihr ein Kind?',
+    },
     birthday: {
+      question:
+        'Wenn euch der Geburtstermin eures Kindes bekannt ist oder ihn bereits ausgerechnet habt, tragt diesen bitte hier ein:',
       placeholder: 'Geburtstag',
     },
     finished: {
-      title: 'Geschafft!',
+      title: 'Jetzt kann es losgehen!',
     },
   },
   todos: {
     filter: {
       module: 'Modul',
-      assingee: 'Zuständig',
+      assignee: 'Zuständig',
       done: 'Erledigt',
     },
   },
@@ -46,6 +62,17 @@ const translations = {
     GESETZLICH: 'Gesetzlich',
     GESETZLICH_FAMILIENVERSICHERT: 'Gesetzlich Familienversichert',
     PRIVAT: 'Privat',
+  },
+  work: {
+    ANGESTELLT: 'Angestellt',
+    SELBSTSTÄNDIG: 'Selbstständig',
+    ARBEITSSUCHEND: 'Arbeitssuchend',
+    IN_AUSBILDUNG: 'In Ausbildung',
+  },
+  baby: {
+    NOT_PLANED: 'Nein',
+    WISH: 'Noch nicht',
+    EXPECTED: 'Ja',
   },
   welcome: 'Willkommen',
   modules: {

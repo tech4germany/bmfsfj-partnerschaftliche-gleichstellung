@@ -9,7 +9,7 @@
       "
     >
       <header class="mx-3">
-        <h1 class="text-3xl text-primary-500 mt-20">{{ $t(`intro.title`) }}</h1>
+        <h1 class="text-3xl text-primary-500 mt-20 font-bold">{{ $t(`intro.title`) }}</h1>
       </header>
       <div class="m-2 flex-grow">
         <Nuxt />

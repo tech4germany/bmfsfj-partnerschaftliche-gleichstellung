@@ -20,6 +20,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faInfoCircle) // More Info icon for into
+
 library.add(faQuestion) // Fallback icon for modules
 library.add(faEuroSign) // Modul: Geld
 library.add(faBriefcase) // Modul: Beruf
