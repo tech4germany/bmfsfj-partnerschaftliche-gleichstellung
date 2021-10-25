@@ -16,25 +16,18 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, Ref } from '@nuxtjs/composition-api'
-import { formatDistanceWithOptions, isAfter } from 'date-fns/fp';
-import { de, enGB, ru, tr } from 'date-fns/locale'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { Todo , groupTodosByDateGroup } from '~/utils/Todo';
-import { useTodos } from '~/utils/composables/useTodos';
-import { useModuleIds } from '~/utils/composables/useModules';
-import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { computed, defineComponent, Ref } from '@nuxtjs/composition-api';
+import { isAfter } from 'date-fns/fp';
 import { useUserStore } from '~/store/user';
-import { useI18n } from '~/utils/composables/useI18n';
-
-const locales = {
-  de, en: enGB, ru, tr
-}
+import { useDistanceFormat } from '~/utils/composables/useI18n';
+import { useModuleIds } from '~/utils/composables/useModules';
+import { useTodos } from '~/utils/composables/useTodos';
+import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters';
+import { groupTodosByDateGroup, Todo } from '~/utils/Todo';
 
 export default defineComponent({
   setup() {
-    const $i18n = useI18n();
-
     const {
       search,
       module: selectedModule,
@@ -49,6 +42,7 @@ export default defineComponent({
     const userStore = useUserStore();
 
     const groupedTodos = computed(() => groupTodosByDateGroup(todos.value, new Date(userStore.expectedBirthday ?? 0)))
+    const formatDistance = useDistanceFormat()
 
     return {
       selectedModule,
@@ -56,7 +50,7 @@ export default defineComponent({
       groupedTodos,
       modules,
       faPlus,
-      formatDistance: formatDistanceWithOptions({locale: (locales as any)[$i18n.locale]})(new Date()),
+      formatDistance: formatDistance(new Date()),
       notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :('),
       isInFuture: isAfter(new Date())
     }

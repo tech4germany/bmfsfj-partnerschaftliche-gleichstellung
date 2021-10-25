@@ -33,32 +33,24 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
-import { formatWithOptions } from 'date-fns/fp';
-import { de, enGB, ru, tr } from 'date-fns/locale'
+import { computed, defineComponent } from '@nuxtjs/composition-api';
 import { useUserStore } from '~/store/user';
-import { useI18n } from '~/utils/composables/useI18n';
+import { useDateFormat } from '~/utils/composables/useI18n';
 import { useUser } from '~/utils/composables/useUsers';
-
-const locales = {
-  de, en: enGB, ru, tr
-}
 
 export default defineComponent({
   setup(_props) {
     const store = useUserStore()
-    const $i18n = useI18n();
 
     const user = useUser(store.firstUser)
+    const formatDate = useDateFormat()
 
     return {
       workSituation: computed(() => store.workSituation),
       married: computed(() => store.married),
       relationship: computed(() => store.relationship),
       babySituation: computed(() => store.babySituation),
-      expectedBirthday: computed(() => formatWithOptions({
-        locale: (locales as any)[$i18n.locale]
-      })('d. MMMM yyyy')(store.expectedBirthday ?? 0)),
+      expectedBirthday: computed(() => formatDate(store.expectedBirthday ?? 0)),
       healthInsurance: computed(() => store.healthInsurance),
       name: computed(() => user.value?.name),
       notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :(')

@@ -12,7 +12,10 @@
       <nuxt-content
         class="mx-auto"
         :document="document" />
+
     </bmfsfj-content-area>
+
+    <div class="w-full mt-1 text-sm text-right">Zuletzt aktuallisiert: {{updatedAt}}</div>
 
     <nuxt-link :to="localeRoute('/todos')">
       <font-awesome-icon
@@ -30,6 +33,7 @@ import { computed, defineComponent, InjectionKey, provide, readonly, unref, useR
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useTodosStore } from '~/store/todos';
 import { useTodo } from '~/utils/composables/useTodos';
+import { useDateFormat } from '~/utils/composables/useI18n';
 
 export const todoIdInjectionKey: InjectionKey<string> = Symbol('Injection key for the id of an todo')
 
@@ -37,6 +41,7 @@ export default defineComponent({
   setup() {
     const $route = useRoute()
     const todoId = computed(() => $route.value.params.todo)
+    const formatDate = useDateFormat();
 
     const todo = useTodo(todoId);
     const store = useTodosStore()
@@ -49,6 +54,7 @@ export default defineComponent({
       document: computed(() => unref(todo)?.document),
       finished: computed(() => unref(todo)?.finished),
       modules: computed(() => unref(todo)?.modules),
+      updatedAt: computed(() => formatDate(new Date(unref(todo)?.document?.updatedAt ?? 0))),
       updateFinished: (value: boolean) =>
         store.updateTodoFinished({ todoId: unref(todoId), finished: value }),
       faArrowLeft
