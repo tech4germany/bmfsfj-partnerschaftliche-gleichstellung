@@ -59,6 +59,11 @@ export function useTodos(
         (todo) =>
           unref(assignee) == null || todo.assignees[unref(assignee)!] === true
       )
-      .filter((todo) => unref(done) == null || !unref(done) || todo.finished)
+      .filter(
+        (todo) =>
+          unref(done) == null ||
+          (unref(done) && todo.finished) ||
+          (!unref(done) && !todo.finished)
+      )
   })
 }
