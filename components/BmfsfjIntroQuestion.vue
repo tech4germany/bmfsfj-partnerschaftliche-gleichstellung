@@ -11,7 +11,7 @@
     </div>
 
     <div class="gap-4 flex flex-col my-2">
-      <button @click="toggleMoreInfos" class="mx-auto">
+      <button class="mx-auto" @click="toggleMoreInfos">
         <font-awesome-icon class="fa-lg" :icon="faInfoCircle" />
       </button>
       <nuxt-link

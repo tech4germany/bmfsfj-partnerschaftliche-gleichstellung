@@ -10,13 +10,14 @@ import {
   faCalendarTimes,
   faExclamation,
   faInfoCircle,
-  faGlassCheers,
   faExternalLinkAlt,
   faBrain,
   faPuzzlePiece,
   faLightbulb,
   faIdBadge,
-  faQuestion
+  faQuestion,
+  faHandsHelping,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -34,10 +35,11 @@ library.add(faCalendarCheck) // Empfohlene Frist
 library.add(faCalendarTimes) // Frist verpasst
 library.add(faExclamation) // Stolperfalle
 library.add(faInfoCircle) // Info
-library.add(faGlassCheers) // Tipp Partnerschaftlichkeit
+library.add(faHandsHelping) // Tipp Partnerschaftlichkeit
 library.add(faExternalLinkAlt) // Weiterführende Infos (Links)
 library.add(faBrain) // Interessanter Fakt
 library.add(faPuzzlePiece) // Beispiele
+library.add(faUser) // Wer
 library.add(faLightbulb) // Insider Tipp
 
 
