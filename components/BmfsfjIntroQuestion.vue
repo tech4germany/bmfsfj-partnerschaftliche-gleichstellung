@@ -32,7 +32,7 @@
           </button>
         </header>
 
-        <div class="flex-grow flex mt-3 mb-2">
+        <div class="flex-grow flex mt-3 mb-2 mr-3">
           <bmfsfj-content-area class="w-full">
             <nuxt-content :document="moreInfos" />
           </bmfsfj-content-area>

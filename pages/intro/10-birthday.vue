@@ -2,7 +2,7 @@
   <bmfsfj-intro-question
     :next-location="nextLocation"
     question-id="birthday"
-    :has-selection="birthday != null"
+    :has-selection="birthday != ''"
   >
     <input
       class="w-full border-primary-500 p-2 border-2 rounded"
