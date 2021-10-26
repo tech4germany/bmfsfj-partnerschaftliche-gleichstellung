@@ -11,8 +11,9 @@
           <nuxt-content :document="content" />
         </bmfsfj-content-area>
       </div>
-      <div class="m-auto my-4">
+      <div class="m-auto my-4" @click="toggleEasterEgg">
         <font-awesome-icon size="lg" :icon="faGhost" />
+        <font-awesome-icon size="sm" :icon="faHeart" v-if="easterEgg" />
         <font-awesome-icon size="lg" :icon="faGhost" />
       </div>
       <div class="mb-2 flex mr-2 mt-2 w-full">
@@ -30,19 +31,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import { faArrowRight, faGhost } from '@fortawesome/free-solid-svg-icons'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  faArrowRight,
+  faGhost,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons'
 import { usePageContent } from '~/utils/composables/useContent'
 
 export default defineComponent({
   layout: 'none',
   setup() {
     const content = usePageContent('intro/finished')
+    const easterEgg = ref(false)
 
     return {
       faArrowRight,
       faGhost,
-      content
+      faHeart,
+      content,
+      easterEgg,
+      toggleEasterEgg: () => (easterEgg.value = !easterEgg.value),
     }
   },
 })
