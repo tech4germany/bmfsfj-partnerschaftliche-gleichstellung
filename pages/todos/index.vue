@@ -3,8 +3,8 @@
     <bmfsfj-todos-filter></bmfsfj-todos-filter>
 
     <div class="flex flex-col">
-      <div v-for="group in groupedTodos" :key="group.group.getTime()" class="flex flex-col">
-        <span v-if="isInFuture(group.group)" class="mt-1">in {{formatDistance(group.group)}}</span>
+      <div v-for="group in groupedTodos" :key="group.group" class="flex flex-col">
+        <span class="mt-1">{{$t(`timeline.${group.group}`)}}</span>
         <bmfsfj-todo v-for="todo in group.todos" :key="todo.id" class="mt-2" :todo-id="todo.id"></bmfsfj-todo>
       </div>
     </div>

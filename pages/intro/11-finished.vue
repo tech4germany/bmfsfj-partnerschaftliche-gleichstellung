@@ -13,7 +13,7 @@
       </div>
       <div class="m-auto my-4" @click="toggleEasterEgg">
         <font-awesome-icon size="lg" :icon="faGhost" />
-        <font-awesome-icon size="sm" :icon="faHeart" v-if="easterEgg" />
+        <font-awesome-icon v-if="easterEgg" size="sm" :icon="faHeart" />
         <font-awesome-icon size="lg" :icon="faGhost" />
       </div>
       <div class="mb-4 flex flex-row-reverse mr-1">

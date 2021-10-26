@@ -1,14 +1,14 @@
 import { contentFunc } from '@nuxt/content/types/content'
 import { reactive, toRefs } from '@vue/composition-api'
-import { add, compareDesc, formatISO, isBefore, parseISO } from 'date-fns/fp'
+import { add, compareDesc, isAfter } from 'date-fns/fp'
 import Todos, {
-  Todo as StoreTodo,
   getTodo as getStoreTodo,
+  Todo as StoreTodo,
 } from '~/store/todos'
 import {
-  Todo as ContentTodo,
   getTodo as getContentTodo,
   getTodos as getContentTodos,
+  Todo as ContentTodo,
 } from '~/utils/content/Todo'
 
 export type Todo = Readonly<StoreTodo & ContentTodo>
@@ -72,72 +72,92 @@ export function sortTodosByDueDate(
   }
 }
 
-const DATE_GROUPS_DURATIONS: Duration[] = [
+const CLOSEBY_DATE_GROUPS_DURATIONS: (Duration & {
+  text?: string
+})[] = [
   {
-    months: -12,
+    years: 100,
+    text: 'later',
   },
   {
-    months: -9,
-  },
-  {
-    months: -6,
-  },
-  {
-    months: -3,
-  },
-  {
-    weeks: -2,
-  },
-  {
-    weeks: -1,
-  },
-  {
-    days: -1,
-  },
-  {
-    days: 1,
-  },
-  {
-    weeks: 1,
+    months: 2,
+    text: 'next-month',
   },
   {
     months: 1,
+    text: 'this-month',
+  },
+  {
+    weeks: 2,
+    text: 'next-week',
+  },
+  {
+    weeks: 1,
+    text: 'this-week',
   },
 ]
 
 function getDateGroupRanges(referenceDate: Date) {
-  return DATE_GROUPS_DURATIONS.map((duration) => add(duration)(referenceDate))
+  return CLOSEBY_DATE_GROUPS_DURATIONS.map((duration) => ({
+    date: add(duration)(referenceDate),
+    text: duration.text,
+  }))
+}
+
+function findBefore<T>(a: T[], predicate: (item: T) => boolean) {
+  const index = a.findIndex((item) => predicate(item))
+
+  if (index === -1) {
+    return a[a.length - 1]
+  }
+
+  if (index === 0) {
+    return a[0]
+  }
+
+  return a[index - 1]
 }
 
 function closestDateTo(dates: Date[]): (date: Date) => Date {
-  return (date) => dates.find((d) => isBefore(d)(date)) ?? dates[0]
+  return (date) => findBefore(dates, (d) => isAfter(d)(date))
 }
 
 export function groupTodosByDateGroup(
   todos: Todo[],
   referenceDate: Date
-): { group: Date; todos: Todo[] }[] {
+): { group: string; todos: Todo[] }[] {
   const dates = getDateGroupRanges(referenceDate)
 
-  const closestDate = closestDateTo(dates)
+  const dateToTextMap: Map<number, string | undefined> = new Map(
+    dates.map(({ date, text }) => [date.getTime(), text])
+  )
 
-  const groupedTodos = todos.reduce((acc, todo) => {
-    const date = add(todo.recommendedDateFromExpectedBirth)(referenceDate)
-    const closestDateToDate = closestDate(date).getTime()
-    const dateGroup = formatISO(
-      Number.isNaN(closestDateToDate) ? 0 : closestDateToDate
+  const closestDate = closestDateTo(dates.map(({ date }) => date))
+
+  const groupedTodos: Map<Date, Todo[]> = todos
+    .sort(
+      (
+        { recommendedDateFromExpectedBirth: a },
+        { recommendedDateFromExpectedBirth: b }
+      ) => {
+        const dateA = add(a)(referenceDate)
+        const dateB = add(b)(referenceDate)
+        return compareDesc(dateA)(dateB)
+      }
     )
+    .reduce((acc, todo) => {
+      const date = add(todo.recommendedDateFromExpectedBirth)(referenceDate)
+      const closestDateToDate = closestDate(date)
+      acc.set(closestDateToDate, [...(acc.get(closestDateToDate) ?? []), todo])
+      return acc
+    }, new Map())
 
-    return {
-      ...acc,
-      [dateGroup]: [...(acc[dateGroup] ?? []), todo],
-    }
-  }, {} as { [key: string]: Todo[] })
-
-  return Object.entries(groupedTodos).map(([group, todos]) => {
-    return {
-      group: parseISO(group),
-      todos,
-    }
-  })
+  return [...groupedTodos.entries()]
+    .sort(([groupA], [groupB]) => compareDesc(groupA, groupB))
+    .map(([group, todos]) => {
+      return {
+        group: dateToTextMap.get(group.getTime()) ?? '',
+        todos: todos.sort(),
+      }
+    })
 }

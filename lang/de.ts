@@ -6,7 +6,8 @@ const translations = {
   search: 'Suche',
   intro: {
     welcome: 'Willkommen in der StartApp Familie',
-    introduction: 'Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
+    introduction:
+      'Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
     title: 'Einführung',
     'skip-question': 'Frage überspringen',
     'continue-without-personalization': 'Ohne Personalisierung fortfahren',
@@ -19,7 +20,7 @@ const translations = {
       placeholder: 'Name',
     },
     relationship: {
-      question: 'Lebst du in einer Partnerschaft?'
+      question: 'Lebst du in einer Partnerschaft?',
     },
     namePartner: {
       question: 'Mit wem lebst du gemeinsam in einer Partnerschaft?',
@@ -49,6 +50,13 @@ const translations = {
       title: 'Jetzt kann es losgehen!',
     },
   },
+  timeline: {
+    'this-week': 'Empfohlen für diese Woche',
+    'next-week': 'Empfohlen für nächste Woche',
+    'this-month': 'Empfohlen für diesen Monat',
+    'next-month': 'Empfohlen für nächsten Monat',
+    later: 'Später',
+  },
   todos: {
     filter: {
       module: 'Modul',
@@ -72,7 +80,6 @@ const translations = {
     WISH: 'Noch nicht',
     EXPECTED: 'Ja',
     MULTIPLE: 'Ja, sogar mehr als eins',
-
   },
   welcome: 'Willkommen',
   modules: {
