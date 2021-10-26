@@ -85,7 +85,7 @@ const translations = {
   modules: {
     geld: 'Geld',
     beruf: 'Beruf',
-    behoerden: 'Behörden & Papiere',
+    behoerden: 'Anträge & Papiere',
     private: 'Persönliches',
   },
 }
