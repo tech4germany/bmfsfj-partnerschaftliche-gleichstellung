@@ -16,10 +16,8 @@
         <font-awesome-icon size="sm" :icon="faHeart" v-if="easterEgg" />
         <font-awesome-icon size="lg" :icon="faGhost" />
       </div>
-      <div class="mb-2 flex mr-2 mt-2 w-full">
-        <div class="flex-grow"></div>
-
-        <nuxt-link class="my-auto float-right" :to="localeRoute(`/modules`)">
+      <div class="mb-4 flex flex-row-reverse mr-1">
+        <nuxt-link :to="localeRoute(`/modules`)">
           <font-awesome-icon
             class="fa-3x text-primary-500"
             :icon="faArrowRight"
