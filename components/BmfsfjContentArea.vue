@@ -21,6 +21,10 @@ content-area >>> .nuxt-content {
   @apply list-inside list-disc;
 }
 
+.content-area >>> .nuxt-content ol {
+  @apply list-inside list-decimal;
+}
+
 .content-area >>> .nuxt-content li {
   @apply list-item;
 }
