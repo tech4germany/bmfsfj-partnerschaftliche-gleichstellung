@@ -1,19 +1,21 @@
 <template>
-  <div v-if="!hidden" class="bg-rot-500 text-gray-50 p-4 flex">
+  <div v-if="!hidden" class="bg-rot-500 text-gray-50 p-2 flex">
     <div class="flex-grow self-center">
       <slot>
-        <span>Diese Seite ist ein Prototyp der im Rahmen des Tech4Germany Fellowship 2021 entsteht.</span>
-        <br>
-        <span>Für die Richtigkeit der Informationen übernehmen wir keine Gewähr.</span>
+        <span>Diese Seite ist ein Prototyp, der im Rahmen des Tech4Germany Fellowships 2021 entsteht.</span>
+        <span>Für die Richtigkeit und Aktualität der Informationen übernehmen wir keine Gewähr.</span>
       </slot>
     </div>
 
-    <button class="block rounded border-2 p-2" @click="hide">Ausblenden</button>
+    <button class="w-10 h-10 rounded-full m-1 border-2 " style="min-width: 2.5rem;" @click="hide">
+      <font-awesome-icon class="fa-lg" fixed-width :icon="faTimes" />
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@vue/composition-api'
+import { computed, defineComponent } from '@vue/composition-api';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useT4gBannerStore } from '~/store/t4gBanner';
 
 export default defineComponent({
@@ -22,7 +24,8 @@ export default defineComponent({
 
     return {
       hidden: computed(() => store.hidden || false),
-      hide: store.hide
+      hide: store.hide,
+      faTimes
     }
   }
 })
