@@ -29,6 +29,11 @@ export default class Users extends VuexModule {
     }
   }
 
+  @Mutation
+  reset() {
+    this.users = {}
+  }
+
   @Action
   createUser(user: Pick<User, 'name'>) {
     const id = uuidv4()

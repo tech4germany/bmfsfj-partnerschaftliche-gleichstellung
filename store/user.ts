@@ -80,6 +80,19 @@ export default class User extends VuexModule {
     this.secondUser = secondUser
   }
 
+  @Mutation
+  reset() {
+    this.introFinished = false
+    this.married = null
+    this.relationship = null
+    this.babySituation = null
+    this.healthInsurance = null
+    this.workSituation = null
+    this.expectedBirthday = null
+    this.firstUser = null
+    this.secondUser = null
+  }
+
   get privateHealthInsurance(): boolean | null {
     if (this.healthInsurance == null) return null
 

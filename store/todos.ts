@@ -37,6 +37,11 @@ export default class Todos extends VuexModule {
     }
   }
 
+  @Mutation
+  reset() {
+    this.todos = {}
+  }
+
   @Action
   updateTodoFinished({
     todoId,
