@@ -126,7 +126,7 @@ export function groupTodosByDateGroup(
   todos: Todo[],
   referenceDate: Date
 ): { group: string; todos: Todo[] }[] {
-  const dates = getDateGroupRanges(referenceDate)
+  const dates = getDateGroupRanges(new Date())
 
   const dateToTextMap: Map<number, string | undefined> = new Map(
     dates.map(({ date, text }) => [date.getTime(), text])

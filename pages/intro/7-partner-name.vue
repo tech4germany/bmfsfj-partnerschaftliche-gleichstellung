@@ -10,7 +10,7 @@
       autocomplete="nickname"
       type="text"
       :value="name"
-      @change="updateUserName"
+      @input="updateUserName"
     />
   </bmfsfj-intro-question>
 </template>

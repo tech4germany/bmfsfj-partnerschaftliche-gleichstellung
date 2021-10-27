@@ -20,7 +20,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { computed, defineComponent, Ref } from '@nuxtjs/composition-api';
 import { isAfter } from 'date-fns/fp';
 import { useUserStore } from '~/store/user';
-import { useDistanceFormat } from '~/utils/composables/useI18n';
 import { useModuleIds } from '~/utils/composables/useModules';
 import { useTodos } from '~/utils/composables/useTodos';
 import { useTodosRouteParameters } from '~/utils/composables/useTodosRouteParameters';
@@ -42,7 +41,6 @@ export default defineComponent({
     const userStore = useUserStore();
 
     const groupedTodos = computed(() => groupTodosByDateGroup(todos.value, new Date(userStore.expectedBirthday ?? new Date().getTime())))
-    const formatDistance = useDistanceFormat()
 
     return {
       selectedModule,
@@ -50,7 +48,6 @@ export default defineComponent({
       groupedTodos,
       modules,
       faPlus,
-      formatDistance: formatDistance(new Date()),
       notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :('),
       isInFuture: isAfter(new Date())
     }

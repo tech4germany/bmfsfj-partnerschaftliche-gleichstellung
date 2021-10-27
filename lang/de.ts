@@ -52,9 +52,9 @@ const translations = {
   },
   timeline: {
     'this-week': 'Empfohlen für diese Woche',
-    'next-week': 'Empfohlen für nächste Woche',
+    'next-week': 'Empfohlen für die nächste Woche',
     'this-month': 'Empfohlen für diesen Monat',
-    'next-month': 'Empfohlen für nächsten Monat',
+    'next-month': 'Empfohlen für den nächsten Monat',
     later: 'Später',
   },
   todos: {

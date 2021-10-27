@@ -38,8 +38,8 @@
         >Intro nochmal machen</NuxtLink
       >
       <button
-        @click="resetAll()"
         class="text-primary-500 font-bold mt-1 block w-full text-right"
+        @click="resetAll()"
       >
         Alles zurücksetzen
       </button>
