@@ -50,7 +50,12 @@ export default defineComponent({
       married: computed(() => store.married),
       relationship: computed(() => store.relationship),
       babySituation: computed(() => store.babySituation),
-      expectedBirthday: computed(() => formatDate(store.expectedBirthday ?? 0)),
+      expectedBirthday: computed(() => {
+        if (store.expectedBirthday && new Date(store.expectedBirthday)) {
+          return formatDate(new Date(store.expectedBirthday))
+        }
+        return ''
+      }),
       healthInsurance: computed(() => store.healthInsurance),
       name: computed(() => user.value?.name),
       notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :(')

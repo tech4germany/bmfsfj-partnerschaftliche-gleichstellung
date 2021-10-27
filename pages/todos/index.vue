@@ -41,7 +41,7 @@ export default defineComponent({
 
     const userStore = useUserStore();
 
-    const groupedTodos = computed(() => groupTodosByDateGroup(todos.value, new Date(userStore.expectedBirthday ?? 0)))
+    const groupedTodos = computed(() => groupTodosByDateGroup(todos.value, new Date(userStore.expectedBirthday ?? new Date().getTime())))
     const formatDistance = useDistanceFormat()
 
     return {
