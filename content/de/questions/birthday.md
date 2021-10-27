@@ -1,9 +1,9 @@
 Wir benutzen den errechneten Geburtsterminum um alle Fristen der zu erledigenden Aufgaben zu individualisieren.
 
-# Kennst du den Termin noch nicht?
+# Kennst Du den Termin noch nicht?
 
-Mit unserem [Geburtstermin- und Geburtszeitraum-Rechner](https://www.familienplanung.de/schwangerschaft/geburtstermin-berechnen/#c63192) kannst du schnell und einfach rausfinden,
-wann euer Baby wahrscheinlich zur Welt kommt.
+Mit unserem [Geburtstermin- und Geburtszeitraum-Rechner](https://www.familienplanung.de/schwangerschaft/geburtstermin-berechnen/#c63192) kannst Du schnell und einfach rausfinden,
+wann Euer Baby wahrscheinlich zur Welt kommt.
 
 # Wie wahrscheinlich ist der berechnete Termin?
 Schätzungen zufolge kommen nur etwa 5% der Kinder exakt am errechneten Geburtstermin zur Welt.
@@ -11,4 +11,4 @@ Ungefähr 90% der Kinder werden im Zeitraum zwischen zwei Wochen vor und zwei Wo
 
 # Was soll ich tun, wenn sich der Termin ändert?
 Sollte sich der Geburtstermin im Laufe der Schwangerschaft ändern,
-kannst du ihn jederzeit in den Einstellungen anpassen, genauso wie den tatsächlichen Geburtstag eintragen.
+kannst Du ihn jederzeit in den Einstellungen anpassen, genauso wie den tatsächlichen Geburtstag eintragen.

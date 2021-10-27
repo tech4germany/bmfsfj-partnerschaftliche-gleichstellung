@@ -13,7 +13,7 @@ recommendedDateFromExpectedBirth:
 
 **Gesetzlich** 
 
-Du kannst den Antrag erst nach der Geburt deines Kindes stellen, da unter anderem die Geburtsurkunde des Kindes vorgelegt werden muss.
+Du kannst den Antrag erst nach der Geburt Deines Kindes stellen, da unter anderem die Geburtsurkunde des Kindes vorgelegt werden muss.
 
 <br>
 
@@ -29,7 +29,7 @@ Falls Du ab der Geburt Deines Kindes Elterngeld bekommen möchten, solltest  Du 
 
 <bmfsfj-todo-extension-panel title="Anlaufstelle" icon="map-marked-alt">
 
-Den Antrag kannst Du bei einer Elterngeldstelle stellen. Die Elterngeldstelle, die für den Wohnort deines Kindes zuständig ist: [Beratung vor Ort](https://familienportal.de/dynamic/action/familienportal/125008/suche)
+Den Antrag kannst Du bei einer Elterngeldstelle stellen. Die Elterngeldstelle, die für den Wohnort Deines Kindes zuständig ist: [Beratung vor Ort](https://familienportal.de/dynamic/action/familienportal/125008/suche)
 
 In einigen Bundesländern kannst Du das Elterngeld auch online beantragen: [Elterngeld Digital](https://familienportal.de/familienportal/elterngeld-digital-127692). Unabhängig vom Angebot ElterngeldDigital kannst Du in [Bayern](https://www.elterngeld.bayern.de/onlineantrag), [Hessen](https://elterngeld.hessen.de/elterngeld-onlineantrag/default.aspx) und [Saarland](https://service.buergerdienste-saar.de/Elterngeld-Onlineantrag/) Elterngeld online beantragen.
 

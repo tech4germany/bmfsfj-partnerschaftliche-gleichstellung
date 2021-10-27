@@ -62,7 +62,7 @@ Das Kind wird am 25. September geboren. Die Elternzeit des Vaters beginnt am 25.
 * Elternzeit kannst Du für ein leibliches Kind, das Kind des Partners, ein Adoptivkind oder ein Kind in Vollzeitpflege nehmen.
 * Du kannst einen Teil der Elternzeit auch im Zeitraum zwischen dem 3. und dem 8. Geburtstag nehmen.
 * Kindererziehungszeiten werden später bei der Rentenhöhe berücksichtigt. Davon kann aber immer nur ein Elternteil zur selben Zeit profitieren. [Kindererziehung: Ihr Plus für die Rente](https://www.deutsche-rentenversicherung.de/DRV/DE/Rente/Familie-und-Kinder/Kindererziehung/kindererziehung_node.html)
-* Für jeden vollen Kalendermonat, den Du in Elternzeit bist, kann dein Arbeitgeber Deinen jährlichen Anspruch auf Urlaub um ein Zwölftel kürzen.
+* Für jeden vollen Kalendermonat, den Du in Elternzeit bist, kann Dein Arbeitgeber Deinen jährlichen Anspruch auf Urlaub um ein Zwölftel kürzen.
 
 
 </bmfsfj-todo-extension-panel>

@@ -8,7 +8,7 @@ const translations = {
   intro: {
     welcome: 'Willkommen bei',
     introduction:
-      'Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
+      'Wir freuen uns, Dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
     title: 'Einführung',
     'skip-question': 'Frage überspringen',
     'continue-without-personalization': 'Ohne Personalisierung fortfahren',
@@ -17,35 +17,35 @@ const translations = {
       start: 'Und los!',
     },
     name: {
-      question: 'Wie sollen wir dich nennen?',
+      question: 'Wie sollen wir Dich nennen?',
       placeholder: 'Name',
     },
     relationship: {
-      question: 'Lebst du in einer Partnerschaft?',
+      question: 'Lebst Du in einer Partnerschaft?',
     },
     namePartner: {
-      question: 'Mit wem lebst du gemeinsam in einer Partnerschaft?',
+      question: 'Mit wem lebst Du gemeinsam in einer Partnerschaft?',
       placeholder: 'Name',
     },
     work: {
-      question: 'Wie ist deine berufliche Situation?',
+      question: 'Wie ist Deine berufliche Situation?',
     },
     baby: {
-      question: 'Erwartet ihr ein Kind?',
+      question: 'Erwartet Ihr ein Kind?',
     },
     birthday: {
       question: 'Wann ist der errechnete Geburtstermin?',
       placeholder: 'Geburtstag',
     },
     language: {
-      question: 'Wie verstehst du uns am besten?',
+      question: 'Wie verstehst Du uns am besten?',
     },
     married: {
       question:
-        'Seid ihr verheiratet oder lebt in einer eingetragenen Partnerschaft?',
+        'Seid Ihr verheiratet oder lebt in einer eingetragenen Partnerschaft?',
     },
     healthInsurance: {
-      question: 'Wie bist du krankenversichert?',
+      question: 'Wie bist Du krankenversichert?',
     },
     finished: {
       title: 'Jetzt kann es losgehen!',
@@ -71,10 +71,10 @@ const translations = {
     PRIVAT: 'Privat',
   },
   work: {
-    ANGESTELLT: 'Angestellt',
-    SELBSTSTÄNDIG: 'Selbstständig',
-    ARBEITSSUCHEND: 'Arbeitssuchend',
-    IN_AUSBILDUNG: 'In Ausbildung',
+    ANGESTELLT: 'angestellt',
+    SELBSTSTÄNDIG: 'selbstständig',
+    ARBEITSSUCHEND: 'arbeitssuchend',
+    IN_AUSBILDUNG: 'in Ausbildung',
   },
   baby: {
     NOT_PLANED: 'Nein',

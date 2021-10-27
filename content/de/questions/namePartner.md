@@ -1,1 +1,1 @@
-Trage hier den Namen ein, damit ihr Aufgaben unter euch aufteilen könnt.
+Trage hier den Namen ein, damit Ihr Aufgaben unter Euch aufteilen könnt.
