@@ -81,6 +81,10 @@ const translations = {
     EXPECTED: 'Ja',
     MULTIPLE: 'Ja, sogar mehr als eins',
   },
+  assignees: {
+    'no-users':
+      'Ohne das Du uns veräts wie Du heißt kannst Du leider keine Aufgaben zuweisen :(',
+  },
   welcome: 'Willkommen',
   modules: {
     geld: 'Geld',

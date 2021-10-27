@@ -1,15 +1,20 @@
 <template>
-  <div class="flex flex-row gap-1 my-1">
-    <bmfsfj-toggle-button
-      v-for="user in users"
-      :key="user.id"
-      class="user-icon w-10 h-10 rounded-full"
-      :class="{ checked: isAssigned(user.id) }"
-      :value="isAssigned(user.id)"
-      @input="toggleAssigned(user.id)"
-    >
-      {{ user.name.toUpperCase().substring(0, 2) }}
-    </bmfsfj-toggle-button>
+  <div>
+    <div class="flex flex-row gap-1 my-1"  v-if="users.length > 0">
+      <bmfsfj-toggle-button
+        v-for="user in users"
+        :key="user.id"
+        class="user-icon w-10 h-10 rounded-full"
+        :class="{ checked: isAssigned(user.id) }"
+        :value="isAssigned(user.id)"
+        @input="toggleAssigned(user.id)"
+      >
+        {{ user.name.toUpperCase().substring(0, 2) }}
+      </bmfsfj-toggle-button>
+    </div>
+    <div class="my-1" v-else>
+      {{$t(`assignees.no-users`)}}
+    </div>
   </div>
 </template>
 
