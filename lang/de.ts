@@ -75,6 +75,7 @@ const translations = {
     SELBSTSTÄNDIG: 'selbstständig',
     ARBEITSSUCHEND: 'arbeitssuchend',
     IN_AUSBILDUNG: 'in Ausbildung',
+    VERBEAMTET: 'verbeamtet',
   },
   baby: {
     NOT_PLANED: 'Nein',

@@ -11,6 +11,7 @@ export enum WorkSituation {
   SELBSTSTÄNDIG = 'SELBSTSTÄNDIG',
   ARBEITSSUCHEND = 'ARBEITSSUCHEND',
   IN_AUSBILDUNG = 'IN_AUSBILDUNG',
+  VERBEAMTET = 'VERBEAMTET',
 }
 
 export enum BabySituation {
