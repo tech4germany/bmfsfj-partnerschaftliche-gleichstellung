@@ -2,4 +2,4 @@ Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu d
 
 <br>
 
-Dies ist ein *Prototyp* der im Rahmen des [Tech4Germany Fellowship 2021](https://tech.4germany.org/) entwickelt wird.
+Dies ist ein Prototyp der im Rahmen des Tech4Germany Fellowship 2021 entwickelt wird: [Mehr Infos](https://tech.4germany.org/)

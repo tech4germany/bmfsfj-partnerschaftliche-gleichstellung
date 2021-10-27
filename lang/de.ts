@@ -1,11 +1,12 @@
 import { DeepPartial } from "~/utils/DeepPartial"
 
 const translations = {
+  toolName: 'StartApp Familie',
   yes: 'Ja',
   no: 'Nein',
   search: 'Suche',
   intro: {
-    welcome: 'Willkommen in der StartApp Familie',
+    welcome: 'Willkommen bei',
     introduction:
       'Wir freuen uns, dich auf dem spannenden Weg in dieser Lebensphase begleiten zu dürfen!',
     title: 'Einführung',

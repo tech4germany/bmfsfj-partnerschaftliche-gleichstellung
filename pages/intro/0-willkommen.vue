@@ -1,7 +1,15 @@
 <template>
   <div class="flex flex-col text-center h-screen">
+
     <div class="flex-grow"></div>
+
     <h1 class="text-2xl text-primary-500 mt-2 font-bold mx-3">{{$t(`intro.welcome`)}}</h1>
+
+    <div class="w-full my-1">
+      <img class="w-36 inline" src="~/assets/logotransparent.png" />
+    </div>
+
+    <h1 class="text-2xl text-primary-500 font-bold mx-3">{{$t(`toolName`)}}</h1>
 
     <span class="mt-3 text-xl font-bold  mx-3">
       <bmfsfj-content-area class="w-full">
@@ -10,14 +18,16 @@
     </span>
 
     <div class="flex-grow"></div>
-    <div class="flex mb-24">
-      <div class="flex-grow">
-        <a href="https://tech.4germany.org">
-          <img class="w-32 mx-auto" src="~/assets/tech4germany.png" />
+    <div class="flex mb-1">
+      <div class="w-1/2 align-middle">
+        <a href="https://bmfsfj.de">
+          <img class="w-full mx-auto" src="~/assets/BMFSFJ.svg" />
         </a>
       </div>
-      <div class="flex-grow">
-        <img class="w-32 mx-auto" src="~/assets/tech4germany.png" />
+      <div class="w-1/2 align-middle p-2">
+        <a href="https://tech.4germany.org">
+          <img class="w-full" src="~/assets/tech4germany.png" />
+        </a>
       </div>
     </div>
 
