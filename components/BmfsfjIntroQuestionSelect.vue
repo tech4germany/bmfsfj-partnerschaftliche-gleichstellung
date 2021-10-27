@@ -8,7 +8,7 @@
       <bmfsfj-intro-toggle-button
         v-for="type in types"
         :key="type"
-        class="w-full"
+        class="bmfsfj-intro-toggle-button w-full"
         :value="isSelected(type)"
         :multi="multi"
         @input="$emit('input', type)"
@@ -50,3 +50,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+.bmfsfj-intro-toggle-button *:first-letter {
+  @apply capitalize;
+}
+</style>
