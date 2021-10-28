@@ -5,8 +5,8 @@
     </div>
     <bmfsfj-todo-link :todo="todoId" class="flex h-24 bg-background-300 rounded-xl flex-grow">
       <bmfsfj-icon-bar-module class="rounded-l-xl min-w-max" :module-ids="modules"></bmfsfj-icon-bar-module>
-      <div class="flex-grow px-2 py-1 flex flex-col">
-        <h4 class="flex-grow">
+      <div class="flex-grow px-2 py-1 flex flex-col overflow-y-auto">
+        <h4 class="flex-grow" style="word-break: break-word;">
           {{ title }}
         </h4>
 
@@ -18,7 +18,7 @@
           ></bmfsfj-user-icon>
         </div>
       </div>
-      <div class="w-12 flex h-full">
+      <div class="w-12 min-w-min flex h-full" style="min-width: 3rem">
         <font-awesome-icon size="lg" style="margin: auto" fixed-width :icon="faChevronRight"></font-awesome-icon>
       </div>
     </bmfsfj-todo-link>
