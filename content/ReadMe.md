@@ -1,5 +1,13 @@
 # Content
 
+## Übersetzungen
+
+Alle nachfolgenden Datein (`mit Ausnahme der modules.csv`) werden für jede Sprache in einen Ordner entsprechend des ISO 639‑1 Sprach Codes gelegt. Für deutsch also in den Ordner `de`, oder für Englisch in den Ordner `en`.
+
+Im Fall, dass eine Datei in dem Ordner einer Sprache nicht vorhanden ist wird dann im Sprachordner für Englisch und falls auch dort nichts gefunden wird für Deutsch nachgesehen.
+
+Die Übersetzungen für die weiteren Texte geschehen in dem direkt im Hauptordner liegenden `lang` Ordner.
+
 ## Todos
 
 Todos werden im Ordner `todos` als Markdown (`.md`) Datein angelegt.
@@ -53,6 +61,10 @@ behoerden,#004377,paste
 | color       | Der Hexcode der Farbe des Moduls |
 | icon        | Der Name des Icons das für das Modul verwendet wird. Eine Auflistung der unterstützten Icons gibt es weiter unten. |
 
+## Intro: Mehr Infos
+
+Die Texte die bei den Intro Fragen nach dem Klick auf "Mehr Infos" angezeigt werden stehen in den Markdown Datein im `questions` Ordner.
+
 ## Unterstützte Elemente (Markdown)
 
 ### Extension Panel
@@ -98,19 +110,24 @@ Icons können wie folgt eingebunden werden:
 Der Wert nacht `icon=` muss durch ein Icon aus der folgenden Liste ersetzt werden:
 
 Unterstützte Icons:
+* info-circle
+
+* question
 * euro-sign
 * briefcase
 * paste
+* id-badge
+
 * map-marked-alt
 * calendar-alt
 * calendar-check
 * calendar-times
 * exclamation
-* info-circle
-* glass-cheers
+* hands-helping
 * external-link-alt
 * brain
 * puzzle-piece
+* user
 * lightbulb
 
 Weitere Icons von Font Awesome (siehe hier: [fontawesome.com](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid)) können in der Datei `/plugins/fontawesome.ts` registriert und dann ebenfalls verwendet werden.

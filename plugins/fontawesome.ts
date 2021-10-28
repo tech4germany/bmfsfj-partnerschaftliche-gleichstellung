@@ -34,14 +34,12 @@ library.add(faCalendarAlt) // Gesetzliche Frist
 library.add(faCalendarCheck) // Empfohlene Frist
 library.add(faCalendarTimes) // Frist verpasst
 library.add(faExclamation) // Stolperfalle
-library.add(faInfoCircle) // Info
 library.add(faHandsHelping) // Tipp Partnerschaftlichkeit
 library.add(faExternalLinkAlt) // Weiterführende Infos (Links)
 library.add(faBrain) // Interessanter Fakt
 library.add(faPuzzlePiece) // Beispiele
 library.add(faUser) // Wer
 library.add(faLightbulb) // Insider Tipp
-
 
 config.autoAddCss = false
 

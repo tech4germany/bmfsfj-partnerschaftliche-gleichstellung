@@ -54,7 +54,8 @@ Das Elterngeld selbst ist steuerfrei, wird aber berücksichtigt, wenn Dein Steue
 
 Um die Zeit mit dem Baby nicht mit administrativen Aufgaben zu belasten, ist es sinnvoll, alle Unterlagen für den Elterngeldantrag schon vorab zu besorgen und bereitzulegen, soweit dies möglich ist. Dazu gehören: 
 
-* Bestimmt ganz viele Papiere
+* Geburtsurkunde
+* Bestimmt ganz viele weitere Papiere
 * Und noch mehr Zettel
 * Irgendwas muss bestimmt auch unterschrieben werden
 
