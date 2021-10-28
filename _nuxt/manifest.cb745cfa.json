@@ -1,7 +1,7 @@
 {
   "name": "StartApp Familie",
   "short_name": "StartApp",
-  "description": "",
+  "description": "Partnerschaftlich Eltern werden",
   "icons": [
     {
       "src": "/bmfsfj-partnerschaftliche-gleichstellung/_nuxt/icons/icon_64x64.958a8d.png",
@@ -51,20 +51,24 @@
   "background_color": "#d1dfe0",
   "theme_color": "#004377",
   "lang": "de",
+  "categories": [
+    "goverment"
+  ],
+  "orientation": "portrait",
   "screenshots": [
     {
-      "src": "todos.png",
-      "sizes": "540x720",
+      "src": "/bmfsfj-partnerschaftliche-gleichstellung/screenshots/todos.png",
+      "sizes": "1080x1440",
       "type": "image/png"
     },
     {
-      "src": "todo.png",
-      "sizes": "540x720",
+      "src": "/bmfsfj-partnerschaftliche-gleichstellung/screenshots/todo.png",
+      "sizes": "1080x1440",
       "type": "image/png"
     },
     {
-      "src": "modules.png",
-      "sizes": "540x720",
+      "src": "/bmfsfj-partnerschaftliche-gleichstellung/screenshots/modules.png",
+      "sizes": "1080x1440",
       "type": "image/png"
     }
   ]
