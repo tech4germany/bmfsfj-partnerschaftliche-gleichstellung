@@ -85,7 +85,7 @@ const translations = {
   },
   assignees: {
     'no-users':
-      'Ohne das Du uns veräts wie Du heißt kannst Du leider keine Aufgaben zuweisen :(',
+      'Ohne dass Du uns verrätst, wie Du heißt, kannst Du leider keine Aufgaben zuweisen 😢',
   },
   welcome: 'Willkommen',
   modules: {
