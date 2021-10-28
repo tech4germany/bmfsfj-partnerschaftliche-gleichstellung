@@ -1,6 +1,7 @@
 {
   "name": "StartApp Familie",
   "short_name": "StartApp",
+  "description": "",
   "icons": [
     {
       "src": "/bmfsfj-partnerschaftliche-gleichstellung/_nuxt/icons/icon_64x64.958a8d.png",
@@ -47,7 +48,24 @@
   ],
   "start_url": "/bmfsfj-partnerschaftliche-gleichstellung/?standalone=true",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
-  "lang": "de"
+  "background_color": "#d1dfe0",
+  "theme_color": "#004377",
+  "lang": "de",
+  "screenshots": [
+    {
+      "src": "todos.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    },
+    {
+      "src": "todo.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    },
+    {
+      "src": "modules.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    }
+  ]
 }
