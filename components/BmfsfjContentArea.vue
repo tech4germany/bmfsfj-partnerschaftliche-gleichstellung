@@ -5,7 +5,7 @@
 </template>
 
 <style scoped>
-content-area >>> .nuxt-content {
+.content-area >>> .nuxt-content {
   @apply flex flex-col gap-1;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-1">
+  <div>
     <div class="flex w-full" @click="toggle">
       <div class="flex-grow">
         <slot name="title">
@@ -25,7 +25,7 @@
       </button>
     </div>
 
-    <div class="extension mt-1 mb-2 ml-4" :hidden="!extended">
+    <div class="extension mt-1 mb-1 ml-4" :hidden="!extended">
       <slot></slot>
     </div>
   </div>

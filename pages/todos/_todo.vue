@@ -15,7 +15,7 @@
 
     </bmfsfj-content-area>
 
-    <div class="w-full mt-1 text-sm text-right">Zuletzt aktuallisiert: {{updatedAt}}</div>
+    <div class="w-full mt-2 text-sm text-right">Zuletzt aktuallisiert: {{updatedAt}}</div>
 
     <nuxt-link :to="localeRoute('/todos')">
       <font-awesome-icon
