@@ -90,12 +90,31 @@ export default {
   pwa: {
     meta: {
       name: 'StartApp Familie',
-      theme_color: '#3b82f6',
+      theme_color: '#004377',
     },
     manifest: {
       lang: 'de',
       short_name: 'StartApp',
       name: 'StartApp Familie',
+      description: '',
+      background_color: '#d1dfe0',
+      screenshots: [
+        {
+          src: 'todos.png',
+          sizes: '540x720',
+          type: 'image/png',
+        },
+        {
+          src: 'todo.png',
+          sizes: '540x720',
+          type: 'image/png',
+        },
+        {
+          src: 'modules.png',
+          sizes: '540x720',
+          type: 'image/png',
+        },
+      ],
     },
     workbox: {
       offlinePage: '/',
