@@ -35,7 +35,7 @@ Gehe mit dem [Elterngeldrechner mit Planer](https://familienportal.de/familienpo
 
 <bmfsfj-todo-extension-panel title="Wann?" icon="calendar-check">
 
-Auch wenn Du den Elterngeldantrag erst nach der Geburt stellst, solltest Du Dir frühzeitig Gedanken darüber machen. Relevant für die Höhe des Elterngeldes ist nämlich Dein Einkommen in den 12 Monaten vor der Geburt (bzw. vor dem Mutterschutz).
+Auch wenn Du den Elterngeldantrag erst nach der Geburt stellst, solltest Du Dir frühzeitig Gedanken darüber machen. Relevant für die Höhe des Elterngeldes ist nämlich Dein Einkommen in einem Zeitraum von 12 Monaten vor der Geburt (bzw. vor dem Mutterschutz).
 
 </bmfsfj-todo-extension-panel>
 

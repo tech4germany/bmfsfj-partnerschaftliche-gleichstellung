@@ -35,7 +35,7 @@ Du musst die Elternzeit schriftlich bei Deinem **Arbeitgeber** anmelden: auf ein
 
 <bmfsfj-todo-extension-panel title="Info" icon="info-circle">
 
-In dem Antrag musst Du bereits vollständig festlegen, welche Zeiträume Du für die Elternzeit nutzen möchtest. Auch wenn Du planst, in Teilzeit zu gehen, muss dies hier aufgeführt werden.
+In dem Antrag musst Du bereits festlegen, welche Zeiträume Du in den ersten beiden Jahren für die Elternzeit nutzen möchtest. Auch wenn Du planst, in Teilzeit zu gehen, muss dies hier aufgeführt werden.
 
 <br>
 
