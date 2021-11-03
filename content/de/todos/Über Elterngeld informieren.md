@@ -47,7 +47,7 @@ Auch wenn Du den Elterngeldantrag erst nach der Geburt stellst, solltest Du Dir 
 
 <bmfsfj-todo-extension-panel title="Tipp Partnerschaftlichkeit" icon="hands-helping">
 
-Das ElterngeldPlus und der Partnerschaftsbonus sind besonders interessant, da es beide Partner:innen darin unterstützt, gleichzeitig Teilzeit zu arbeiten.
+Das ElterngeldPlus und der Partnerschaftsbonus sind besonders interessant, da sie beide Partner:innen darin unterstützt, gleichzeitig Teilzeit zu arbeiten.
 
 [Was ist der Partnerschaftsbonus?](https://familienportal.de/familienportal/familienleistungen/elterngeld/faq/was-ist-der-partnerschaftsbonus--155198)
 
