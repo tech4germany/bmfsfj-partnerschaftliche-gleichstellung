@@ -1,23 +1,29 @@
-![Logo of the StartApp Familie](./assets/logotransparent.png)
-# StartApp Familie
+
+<h1><img alt="StartApp Familie logo" height="40" src="./assets/logotransparent.png">
+  StartApp Familie
+  <img alt="Tech4Germany logo" height="40" src="./assets/tech4germany.png" align="right"></h1>
+
+[ [Live Demo][demo] 🚀 | [Project Info][project] 💁 | [Tech4Germany Fellowship][t4g] 🤓 ]
 
 ## 🇩🇪
 
-Die "StartApp Familie" ist ein Beitrag zur **mehr Partnerschaftlichkeit** auf der Paar-Ebene. Die, im Rahmen des [Tech4Germany](https://tech.4germany.org/) Fellowships und gemeinsam mit dem [BMFSFJ](https://www.bmfsfj.de/), entwickelte **Web-App** richtet sich an junge Erwachsene vor oder in der Familiengründung. Das Tool beinhaltet personalisierte **vorausgefüllte To-dos** und eine Sharing-Funktion, mit der die To-Dos unter den Partner:innen fair und klischeefrei aufgeteilt werden können. 
+Die "StartApp Familie" ist ein Beitrag zur **mehr Partnerschaftlichkeit** auf der Paar-Ebene. Die, im Rahmen des [Tech4Germany][t4g] Fellowships und gemeinsam mit dem [BMFSFJ](https://www.bmfsfj.de), entwickelte **Web-App** richtet sich an junge Erwachsene vor oder in der Familiengründung. Das Tool beinhaltet personalisierte **vorausgefüllte To-dos** und eine Sharing-Funktion, mit der die To-dos unter den Partner:innen fair und klischeefrei aufgeteilt werden können. 
 
-Probiere den Prototypen aus: https://dev.tech4germany.org/bmfsfj-partnerschaftliche-gleichstellung/  
-und finde mehr Informationen auf der Projektseite: https://tech.4germany.org/project/partnerschaftliche-gleichstellung-bmfsfj/
-
+Probiere den [Prototypen][demo] aus und finde mehr Informationen auf der [Projektseite][project].
 ## 🇬🇧
 
-The "StartApp Familie" (StartApp Family) is a contribution for **more partnership** for couples. The **Web-App**, developed as part of the [Tech4Germany](https://tech.4germany.org/) Fellowship and together with the [BMFSFJ](https://www.bmfsfj.de/bmfsfj/meta/en), is aimed at young adults before or in the process of starting a family. The tool includes personalized, **pre-filled to-dos** and a sharing function that allows to-dos to be divided among partners in a fair and stereotype-free manner.
+The "StartApp Familie" (StartApp Family) is a contribution to **more partnership** for couples. The **web app**, developed as part of the [Tech4Germany][t4g] Fellowship and cooperation with the [BMFSFJ](https://www.bmfsfj.de/bmfsfj/meta/en), is aimed at young adults before or in the process of starting a family. The tool includes personalized, **pre-filled to-dos** and a sharing function that allows to-dos to be divided among partners in a fair and stereotype-free manner.
 
-Try out the Prototyp: https://dev.tech4germany.org/bmfsfj-partnerschaftliche-gleichstellung/  
-and find out more on the project site: https://tech.4germany.org/project/partnerschaftliche-gleichstellung-bmfsfj/
+Try out our [prototype][demo]
+and find out more details on the [project page][project].
+
+[t4g]: https://tech.4germany.org
+[demo]: https://dev.tech4germany.org/bmfsfj-partnerschaftliche-gleichstellung
+[project]: https://tech.4germany.org/project/partnerschaftliche-gleichstellung-bmfsfj
 
 ## Technical Part
 
-The Progressive Web App is build using the **JavaScript** Frameworks [*Vue.js*](https://vuejs.org/) and [*NuxtJS*](https://nuxtjs.org).
+The Progressive Web App is build using the **JavaScript** Frameworks [*Vue.js*](https://vuejs.org) and [*NuxtJS*](https://nuxtjs.org).
 
 ### Build Setup
 
