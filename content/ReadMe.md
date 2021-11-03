@@ -8,13 +8,13 @@ Im Fall, dass eine Datei in dem Ordner einer Sprache nicht vorhanden ist wird da
 
 Die Übersetzungen für die weiteren Texte geschehen in dem direkt im Hauptordner liegenden `lang` Ordner.
 
-## Todos
+## To-dos
 
-Todos werden im Ordner `todos` als Markdown (`.md`) Datein angelegt.
+To-dos werden im Ordner `todos` als Markdown (`.md`) Datein angelegt.
 
 ### Eigenschaften
 
-Verschiedene Eigenschaften der Todos müssen oben in der Markdown Datei in einem Block definiert werden:
+Verschiedene Eigenschaften der To-dos müssen oben in der Markdown Datei in einem Block definiert werden:
 
 ```
 ---
@@ -31,14 +31,14 @@ recommendedDateFromExpectedBirth:
 
 | Eigenschaft | Beschreibung |
 | ----------- | ------------ |
-| title       | Der Titel des Todos, der z.B. auf der Übersicht angezeigt wird |
-| id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! |
-| modules     | Eine auflistung der Module in denen das Todo verortet wird. |
+| title       | Der Titel des To-dos, der z.B. auf der Übersicht angezeigt wird |
+| id          | Ein eindeutiges Wort, dass das To-do identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! |
+| modules     | Eine auflistung der Module in denen das To-do verortet wird. |
 | recommendedDateFromExpectedBirth | siehe unten |
 
 ### Inhalt
 
-Nach diesem Block mit den Eigenschaften des Todos kommt der eigentliche Inhalt des Todos als Text. In diesem Text wird die Markdown Syntax unterstützt [https://www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax).
+Nach diesem Block mit den Eigenschaften des To-dos kommt der eigentliche Inhalt des To-dos als Text. In diesem Text wird die Markdown Syntax unterstützt [https://www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax).
 
 ### recommendedDateFromExpectedBirth
 
@@ -57,7 +57,7 @@ behoerden,#004377,paste
 
 | Eigenschaft | Beschreibung |
 | ----------- | ------------ |
-| id          | Ein eindeutiges Wort, dass das Todo identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! Dieser Wert wird auch in den Todos verwendet um die Todos Modulen zuzuweisen |
+| id          | Ein eindeutiges Wort, dass das To-do identifiziert. Dieser Wert darf nachträglich nicht wieder geändert werden! Dieser Wert wird auch in den To-dos verwendet um die To-dos Modulen zuzuweisen |
 | color       | Der Hexcode der Farbe des Moduls |
 | icon        | Der Name des Icons das für das Modul verwendet wird. Eine Auflistung der unterstützten Icons gibt es weiter unten. |
 
@@ -83,21 +83,21 @@ Der Wert in den Anführungszeichen nach `title=` gibt den Text an der auch im ei
 
 ### Assignee Auswahl
 
-Damit einem Todo eine (oder mehrere) Personen zugewiesen werden kann muss die Assignee Auswahl im Markdown des Todos eingebunden werden. Hierfür wird der folgende Code verwendet:
+Damit einem To-do eine (oder mehrere) Personen zugewiesen werden kann muss die Assignee Auswahl im Markdown des To-dos eingebunden werden. Hierfür wird der folgende Code verwendet:
 
 ```html
 <bmfsfj-todo-assignees></bmfsfj-todo-assignees>
 ```
 
-### Links zu anderen Todos
+### Links zu anderen To-dos
 
-Um auf andere Todos zu verlinken kann die folgende Zeile genutzt werden:
+Um auf andere To-dos zu verlinken kann die folgende Zeile genutzt werden:
 
 ```html
 <bmfsfj-todo-link todo="elterngeld-beantragen"> Elterngeld Beantragen </bmfsfj-todo-link>
 ```
 
-Der Wert in den Anführungszeichen nach `todo=` ist die `id` von dem Todo auf das verlinkt werden soll. 
+Der Wert in den Anführungszeichen nach `todo=` ist die `id` von dem To-do auf das verlinkt werden soll. 
 
 ### Icons
 
