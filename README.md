@@ -1,7 +1,13 @@
 
-<h1><img alt="StartApp Familie logo" height="40" src="./assets/logotransparent.png">
+<h1>
+  <a href="https://dev.tech4germany.org/bmfsfj-partnerschaftliche-gleichstellung" target="_blank">
+    <img alt="StartApp Familie logo" height="40" src="./assets/logotransparent.png">
+  </a> 
   StartApp Familie
-  <img alt="Tech4Germany logo" height="40" src="./assets/tech4germany.png" align="right"></h1>
+  <a href="https://tech.4germany.org" target="_blank">
+  <img alt="Tech4Germany logo" height="40" src="./assets/tech4germany.png" align="right">
+  </a> 
+</h1>
 
 [ [Live Demo][demo] 🚀 | [Project Info][project] 💁 | [Tech4Germany Fellowship][t4g] 🤓 ]
 
