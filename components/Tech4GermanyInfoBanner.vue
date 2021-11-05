@@ -2,8 +2,11 @@
   <div v-if="!hidden" class="bg-rot-500 text-gray-50 p-2 flex">
     <div class="flex-grow self-center">
       <slot>
-        <span>Diese Seite ist ein Prototyp, der im Rahmen des Tech4Germany Fellowships 2021 entsteht.</span>
-        <span>Für die Richtigkeit und Aktualität der Informationen übernehmen wir keine Gewähr.</span>
+        <span>Dies ist ein Prototyp ohne Anspruch auf Vollständigkeit, der im Rahmen des Tech4Germany Fellowships 2021 entstand.</span>
+        <span>Für die Aktualität und Korrektheit der Informationen übernehmen wir keine Gewähr.</span>
+        <br>
+        <a href="https://tech.4germany.org/project/partnerschaftliche-gleichstellung-bmfsfj" class="underline">Projektdokumentation       <font-awesome-icon fixed-width :icon="faExternalLinkAlt" />
+</a>
       </slot>
     </div>
 
@@ -15,7 +18,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from '@vue/composition-api';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes,faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { useT4gBannerStore } from '~/store/t4gBanner';
 
 export default defineComponent({
@@ -25,7 +28,8 @@ export default defineComponent({
     return {
       hidden: computed(() => store.hidden || false),
       hide: store.hide,
-      faTimes
+      faTimes,
+      faExternalLinkAlt
     }
   }
 })
