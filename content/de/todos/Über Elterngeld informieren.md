@@ -7,7 +7,7 @@ modules:
   - beruf
   - behoerden
 recommendedDateFromExpectedBirth:
-  weeks: -8
+  weeks: -12
 ---
 
 <bmfsfj-todo-extension-panel title="Anlaufstelle" icon="map-marked-alt" open>
