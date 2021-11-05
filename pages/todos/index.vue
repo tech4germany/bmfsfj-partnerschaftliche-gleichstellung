@@ -48,7 +48,7 @@ export default defineComponent({
       groupedTodos,
       modules,
       faPlus,
-      notImplemented: () => alert('Diese funktion hat es leider nicht in den Prototypen geschafft :('),
+      notImplemented: () => alert('Diese Funktion hat es leider nicht in den Prototypen geschafft 😢'),
       isInFuture: isAfter(new Date())
     }
   }
