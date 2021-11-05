@@ -12,3 +12,9 @@ Ungefähr 90% der Kinder werden im Zeitraum zwischen zwei Wochen vor und zwei Wo
 # Was soll ich tun, wenn sich der Termin ändert?
 Sollte sich der Geburtstermin im Laufe der Schwangerschaft ändern,
 kannst Du ihn jederzeit in den Einstellungen anpassen, genauso wie den tatsächlichen Geburtstag eintragen.
+
+# Datenschutz
+Die von Dir angegebenen Daten werden nur lokal auf Deinem Gerät gespeichert und nicht versendet.
+
+# Prototyp 🛠️
+Diese Funktion hat es leider nicht in den Prototypen geschafft 😢
