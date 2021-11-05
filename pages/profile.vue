@@ -47,8 +47,8 @@
     <div class="flex flex-col">
       <h2 class="font-bold text-lg mt-1 mb-1">Teilen</h2>
       <div>
-        Teile Deine Inhalte und To-Dos, indem Du eine andere Person mit diesem
-        Link einlädst. Gemeinsam könnt Ihr To-Dos einteilen und mehr schaffen!
+        Teile Deine Inhalte und To-dos, indem Du eine andere Person mit diesem
+        Link einlädst. Gemeinsam könnt Ihr To-dos einteilen und mehr schaffen!
       </div>
 
       <button
